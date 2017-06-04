@@ -1,0 +1,49 @@
+.clearfix {
+  @include clearfix;
+}
+.center-block {
+  @include center-block;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+
+.hide, .ng-hide, [ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  @include text-hide;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.affix {
+  position: fixed;
+}
+.block{
+	display:block;
+}
+
+.reverse{
+  @include rotate(180deg);
+}
+.rotate-flip-vertical{
+  @include rotate(90deg);
+  margin-top:-4px;
+}
+.rotate-flip-horizontal{
+  @include rotate(-90deg);
+  margin-top:-4px;
+}
+.valign-middle{vertical-align:middle;}

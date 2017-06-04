@@ -1,0 +1,74 @@
+.jcarousel-wrapper {
+    margin:0 0 20px;
+    padding:20px 30px;
+    position: relative;
+    background-color:#fff;
+    @include transition(box-shadow .2s ease-in-out);
+    @include box-shadow(0 0 2px rgba(0,0,0,.15));
+}
+
+/** Carousel **/
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    width: 430px;
+    float: left;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.jcarousel .media {padding:0 10px;}
+.jcarousel img {
+    display: block;
+    /* max-width: 100%; */
+    height: auto !important;
+}
+
+/** Carousel Controls **/
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+    width: 30px;
+    height:100%;
+    text-align: center;    
+    text-decoration: none;
+    background-color:lighten($gray-base, 73.5%);
+    position:absolute;
+    top:0;
+    > .svg-icons{
+      @include absolute-center(20px, 16px);
+      fill:$gray-dark;
+
+    }
+}
+
+.jcarousel-control-prev {
+  left:0;
+}
+
+.jcarousel-control-next {
+  right:0;
+}
+
+@media (min-width:680px) {
+    .jcarousel .media>.media-body>blockquote{height:66px;}
+}
+
+/* @media (min-width:992px) {
+    .jcarousel .media>.media-body>blockquote{height:66px;}
+} */
+

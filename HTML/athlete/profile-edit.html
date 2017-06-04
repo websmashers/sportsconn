@@ -1,0 +1,2811 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header header-after-login></header>
+<div class="cover-container edit-cover">
+  <div class="cover-image">
+    <div class="draggable" style="display:none;"><img src="../assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+    <div class="cover-fill" id="coverViewimg"><img src="../assets/img/cover-default.jpg" width="1920" height="400" alt=""/></div>
+    <div class="add-cover">
+      <div class="fileupload">
+        <label for="addCover"></label>
+        <span class="upload-btn">
+        <svg class="svg-icons" width="44px" height="35px">
+          <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+        </svg>
+        Add a Background Cover</span>
+        <input type="file" id="addCover">
+      </div>
+    </div>
+    <div class="edit-cover">
+      <div class="container">
+        <div class="dropdown"> <a class="btn cover-btn" data-toggle="dropdown">Edit Cover</a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="18px" height="14px">
+                <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+              </svg>
+              </span><span class="text">Upload New</span></a></li>
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="16px" height="16px">
+                <use xlink:href="../assets/img/sprite.svg#logoutIco"></use>
+              </svg>
+              </span><span class="text">Remove</span></a></li>
+          </ul>
+          <div class="action-conver">
+            <button class="btn btn-primary btn-sm">Apply</button>
+            <button id="cancelCover" class="btn btn-info btn-sm">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-details">
+    <div class="container" ng-class="switchClass">
+      <figure class="profile-pic">
+        <div class="dropdown fileupload">
+        <a data-toggle="dropdown">
+          <span class="upload-btn">
+          <svg class="svg-icons" width="24px" height="19px">
+            <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+          </svg>
+          CHANGE</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="18px" height="14px">
+                <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+              </svg>
+              </span><span class="text">Upload New</span></a></li>
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="16px" height="16px">
+                <use xlink:href="../assets/img/sprite.svg#logoutIco"></use>
+              </svg>
+              </span><span class="text">Remove</span></a></li>
+          </ul>
+         <div class="hiddendiv" id="profile-picture"></div> 
+      </div>
+        <a><img src="../assets/img/profile-img.jpg" width="170" height="170" class="img-thumbnail" alt=""/></a> </figure>
+      <div class="details">
+        <div class="editable-panel">
+          <div class="editable-item edit-lg">
+            <h2 class="title semibold">
+              <button class="btn edit-btn" ng-click="enableEditor()">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight" ng-click="enableEditor()"><span ng-bind="userName.first"></span> <span ng-bind="userName.last"></span></span> </h2>
+            <div class="edit-popover popover ng-hide" ng-show="editorEnabled">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">First Name</span>
+                  <input type="text" class="form-control input-sm" ng-model="editFirstName" ng-show="editorEnabled" value="">
+                </div>
+                <div class="form-group"> <span class="control-label">Last Name</span>
+                  <input type="text" class="form-control input-sm" ng-model="editLastName" value="Thomas">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default" ng-click="disableEditor()">CANCEL</button>
+                    <button class="btn btn-primary" ng-click="save()">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item">
+            <h3 class="sub-title">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="10px" height="10px">
+                <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight">@Jason</span> </h3>
+            <div class="edit-popover popover ng-hide">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">User Name</span>
+                  <input type="text" class="form-control input-sm" value="@Jason">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default">CANCEL</button>
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-details">
+  <div class="container" data-ng-class="switchClass">
+    <div class="row details">
+      <aside class="col-sm-6">
+        <div class="editable-panel">
+          <div class="editable-item">
+            <button class="btn edit-btn">
+            <svg class="svg-icons" width="10px" height="10px">
+              <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+            </svg>
+            </button>
+            <div class="edit-highlight">
+              <ul class="list-group-inline">
+                <li>
+                	<span class="bullet">
+                		<img alt="" class="svg svg-sports" ng-src="assets/categories/baseball.svg">
+                        <!--<object class="svg-sports" type="image/svg+xml" data="../assets/categories/baseball.svg">Your browser does not support SVG</object>-->
+                    </span>
+                    <span class="text">Football - GoalKeeper at Boston Club</span>
+                </li>
+              </ul>
+            </div>
+            <div class="edit-popover popover ng-hide">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">Sports</span>
+                  <input type="text" class="form-control input-sm" value="Football">
+                </div>
+                <div class="form-group"> <span class="control-label">Postion</span>
+                  <input type="text" class="form-control input-sm" value="Goalkeeper">
+                </div>
+                <div class="form-group"> <span class="control-label">Organization</span>
+                  <input type="text" class="form-control input-sm" value="Boston Club">
+                </div>
+                <div class="form-group"> <span class="control-label">League</span>
+                  <input type="text" class="form-control input-sm" value="American Sports League">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default">CANCEL</button>
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>            
+            
+              <ul class="list-group-inline">
+                <li> 
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-target="#categoryModal" data-toggle="modal">
+                         <svg class="svg-icons" width="10px" height="10px">
+                            <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                         </svg>
+                      </button>
+                      <div class="edit-highlight">
+                        <span class="bullet">
+                        <svg class="svg-icons" width="8px" height="16px">
+                          <use xlink:href="../assets/img/sprite.svg#profIco"></use>
+                        </svg>
+                        </span> <span class="text">Fan</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li> 
+                
+                <div class="editable-panel">
+                     <div class="editable-item">
+                        <button class="btn edit-btn">
+                           <svg class="svg-icons" width="10px" height="10px">
+                              <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                           </svg>
+                        </button>
+                        <div class="edit-highlight">
+                        <span class="bullet">
+                           <svg class="svg-icons" width="8px" height="14px">
+                              <use xlink:href="../assets/img/sprite.svg#pathIco"></use>
+                           </svg>
+                        </span>
+                        <span class="text">LA, California, USA</span>
+                        </div>
+                        <div class="edit-popover popover ng-hide">
+                           <div class="popover-content">
+                              <div class="form-group"> <span class="control-label">Profile Type</span>
+                                 <input type="text" class="form-control input-sm" value="Fan">
+                              </div>
+                              <div class="form-group"> <span class="control-label">Location</span>
+                                 <input type="text" class="form-control input-sm" value="LA, California, USA">
+                              </div>
+                              <div class="btn-group btn-group-sm">
+                                 <div class="btn-toolbar btn-toolbar-right">
+                                    <button class="btn btn-default">CANCEL</button>
+                                    <button class="btn btn-primary">SAVE</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                </li>
+              </ul>
+            
+      </aside>
+      <aside class="col-sm-6">
+        <ul class="list-group-inline breack-list">
+          <li>120<small class="block">Followers</small></li>
+          <li>140<small class="block">Following</small></li>
+          <li><a data-target="#connectionModal" data-toggle="modal">224<small class="block">Connections</small></a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container"> <span class="edit-profile visible-sm visible-xs"><a class="btn btn-primary btn-sm" data-ng-click="editProfile()">{{btnText}}</a></span>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSecond">ABOUT</button>
+    </div>
+    <div id="navbarSecond" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a>ABOUT</a></li>
+        <li><a>ACTIVITY</a></li>
+        <li><a>PAGES</a></li>
+        <li><a>MEDIA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <aside class="col-sm-4 col-sm-push-8">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <div class="profile-strength">
+              <h3 class="page-header semibold">PROFILE STRENGTH</h3>
+              <div class="strength-bar">
+                <input type="text" readonly value="20" data-min="0" data-width="100%" data-bgColor="#eeeeee" data-fgColor="#FE6C3D" data-max="100">
+                <span class="title">ROOKIE</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="thumbnail google-ads visible-md visible-lg"> <a><img src="../assets/img/google-ads2.jpg" class="img-full" width="308" height="258" alt=""/></a> </div>
+      </aside>
+      <div class="col-sm-8 col-sm-pull-4">
+        <div class="panel panel-info" data-ng-class="switchClass">
+          <div class="panel-heading">
+            <h3 class="page-header panel-title"><i class="icon">
+              <svg class="svg-icons" width="26px" height="19px">
+                <use xlink:href="../assets/img/sprite.svg#personalInfoIco"></use>
+              </svg>
+              </i> <span class="text">PERSONAL INFORMATION</span></h3>
+          </div>
+          <div class="panel-body">
+            <ul class="user-info-list">
+              <li class="editable-panel">
+                <div class="editable-item edit-lg">
+                  <button class="btn edit-btn" data-target="#addDescriptionModal" data-toggle="modal">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                  </svg>
+                  </button>
+                  <div class="edit-highlight" data-target="#addDescriptionModal" data-toggle="modal">
+                    <p read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <label class="label">Current League</label>
+                <div class="editable-panel">
+                  <div class="editable-item">
+                    <button class="btn edit-btn">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                    </svg>
+                    </button>
+                    <span class="edit-highlight">American Sports League</span>
+                    <div class="edit-popover popover ng-hide">
+                      <div class="popover-content">
+                        <div class="form-group"> <span class="control-label">League</span>
+                          <input type="text" class="form-control input-sm" value="American Sports League" on-focus>
+                        </div>
+                        <div class="btn-group btn-group-sm">
+                          <div class="btn-toolbar btn-toolbar-right">
+                            <button class="btn btn-default">CANCEL</button>
+                            <button class="btn btn-primary">SAVE</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="row">
+                <div class="col-sm-4">
+                  <label class="label">Date of Birth</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">December 5, 1986</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group"> <span class="control-label">Date of Birth</span>
+                            <div class="input-group">
+                              <input type="text" class="form-control input-sm" value="" id="dateOfBirth" placeholder="Select Date" on-focus>
+                              <label class="input-group-addon" for="dateOfBirth">
+                                <svg class="svg-icons" width="18px" height="20px">
+                                  <use xlink:href="../assets/img/sprite.svg#calendarIco"></use>
+                                </svg>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="label">Height</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">5.5 Feet</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group"> <span class="control-label">Height</span>
+                            <input type="text" class="form-control input-sm" value="5.5 Feet" on-focus>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <label class="label">Weight</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">85 Kg</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group"> <span class="control-label">Weight</span>
+                            <input type="text" class="form-control input-sm" value="85 Kg" on-focus>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <label class="label">Gender</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">Male</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group form-group-sm"> <span class="control-label">Gender</span>
+                            <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control" on-focus>
+                              <option selected>Male</option>
+                              <option>Female</option>
+                            </select>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <label class="label">Secondary Sports</label>
+                <div class="editable-panel">
+                  <div class="editable-item">
+                    <button class="btn edit-btn">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                    </svg>
+                    </button>
+                    <span class="edit-highlight">Baseball, Basketball, Bodybuilding, Tennis</span> </div>
+                </div>
+              </li>
+              <li>
+                <label class="label">Sports You Follow</label>
+                <div class="editable-panel">
+                  <div class="editable-item">
+                    <button class="btn edit-btn" data-target="#addSportsModal" data-toggle="modal">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                    </svg>
+                    </button>
+                    <span class="edit-highlight" data-target="#addSportsModal" data-toggle="modal">Baseball, Basketball, Bodybuilding, Tennis</span> </div>
+                </div>
+              </li>
+              <li>
+                <label class="label">Teams I Support</label>
+                <div class="editable-panel">
+                  <div class="editable-item">
+                    <button class="btn edit-btn" data-target="#addTeamsModal" data-toggle="modal">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                    </svg>
+                    </button>
+                    <span class="edit-highlight" data-target="#addTeamsModal" data-toggle="modal">Manchester United, Aston, LA Galaxy, Texas Cowboy, Barcelona, LA Lakers</span> </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-info" data-ng-class="switchClass" data-ng-init="addSkillsItem='edit'">
+          <div class="panel-heading">
+            <div class="pull-right">
+              <span class="pending-count">
+              Pending Skills 
+              <a class="badge-arrow" data-ng-click="addSkillsItem='pending'" ng-class="{'open':addSkillsItem=='pending'}">
+                <span class="text">3</span>
+                <svg height="18px" width="10px" class="svg-icons">
+                  <use xlink:href="../assets/img/sprite.svg#downArrowIco"/>
+                </svg>
+              </a>
+              </span>
+            </div>
+            <h3 class="page-header panel-title"><span class="icon">
+              <svg class="svg-icons" width="24px" height="24px">
+                <use xlink:href="../assets/img/sprite.svg#skillsIco"></use>
+              </svg>
+              </span><span class="text">SKILLS</span> </h3>
+              
+          </div>
+          <div class="panel-body nodata-panel ng-hide">
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg height="20px" width="20px" class="svg-icons">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+              </svg>
+              </span>
+              <p>Member with skills on their profile get 4 times <br>
+                as many profile views</p>
+              <a class="btn-link" data-ng-click="addSkillsItem='edit'">ADD SKILLS</a> </div>
+          </div>
+          <div class="panel-footer" data-ng-show="addSkillsItem=='pending'">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="pending-group">
+              <h4><a>Mohit</a>, <a>Stuart</a> and <a>4 others</a> have endorsed you for new skills and expertise!</h4>
+              <ul class="skills-section">
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <span class="endorse-item-icon">
+                        <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                      </span>
+                      <span>Athletics</span>
+                      <span>High Jump</span>
+                      <em>Speed</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="10px" width="10px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                  <div class="endorsers-container">
+                    <ul class="endorsers-pics">
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <span class="endorse-item-icon">
+                        <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                      </span>
+                      <span>Athletics</span>
+                      <span>High Jump</span>
+                      <em>Power</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="10px" width="10px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                  <div class="endorsers-container">
+                    <ul class="endorsers-pics">
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <span class="endorse-item-icon">
+                        <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                      </span>
+                      <span>Athletics</span>
+                      <span>High Jump</span>
+                      <em>Coaching</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="10px" width="10px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                  <div class="endorsers-container">
+                    <ul class="endorsers-pics">
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                      <li>
+                        <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+              <hr/>
+              <div class="btn-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default" data-ng-click="addSkillsItem=''">CLOSE</button>
+                  <button class="btn btn-primary">ADD TO PROFILE</button>
+                </div>
+              </div>
+              </div>  
+            </form>
+          </div>
+          <div class="panel-footer">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Add Skills<span class="mandatory">*</span></div>
+                <div class="input-group">
+                  <input type="text" placeholder="What are your area of expertise ?" class="form-control" on-focus>
+                  <a class="input-group-addon btn-addon">ADD</a></div>
+                <span class="error-block">Error message</span>
+                <div class="well well-default well-sm">
+                  <ul class="compact-view">
+                    <li class="endorse-item endorse-remove">
+                      <span class="skill-pill">
+                        <span class="endorse-item-name">
+                          <span class="endorse-item-icon">
+                            <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                          </span>
+                          <span>Football</span>
+                          <span>Outdoor Sports</span>
+                          <em>Soccer</em>
+                        </span>
+                        <a class="endorse-item-close">
+                          <svg height="10px" width="10px" class="svg-icons">
+                            <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                          </svg>
+                        </a>
+                      </span>
+                    </li>
+                    <li class="endorse-item endorse-remove">
+                      <span class="skill-pill">
+                        <span class="endorse-item-name">
+                          <span class="endorse-item-icon">
+                            <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                          </span>
+                          <span>Football</span>
+                          <span>Outdoor Sports</span>
+                          <em>Soccer</em>
+                        </span>
+                        <a class="endorse-item-close">
+                          <svg height="10px" width="10px" class="svg-icons">
+                            <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                          </svg>
+                        </a>
+                      </span>
+                    </li>
+                    <li class="endorse-item endorse-remove">
+                      <span class="skill-pill">
+                        <span class="endorse-item-name">
+                          <span class="endorse-item-icon">
+                            <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                          </span>
+                          <span>Football</span>
+                          <span>Outdoor Sports</span>
+                          <em>Soccer</em>
+                        </span>
+                        <a class="endorse-item-close">
+                          <svg height="10px" width="10px" class="svg-icons">
+                            <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                          </svg>
+                        </a>
+                      </span>
+                    </li>                    
+                  </ul>
+                </div>
+              </div>
+              <div class="btn-group form-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default">CANCEL</button>
+                  <button class="btn btn-primary">SAVE</button>
+                </div>
+              </div>
+            </form>
+            <h4 class="semibold">Here are a few to get you started:</h4>
+            <ul class="compact-view">
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Soccer</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Reflexes</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Soccer</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Reflexes</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Soccer</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Reflexes</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Soccer</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li class="endorse-item endorse-remove">
+                  <span class="skill-pill">
+                    <span class="endorse-item-name">
+                      <em>Reflexes</em>
+                    </span>
+                    <a class="endorse-item-close">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+              </ul>
+          </div>
+          <div class="panel-body">
+            <h4 class="semibold">Top Skills</h4>
+            <ul class="skills-section">
+              <li class="endorse-item endorsable">
+                <span class="skill-pill">
+                  <a class="endorse-count" ng-click="modalOpen();"><span class="num-endorsements">14</span></a> 
+                  <span class="endorse-item-name">
+                    <span class="endorse-item-icon">
+                      <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                    </span>
+                    <span>Football</span>
+                    <span>Outdoor Sports</span>
+                    <em>Soccer</em>
+                  </span>
+                  <a class="endorse-button">
+                    <span class="endorse-close endorse-icon">
+                      <svg class="svg-icons" width="13px" height="13px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </span>                  
+                  </a>
+                </span>
+                <div class="endorsers-container">
+                  <ul class="endorsers-pics">
+                    <li>
+                      <img class="viewer-pic" width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li class="endorsers-action">
+                      <a class="see-all-endorsers"  data-target="#endorsersModal" data-toggle="modal" ></a>
+                    </li>
+                  </ul>
+                  <span class="line-container">
+                    <span class="hr-line"></span>
+                  </span>
+                </div>
+              </li>
+
+              <li class="endorse-item endorsable">
+                <span class="skill-pill">
+                  <a class="endorse-count"><span class="num-endorsements">14</span></a> 
+                  <span class="endorse-item-name">
+                    <span class="endorse-item-icon">
+                      <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                    </span>
+                    <span>Football</span>
+                    <span>Goalkeeping</span>
+                    <em>Reflexes</em>
+                  </span>
+                  <a class="endorse-button">
+                    <span class="endorse-close endorse-icon">
+                      <svg class="svg-icons" width="13px" height="13px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </span>                  
+                  </a>
+                </span>
+                <div class="endorsers-container">
+                  <ul class="endorsers-pics">
+                    <li>
+                      <img class="viewer-pic" width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li>
+                      <img width="30" height="30" src="../assets/img/thumb70x70.jpg">
+                    </li>
+                    <li class="endorsers-action">
+                      <a class="see-all-endorsers"  data-target="#endorsersModal" data-toggle="modal" ></a>
+                    </li>
+                  </ul>
+                  <span class="line-container">
+                    <span class="hr-line"></span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+            <h4 class="semibold">Jason also knows about...</h4>
+            <ul class="skills-section compact-view">
+              <li class="endorse-item endorsable">
+
+                <span class="skill-pill">
+                  <a class="endorse-count"><span class="num-endorsements">14</span></a> 
+                  <span class="endorse-item-name">
+                    <span class="endorse-item-icon">
+                      <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                    </span>
+                    <span>Football</span>
+                    <span>Goalkeeping</span>
+                    <em>Reflexes</em>
+                  </span>
+                  <a class="endorse-button">
+                    <span class="endorse-close endorse-icon">
+                      <svg class="svg-icons" width="13px" height="13px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </span>                  
+                  </a>
+                </span>
+                
+              </li>
+              <li class="endorse-item endorsable">
+                <span class="skill-pill"> 
+                  <span class="endorse-item-name">
+                    <span class="endorse-item-icon">
+                      <img alt="" class="svg" ng-src="assets/categories/soccer.svg">
+                    </span>
+                    <span>Football</span>
+                    <span>Goalkeeping</span>
+                    <em>Reflexes</em>
+                  </span>
+                  <a class="endorse-button">
+                    <span class="endorse-close endorse-icon">
+                      <svg class="svg-icons" width="13px" height="13px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </span>                  
+                  </a>
+                </span>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+                <div class="pull-right">
+                  <button class="btn btn-default btn-sm ng-hide" type="button">CANCEL</button>
+                  <button class="btn btn-default btn-sm" type="button">ADD</button>
+              </div>
+              <h3 class="page-header panel-title"><i class="icon">
+                <svg class="svg-icons" width="21px" height="26px">
+                <use xlink:href="../assets/img/sprite.svg#athleticAchievementIco"></use>
+                </svg></i> 
+                <span class="text">PERSONAL BESTS</span>
+              </h3>
+          </div>
+          <div class="panel-body">
+
+              <div class="row no-gutter">
+                <div class="col-sm-6">
+                    <span class="tag-box">
+                      <span class="tag-title tag-primary">
+                        <span  class="tag-action">
+                          <a class="tag-close">
+                            <svg class="svg-icons" width="10px" height="10px">
+                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                            </svg>
+                          </a>
+                        </span>
+                        <span class="tag-overflow"><a data-toggle="tooltip" data-container="body" data-placement="top" title="Category : 100 m">100 m</a></span>
+                      </span>
+                      <span class="tag-body"><a data-toggle="tooltip" data-container="body" data-placement="bottom" title="6:00 time (sec)">6:00 time (sec)</a></span>
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <span class="tag-box">
+                      <span class="tag-title tag-primary">
+                        <span  class="tag-action">
+                          <a class="tag-close">
+                            <svg class="svg-icons" width="10px" height="10px">
+                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                            </svg>
+                          </a>
+                        </span>
+                        <span class="tag-overflow"><a data-toggle="tooltip" data-container="body" data-placement="top" title="Category : Yo Yo International Talanet">Yo Yo International Talanet</a></span>
+                      </span>
+                      <span class="tag-body"><a data-toggle="tooltip" data-container="body" data-placement="bottom" title="I am the best in this talent">I am the best in this talent</a></span>
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <span class="tag-box">
+                      <span class="tag-title tag-primary">
+                        <span  class="tag-action">
+                          <a class="tag-close">
+                            <svg class="svg-icons" width="10px" height="10px">
+                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                            </svg>
+                          </a>
+                        </span>
+                        <span class="tag-overflow"><a data-toggle="tooltip" data-container="body" data-placement="top" title="Category : 100 m">100 m</a></span>
+                      </span>
+                      <span class="tag-body"><a data-toggle="tooltip" data-container="body" data-placement="bottom" title="6:00 time (sec)">6:00 time (sec)</a></span>
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <span class="tag-box">
+                      <span class="tag-title tag-primary">
+                        <span  class="tag-action">
+                          <a class="tag-close">
+                            <svg class="svg-icons" width="10px" height="10px">
+                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                            </svg>
+                          </a>
+                        </span>
+                        <span class="tag-overflow"><a data-toggle="tooltip" data-container="body" data-placement="top" title="Category : Yo Yo International Talanet">Yo Yo International Talanet</a></span>
+                      </span>
+                      <span class="tag-body"><a data-toggle="tooltip" data-container="body" data-placement="bottom" title="I am the best in this talent">I am the best in this talent</a></span>
+                    </span>
+                </div>
+              </div>            
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+                <div class="pull-right">
+                  <button class="btn btn-default btn-sm ng-hide" type="button">CANCEL</button>
+                  <button class="btn btn-default btn-sm" type="button">ADD</button>
+              </div>
+              <h3 class="page-header panel-title"><i class="icon">
+                <svg class="svg-icons" width="30px" height="25px">
+                <use xlink:href="../assets/img/sprite.svg#bodyMeasureIco"></use>
+                </svg></i> 
+                <span class="text">BODY MEASUREMENTS</span>
+              </h3>
+          </div>
+          <div class="panel-body">
+            <ul class="tagged-list">
+              <li>
+              <span class="tag-text">Long Jump</span>
+              <span class="tag-label tag-primary">
+                <a class="tag-value">
+                  1.6mt
+                </a>
+                <a class="tag-icon">
+                  <svg class="svg-icons" width="12px" height="10px">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                  </svg>
+                </a>
+              </span>                    
+              </li>
+              <li>
+                <span class="tag-text">Driven</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>
+              </li>
+              <li>                      
+                <span class="tag-text">Communicator</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>
+              </li>
+              <li>                      
+                <span class="tag-text">Leadership</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>
+              </li>                    
+              <li>
+                <span class="tag-text">Speed</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>                        
+              </li>
+              <li>
+                <span class="tag-text">Power</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span> 
+              </li>
+              <li>
+                <span class="tag-text">Coordination</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class="tag-text">Quickness</span>
+                <span class="tag-label tag-static">
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>                        
+              </li>   
+              <li>
+                <span class="tag-text">YO-YO Intermediate Recovery Test</span>
+                <span class="tag-label tag-default">
+                  <a class="tag-icon" data-toggle="tooltip" data-container="body" data-placement="top" title="And here's some amazing content. It's very engaging. Right?">
+                    <svg class="svg-icons" width="14px" height="12px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#textIco"></use>
+                    </svg>
+                  </a>                        
+                  <a class="tag-icon">
+                    <svg class="svg-icons" width="12px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                  </a>
+                </span>                       
+              </li>               
+            </ul>
+            
+          </div>
+        </div>
+        <div class="panel panel-info" data-ng-class="switchClass"  data-ng-init="addExperienceItem='view'">
+          <div class="panel-heading">
+          	<div class="pull-right">
+              <button class="btn btn-default btn-sm" type="button" data-ng-click="addExperienceItem='edit'">ADD</button>
+            </div>
+            <h3 class="page-header panel-title"><i class="icon">
+              <svg class="svg-icons" width="24px" height="27px">
+                <use xlink:href="../assets/img/sprite.svg#experienceIco"></use>
+              </svg>
+              </i> <span class="text">EXPERIENCE</span></h3>
+          </div>
+          <div class="panel-body nodata-panel" data-ng-show="addExperienceItem=='add'">
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg height="20px" width="20px" class="svg-icons">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"/>
+              </svg>
+              </span>
+              <p>People could be looking for someone with your <br>experience.</p>
+              <a class="btn-link" data-ng-click="addExperienceItem='edit'">ADD EXPERIENCE</a> </div>
+          </div>
+          <div class="panel-footer" data-ng-show="addExperienceItem=='edit'">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Organization Name<span class="mandatory">*</span></div>
+                <input type="text" placeholder="Currently you are playing for?" class="form-control" on-focus>
+                <span class="error-block">Error message</span> </div>
+              <div class="row">
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Sports<span class="mandatory">*</span></div>
+                  <select data-chosen data-placeholder="Select" disable-search="true" class="form-control" on-focus>
+                    <option>Fan</option>
+                    <option>Sports Professional</option>
+                    <option>Athlete</option>
+                    <option>Organization</option>
+                  </select>
+                  <span class="error-block">Error message</span> </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Position<span class="mandatory">*</span></div>
+                  <select data-chosen data-placeholder="Select" disable-search="true" class="form-control" on-focus>
+                    <option>Fan</option>
+                    <option>Sports Professional</option>
+                    <option>Athlete</option>
+                    <option>Organization</option>
+                  </select>
+                  <span class="error-block">Error message</span> </div>
+              </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Location<span class="mandatory">*</span></div>
+                <input type="text" placeholder="ex: City, State or Country" class="form-control" on-focus>
+                <span class="error-block">Error message</span> </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Time Period<span class="mandatory">*</span></div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row no-gutter">
+                      <div class="col-xs-6">
+                        <select data-chosen data-placeholder="Month" disable-search="true" class="form-control" on-focus>
+                          <option>Jan</option>
+                          <option>Feb</option>
+                          <option>Mar</option>
+                          <option>Apr</option>
+                        </select>
+                      </div>
+                      <div class="col-xs-6">
+                        <input type="text" placeholder="Start Year" class="form-control" on-focus>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row no-gutter">
+                      <div class="col-xs-6">
+                        <select data-chosen data-placeholder="Month" disable-search="true" class="form-control" on-focus>
+                          <option>Jan</option>
+                          <option>Feb</option>
+                          <option>Mar</option>
+                          <option>Apr</option>
+                        </select>
+                      </div>
+                      <div class="col-xs-6">
+                        <input type="text" placeholder="End Year" class="form-control" on-focus>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="help-block"><span class="checkbox">
+                  <input type="checkbox" id="currentlyPlay">
+                  <label for="currentlyPlay">I am currently Playing Here</label>
+                  </span></div>
+              </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Description<span class="mandatory">*</span></div>
+                <textarea class="form-control" rows="5" placeholder="ex: City, State or Country"></textarea>
+                <span class="error-block">Error message</span> </div>
+              <div class="btn-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default" data-ng-click="addExperienceItem='add'">CANCEL</button>
+                  <button class="btn btn-primary" data-ng-click="addExperienceItem='view'">SAVE</button>                  
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-body" data-ng-show="addExperienceItem=='view'">
+            <div class="info-media-list">
+              <div class="media">
+                <div class="media-body">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h4 class="media-heading semibold">
+                        <span class="edit-highlight" data-ng-click="addExperienceItem='edit'">Football-GoalKeeper</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h5 class="sub-media-heading semibold"><span class="edit-highlight" data-ng-click="addExperienceItem='edit'">University of Oregon</span></h5>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="experience-date-locality edit-highlight" data-ng-click="addExperienceItem='edit'">
+                      <time>March 2014</time> – Present<span class="locality"><span>Oregon</span></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-right hidden-xs"> <img class="media-object" alt="" src="../assets/img/university-logo.png"></div>
+                <div class="media-footer">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="edit-highlight" data-ng-click="addExperienceItem='edit'">Regarded as the fastest person ever recorded,[10] he is the first man to hold both the 100 metres and 200 metres world records since fully automatic time measurements became mandatory in 1977. </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <a>Remove</a>
+                </div>
+              </div>
+              <div class="media">
+                <div class="media-body">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h4 class="media-heading semibold">
+                        <span class="edit-highlight" data-ng-click="addExperienceItem='edit'">Football-Coaching</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h5 class="sub-media-heading semibold"><span class="edit-highlight" data-ng-click="addExperienceItem='edit'">Manchester United</span></h5>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="experience-date-locality edit-highlight" data-ng-click="addExperienceItem='edit'">
+                      <time>March 2012</time> – March 2014<span class="locality"><span>Oregon</span></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-right hidden-xs"> <img class="media-object" alt="" src="../assets/img/manchester-logo.png"></div>
+                <div class="media-footer">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addExperienceItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="edit-highlight" data-ng-click="addExperienceItem='edit'">Regarded as the fastest person ever recorded,[10] he is the first man to hold both the 100 metres and 200 metres world records since fully automatic time measurements became mandatory in 1977. </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <a>Remove</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-info"  data-ng-class="switchClass"  data-ng-init="addEducationItem='edit'">
+          <div class="panel-heading">
+            <div class="pull-right">
+              <button class="btn btn-default btn-sm" type="button" data-ng-click="addEducationItem='edit'">ADD</button>
+            </div>
+            <h3 class="page-header panel-title"><i class="icon">
+              <svg class="svg-icons" width="20px" height="23px">
+                <use xlink:href="../assets/img/sprite.svg#educationIco"></use>
+              </svg>
+              </i> <span class="text">EDUCATION</span></h3>
+          </div>
+          <div class="panel-body nodata-panel" data-ng-show="addEducationItem=='add'">          
+            <div class="nodata-text"> <a class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </a>
+              <p>Show more information about your education background<br> will help you get found more opportunities</p>
+              <a class="btn-link" data-ng-click="addEducationItem='edit'">ADD EDUCATION</a> </div>
+          </div>
+          <div class="panel-footer" data-ng-show="addEducationItem=='edit'">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="form-group form-group-lg">
+                <div class="control-label">School<span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus id="schoolId">
+                <span class="error-block">Error message</span> </div>
+              <div class="row">
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Dates Attended<span class="mandatory">*</span></div>
+                  <div class="row no-gutter">
+                      <div class="col-xs-6">
+                          <input type="text" placeholder="Start Year" class="form-control" on-focus="">             
+                      </div>
+                      <div class="col-xs-6">
+                        <input type="text" placeholder="End Year" class="form-control" on-focus="">
+                      </div>
+                    </div>
+                  <span class="error-block">Error message</span> </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Degree<span class="mandatory">*</span></div>
+                  <input type="text" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> </div>
+              </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Description<span class="mandatory">*</span></div>
+                <textarea class="form-control" rows="5" placeholder="ex: City, State or Country"></textarea>
+                <span class="error-block">Error message</span> </div>
+              <div class="btn-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default" data-ng-click="addEducationItem='add'">CANCEL</button>
+                  <button class="btn btn-primary" data-ng-click="addEducationItem='view'">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-body" data-ng-show="addEducationItem=='view'">
+            <div class="info-media-list">
+              <div class="media">
+                <div class="media-body">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addEducationItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h4 class="media-heading semibold">
+                        <span class="edit-highlight" data-ng-click="addEducationItem='edit'">BA in Physiotherepy</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addEducationItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <h5 class="sub-media-heading semibold"><span class="edit-highlight" data-ng-click="addEducationItem='edit'">University of California</span></h5>
+                    </div>
+                  </div>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addEducationItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="experience-date-locality edit-highlight" data-ng-click="addEducationItem='edit'">
+                        <time>2004</time> – 2007
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-right hidden-xs"> <img class="media-object" alt="" src="../assets/img/university-california-logo.png"></div>
+                <div class="media-footer">
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn" data-ng-click="addEducationItem='edit'">
+                        <svg class="svg-icons" width="10px" height="10px">
+                          <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </button>
+                      <span class="edit-highlight" data-ng-click="addEducationItem='edit'">Regarded as the fastest person ever recorded,[10] he is the first man to hold both the 100 metres and 200 metres world records since fully automatic time measurements became mandatory in 1977. </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="page-header panel-title"><i class="icon">
+              <svg class="svg-icons" width="24px" height="19px">
+                <use xlink:href="../assets/img/sprite.svg#achievementIco"></use>
+              </svg>
+              </i> <span class="text">SPORTS ACHIEVEMENTS</span></h3>
+          </div>
+          <div class="panel-footer">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Add Sports Achievements<span class="mandatory">*</span></div>
+                <select data-chosen data-placeholder="What are your achievements ?" multiple disable-search="true" class="form-control" on-focus>
+                  <option>Fan</option>
+                  <option>Sports Professional</option>
+                  <option>Athlete</option>
+                  <option>Organization</option>
+                </select>
+              </div>
+              <div class="btn-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default">CANCEL</button>
+                  <button class="btn btn-primary">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="panel panel-info" data-ng-class="switchClass" data-ng-init="addAchievementsItem='edit'">
+          <div class="panel-heading">
+            <h3 class="page-header panel-title"><i class="icon">
+              <svg class="svg-icons" width="21px" height="26px">
+                <use xlink:href="../assets/img/sprite.svg#athleticAchievementIco"></use>
+              </svg>
+              </i> <span class="text">ATHLETIC ACHIEVEMENTS</span></h3>
+          </div>
+          <div class="panel-body nodata-panel" data-ng-show="addAchievementsItem=='add'">          
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Show more information about your athletic achievements<br> will help you get found more opportunities</p>
+              <a class="btn-link" data-ng-click="addAchievementsItem='edit'">ADD ATHLETIC ACHIEVEMENTS</a> </div>
+          </div>
+          <div class="panel-footer" data-ng-show="addAchievementsItem=='edit'">
+            <form data-rel="form" class="ng-pristine ng-valid">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Add Athletic Achievements<span class="mandatory">*</span></div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <select data-chosen data-placeholder="What are your achievements ?" disable-search="true" class="form-control" on-focus>
+                      <option>Aerobic</option>
+                      <option>Anaerobic</option>
+                      <option>Speed</option>
+                      <option>Power</option>
+                      <option>Agility</option>
+                      <option>Flexibility</option>
+                      <option>Strength</option>
+                      <option>Body Composition</option>
+                      <option>Cricket</option>
+                      <option>Baseball</option>
+                      <option>Tennis</option>
+                      <option>CrossFit</option>
+                    </select>
+                    <span class="error-block">Error message</span> </div>
+                  <div class="col-sm-6">
+                    <select data-chosen data-placeholder="Select" disable-search="true" class="form-control" on-focus>
+                      <option>VO2 Max</option>
+                      <option>Beep Test</option>
+                      <option>1km TT</option>
+                      <option>2km TT</option>
+                      <option>3km TT</option>
+                      <option>5km TT</option>
+                      <option>10km TT</option>
+                      <option>Half Marathon</option>
+                      <option>Marathon</option>
+                    </select>
+                    <span class="error-block">Error message</span> </div>
+                </div>
+              </div>
+
+              <div class="well well-primary well-nopad">
+                <div class="well-heading">
+                  <div class="pull-right">
+                    <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </div>
+                    <h4 class="well-title"><span class="text">You Jumped from Zero to?</span></h4>
+                  </div>
+                <div class="well-body">  
+                  <div class="control-label">DISTANCE</div> 
+                  <div class="range-slider">
+                    <div class="range-bar">    
+                      <span class="range-min">0</span>
+                      <div  class="range-strip">
+                        <div id="sliderDistance">
+                          <div class="ui-slider-handle">
+                          <div class="ui-value-handle">
+                            <input type="text" class="form-control changeDistValue input-sm" value="1" on-focus>
+                          </div>  
+                          </div>
+                        </div>
+                      </div>
+                      <span class="range-max">3 mt</span>
+                    </div>  
+                  </div>
+                </div>
+                <div class="well-footer">
+                  <div class="btn-group btn-group-sm">
+                    <div class="btn-toolbar btn-toolbar-right">
+                      <button class="btn btn-primary">SAVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="well well-primary well-nopad">
+                <div class="well-heading">
+                  <div class="pull-right">
+                    <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </div>
+                    <h4 class="well-title"><span class="text">Time taken to Complete (TT)?</span></h4>
+                  </div>
+                <div class="well-body">     
+                  <div class="time-ctrl">             
+                    <div class="input-group">
+                      <div class="input-group-input-vertical">
+                        <input type="text" class="form-control" value="11" data-role="hour">
+                        <span class="time-addon"><span>HH</span></span>
+                        <input type="text" class="form-control" value="42" data-role="minute">
+                        <span class="time-addon"><span>MM</span></span>
+                        <input type="text" class="form-control" value="42" data-role="second">
+                        <span class="time-addon"><span>SS</span></span>
+                      </div>
+                      <div class="input-group-btn-vertical">
+                        <span id="hour"><button class="btn btn-info" type="button">
+                          <span class="icon reverse">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button>
+                        <button class="btn btn-info" type="button">
+                          <span class="icon">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button></span>
+                        <span class="hide" id="minute"><button class="btn btn-info" type="button">
+                          <span class="icon reverse">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button>
+                        <button class="btn btn-info" type="button">
+                          <span class="icon">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button></span>
+                        <span class="hide" id="second"><button class="btn btn-info" type="button">
+                          <span class="icon reverse">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button>
+                        <button class="btn btn-info" type="button">
+                          <span class="icon">
+                            <svg class="svg-icons" width="8px" height="5px">
+                              <use xlink:href="../assets/img/sprite.svg#downArrowIco"></use>
+                            </svg>
+                          </span>
+                        </button></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timing-slider hidden-xs">
+                    <ul class="time-bar list-group-justify">
+                      <li>
+                        <span class="startRunIcn">
+                          <svg class="svg-icons" width="35px" height="23px">
+                            <use xlink:href="../assets/img/sprite.svg#startRunIco"></use>
+                          </svg>
+                        </span>
+                      </li>
+                      <li class="time-track">
+                        <img src="../assets/img/timing-track.png" alt="" class="img-full">
+                      </li>
+                      <li>
+                        <span class="endRunIcn">
+                          <svg class="svg-icons" width="21px" height="23px">
+                            <use xlink:href="../assets/img/sprite.svg#endRunIco"></use>
+                          </svg>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="well-footer">
+                  <div class="btn-group btn-group-sm">
+                    <div class="btn-toolbar btn-toolbar-right">
+                      <button class="btn btn-primary">SAVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="well well-primary well-nopad">
+                <div class="well-heading">
+                  <div class="pull-right">
+                    <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </div>
+                    <h4 class="well-title"><span class="text">You Jumped from Zero to?</span></h4>
+                  </div>
+                <div class="well-body">  
+                  <div class="control-label">HEIGHT</div> 
+                  <div class="range-slider">
+                    <div class="range-bar">    
+                      <span class="range-min">0</span>
+                      <div  class="range-strip">
+                        <div id="sliderHight">
+                          <div class="ui-slider-handle">
+                          <div class="ui-value-handle">
+                            <input type="text" class="form-control changeHightValue input-sm" value="50" on-focus>
+                          </div>  
+                          </div>
+                        </div>
+                      </div>
+                      <span class="range-max">70 cm</span>
+                    </div>  
+                  </div>
+                </div>
+                <div class="well-footer">
+                  <div class="btn-group btn-group-sm">
+                    <div class="btn-toolbar btn-toolbar-right">
+                      <button class="btn btn-primary">SAVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="well well-primary well-nopad">
+                <div class="well-heading">
+                  <div class="pull-right">
+                    <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </div>
+                    <h4 class="well-title"><span class="text"> How much weight you have lift?</span></h4>
+                  </div>
+                <div class="well-body">  
+                  <div class="control-label">WEIGHT</div> 
+                  <div class="range-slider">
+                    <div class="range-bar">    
+                      <span class="range-min">0</span>
+                      <div  class="range-strip">
+                        <div id="sliderWeight">
+                          <div class="ui-slider-handle">
+                          <div class="ui-value-handle">
+                            <input type="text" class="form-control changeWeightValue input-sm" value="40">
+                          </div>  
+                          </div>
+                        </div>
+                      </div>
+                      <span class="range-max">100 kg</span>
+                    </div>  
+                  </div>
+                </div>
+                <div class="well-footer">
+                  <div class="btn-group btn-group-sm">
+                    <div class="btn-toolbar btn-toolbar-right">
+                      <button class="btn btn-primary">SAVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="well well-primary well-nopad">
+                <div class="well-heading">
+                  <div class="pull-right">
+                    <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </div>
+                    <h4 class="well-title"><span class="text">Description</span></h4>
+                  </div>
+                <div class="well-body">
+                  <div class="form-group-lg">
+                    <textarea class="form-control textarea-nobdr" rows="2" placeholder="Write us something"></textarea>
+                  </div>
+                </div>
+                <div class="well-footer">
+                  <div class="btn-group btn-group-sm">
+                    <div class="btn-toolbar btn-toolbar-right">
+                      <button class="btn btn-primary">SAVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+
+              <div class="well well-default well-sm">
+                <ul class="tagged-list">
+                  <li>
+                  <span class="tag-text">Long Jump</span>
+                  <span class="tag-label tag-primary">
+                    <a class="tag-value">
+                      1.6mt
+                    </a>
+                    <a class="tag-icon">
+                      <svg class="svg-icons" width="12px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </span>                    
+                  </li>
+                  <li>
+                    <span class="tag-text">Driven</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>
+                  </li>
+                  <li>                      
+                    <span class="tag-text">Communicator</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>
+                  </li>
+                  <li>                      
+                    <span class="tag-text">Leadership</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>
+                  </li>                    
+                  <li>
+                    <span class="tag-text">Speed</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>                        
+                  </li>
+                  <li>
+                    <span class="tag-text">Power</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span> 
+                  </li>
+                  <li>
+                    <span class="tag-text">Coordination</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="tag-text">Quickness</span>
+                    <span class="tag-label tag-static">
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>                        
+                  </li>   
+                  <li>
+                    <span class="tag-text">YO-YO Intermediate Recovery Test</span>
+                    <span class="tag-label tag-default">
+                      <a class="tag-icon" data-toggle="tooltip" data-container="body" data-placement="top" title="And here's some amazing content. It's very engaging. Right?">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#textIco"></use>
+                        </svg>
+                      </a>                        
+                      <a class="tag-icon">
+                        <svg class="svg-icons" width="12px" height="10px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                        </svg>
+                      </a>
+                    </span>                       
+                  </li>               
+                </ul>
+              </div>
+
+              <div class="btn-group">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-default" data-ng-click="addAchievementsItem='add'">CANCEL</button>
+                  <button class="btn btn-primary" data-ng-click="addAchievementsItem='view'">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-body" data-ng-show="addAchievementsItem=='view'">
+            <div class="editable-panel">
+              <div class="editable-item">
+                <button class="btn edit-btn" data-ng-click="addAchievementsItem='edit'">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                </svg>
+                </button>
+                <div class="edit-highlight" data-ng-click="addAchievementsItem='edit'">
+                  <ul class="tagged-list">
+                    <li>                    
+                    <span class="tag-text">Long Jump</span>
+                    <span class="tag-label tag-primary">
+                      <a class="tag-value">
+                        1.6mt
+                      </a>
+                    </span>
+                    </li>
+                    <li>
+                      <span class="tag-text">Driven</span>
+                    </li>
+                    <li>
+                      <span class="tag-text">Communicator</span>
+                    </li>
+                    <li>
+                      <span class="tag-text">Leadership</span>
+                    </li>                    
+                    <li> 
+                      <span class="tag-text">Speed</span>
+                    </li>
+                    <li> 
+                      <span class="tag-text">Power</span>
+                    </li>
+                    <li>
+                      <span class="tag-text">Coordination</span>
+                    </li>
+                    <li>  
+                      <span class="tag-text">Quickness</span>
+                    </li>  
+                    <li>
+                      <span class="tag-text">YO-YO Intermediate Recovery Test</span>
+                      <span class="tag-label tag-default">
+                        <a class="tag-icon" data-toggle="tooltip" data-container="body" data-placement="top" title="And here's some amazing content. It's very engaging. Right?">
+                          <svg class="svg-icons" width="14px" height="12px">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#textIco"></use>
+                          </svg>
+                        </a>
+                      </span> 
+                    </li>                
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <div class="btn-toolbar btn-toolbar-right mar-btm15">
+              <a class="btn btn-default btn-sm" href="recommendation-request.html">REQUEST <span class="hidden-sm hidden-xs">A RECOMMENDEDATIONS</span></a>
+              <a class="btn btn-default btn-sm" href="recommendation-received.html">MANAGE</a>
+            </div>
+            <h3 class="page-header panel-title semibold"><i class="icon">
+              <svg class="svg-icons" width="22px" height="27px">
+                <use xlink:href="../assets/img/sprite.svg#recommendationIco"></use>
+              </svg>
+              </i> <span class="text">RECOMMENDATION</span></h3>
+          </div>
+          <div class="panel-body nodata-panel ng-hide">
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Recommendation helps you get noticed by recruiters and build <br>
+                a more credible profile.</p>
+              <a class="btn-link">ASK FOR RECOMMENDATION</a> </div>
+          </div>
+          <div class="panel-footer">
+            <div class="media media-visible">
+              <figure class="media-left"><img src="../assets/img/thumb120x120.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+              <div class="media-body media-middle">
+                <div class="media-heading">
+                  <h4 class="regular">Jason, would you like to recommend Oskar? </h4>
+                </div>
+                <a class="btn-link">Recommend Oskar <span class="caret rotate-flip-horizontal"></span></a>
+              </div>                    
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-subheading">
+              <h3 class="panel-title">GoalKeeper</h3>
+              <p class="panel-sub-title">Boston Club</p>
+            </div>
+            <ul class="list-group list-noborderd">
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left"><img src="../assets/img/thumb120x120.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p>                    
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016, Amber played with Daniel in LA Galaxy</span>                    
+                  </div>                    
+                </div>
+              </li>
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left"><img src="../assets/img/thumb120x120.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p>                    
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016, Amber played with Daniel in LA Galaxy</span>                    
+                  </div>                    
+                </div>
+              </li>
+            </ul>
+            <div class="panel-subheading">
+              <h3 class="panel-title">Coaching</h3>
+              <p class="panel-sub-title">Manchester United</p>
+            </div>
+            <ul class="list-group list-noborderd">
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left"><img src="../assets/img/thumb120x120.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="media-heading">
+                      <h3><a class="btn-link">Thomas Jeferson</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p>                    
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016, Amber played with Daniel in LA Galaxy</span> 
+                   
+                  </div>                    
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer> 
+<!--Modal Start-->
+<div id="addDescriptionModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group">
+            <div class="control-label">Description</div>
+            <textarea class="form-control" cols="" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</textarea>
+            <span class="error-block">Please Enter Your Eamil</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="addTeamsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">Description</div>
+            <div class="input-group">
+              <input type="text" placeholder="Add your favourite teams ?" class="form-control" on-focus>
+              <a class="input-group-addon btn-addon">ADD</a> </div>
+            <span class="error-block">Please Enter Your Eamil</span>
+            <div class="well well-sm">
+              <ul class="tagged-list">
+                <li>
+                  <span class="tag-text">LA Galaxy</span>
+                  <span class="tag-label tag-static">
+                    <a class="tag-icon">
+                      <svg class="svg-icons" width="12px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+                <li>
+                  <span class="tag-text">LA Galaxy</span>
+                  <span class="tag-label tag-static">
+                    <a class="tag-icon">
+                      <svg class="svg-icons" width="12px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                    </a>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="addSportsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Add Sports You Follow</h3>
+      </div>
+      <div class="modal-body">
+        <div class="large-padd">
+          <div class="control-label">Sports You Follow</div>
+          <ul class="grid-view">
+            <li data-ng-repeat="category in categories">
+              <div class="checkbox">
+                <input type="checkbox" id="category{{$index + 1}}">
+                <label for="category{{$index + 1}}">
+                  <span class="img-svg">
+                    <img alt="" class="svg" ng-src="assets/categories/{{category.Icon}}.svg">
+                  </span>
+                  <span data-ng-bind="category.Name"></span> </label>
+              </div>
+            </li>
+          </ul>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="connectionModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Connections (224)</h3>
+      </div>
+      <div class="modal-body no-pad">
+        <div class="panel-listing">
+           <div class="panel-heading panel-search-heading">
+              <div class="row">
+                 <div class="col-sm-4 col-sm-offset-8">
+                    <div class="post-search-ctrl clearfix open">
+                       <div class="post-search form-group">
+                        <div class="input-group">
+                          <input type="text" id="srch-filters" name="srch-filters" placeholder="Search" class="form-control input-sm" data-on-focus>
+                          <span class="input-group-addon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                 <use xlink:href="../assets/img/sprite.svg#searchIco"></use>
+                              </svg>                              
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+           </div>
+           <div class="panel-body">
+             <div class="scrollbox modal-scrollbox-md-height connect-list">             
+                   <ul class="list-group list-group-horizontal">
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li> 
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li> 
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li> 
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li> 
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li> 
+                      <li>
+                         <div class="media">
+                            <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                               <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                               <p>American Soccer - GoalKeeper at Eagle Club</p>
+                               <p class="gray-text">SF, California, USA</p>
+                                <ul class="nav-dot">
+                                  <li><a>
+                                    <svg class="svg-icons" width="14px" height="18px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#emailIco"></use>
+                                    </svg>
+                                    <span class="count">Message</span></a></li>
+                                    <li><a>Remove</a></li>
+                                </ul>
+                            </div>
+                         </div>
+                      </li>                     
+                   </ul>
+             </div>  
+           </div>
+           <div class="panel-body nodata-panel ng-hide">
+              <div class="nodata-text">
+                <figure class="nodata-img"><img src="../assets/img/no-connection.png" width="119" height="119" alt=""></figure>
+                <p>There are no connections to show. <br /><a class="btn-link">Grow your network</a> here</p>
+              </div>
+           </div>
+           <div class="load-more">
+               <span class="gray-text semibold">Loading</span><i class="loading"></i>
+           </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="removeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header transparent">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <figure>
+          <img src="../assets/img/removeConnection.png" alt="" width="73" height="76">  
+        </figure>
+        <h3 class="lead semibold">Are you sure you want to remove all the connections ?</h3>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-center">
+            <button class="btn btn-primary" data-dismiss="modal">REMOVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="endorsersModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Endorsers</h3>
+      </div>
+      <div class="modal-body no-pad">
+        <div class="modal-info">
+          <h3>14 People have endorsed you for <span class="semibold">Football</span></h3>
+        </div>
+        <div class="panel-listing">
+           <div class="panel-body" id="endorsersList">
+               <ul class="list-group list-group-horizontal scrollbox scrollbox-md-height">
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="media">
+                        <figure class="media-left"><img src="../assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                           <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                           <p>Football - GoalKeeper at Boston Club</p>
+                           <p class="gray-text">LA, California, USA</p>
+                        </div>
+                     </div>
+                  </li>   
+                  <li class="load-more"><i class="loading"></i>
+                  </li>            
+               </ul>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="categoryModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Change profile type</h3>
+      </div>
+      <div class="modal-body lg-pad">
+        <wizard hide-indicators="true">
+          <wz-step>
+            <form data-rel="form" data-ng-controller="signupCtrl">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Profile Type <span class="mandatory">*</span></div>
+                <div class="input-group"> <span class="input-group-addon">
+                  <svg class="svg-icons" width="17px" height="24px">
+                    <use xlink:href="../assets/img/sprite.svg#profileIco"></use>
+                  </svg>
+                  </span>
+                  <!-- <select chosen data-placeholder="Profile Type" data-ng-change="typeChange()" data-ng-model="profileType" data-ng-options="opt for opt in profiletypeOpt" disable-search="true" class="form-control" on-focus>
+                    <option></option>
+                  </select> -->
+                  <select data-chosen data-placeholder="Month" disable-search="true" class="form-control" on-focus>
+                    <option>Jan</option>
+                    <option>Feb</option>
+                    <option>Mar</option>
+                    <option>Apr</option>
+                  </select>
+                  <!-- <span class="input-group-addon">
+                  <svg class="svg-icons svg-hover" width="16px" height="16px" data-toggle="tooltip" title="Profile will be created as per role selection, user will be allow to change role any time after sign up.">
+                    <use xlink:href="../assets/img/sprite.svg#infoIco"></use>
+                  </svg>
+                  </span> --> </div>
+                <div class="help-block" data-ng-show="profileType=='Fan' || profileType=='Athlete' || profileType=='Organization' || profileType=='Professional'" ng-bind="profileTypeMsg"></div>
+              </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Organization'">
+                <div class="control-label">Type of Organization <span class="mandatory">*</span></div>
+                <select data-chosen data-placeholder="Organization Type" data-ng-model="orgType" data-ng-options="opt for opt in orgtypeOpt" disable-search="true" class="form-control" on-focus>
+                  <option></option>
+                </select>
+              </div>
+              <div class="row ng-hide" data-ng-show="profileType=='Fan' || profileType=='Athlete' || profileType=='Professional'">
+                <div class="col-sm-6 form-group">
+                  <div class="control-label">Date of Birth <span class="mandatory">*</span></div>
+                  <div class="input-group">
+                    <input type="text" class="form-control input-lg" value="" id="dateOfBirth" placeholder="Select Date" on-focus>
+                    <label class="input-group-addon" for="dateOfBirth">
+                      <svg class="svg-icons" width="18px" height="20px">
+                        <use xlink:href="../assets/img/sprite.svg#calendarIco"></use>
+                      </svg>
+                    </label>
+                    <span class="error-block">Please Enter Your Eamil</span></div>
+                </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Gender <span class="mandatory">*</span></div>
+                  <div class="radio-inline btn-checkbox row">
+                    <div class="col-xs-6"><span class="radio show">
+                      <input name="gender" type="radio" id="maleRd" checked>
+                      <label for="maleRd">
+                        <svg class="svg-icons" width="22px" height="17px">
+                          <use xlink:href="../assets/img/sprite.svg#maleIco"></use>
+                        </svg>
+                        Male</label>
+                      </span></div>
+                    <div class="col-xs-6"><span class="radio show">
+                      <input name="gender" type="radio" id="femaleRd">
+                      <label for="femaleRd">
+                        <svg class="svg-icons" width="19px" height="17px">
+                          <use xlink:href="../assets/img/sprite.svg#femaleIco"></use>
+                        </svg>
+                        Female</label>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row ng-hide" data-ng-show="profileType=='Athlete'">
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Height <span class="mandatory">*</span></div>
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" value="5.5" on-focus>
+                    </div>
+                    <div class="col-xs-8">
+                      <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control">
+                        <option>Feet</option>
+                        <option>Centimeter</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Weight <span class="mandatory">*</span></div>
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" value="78" on-focus>
+                    </div>
+                    <div class="col-xs-8">
+                      <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control" on-focus>
+                        <option>Kg</option>
+                        <option>Gram</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Fan' || profileType=='Athlete' || profileType=='Organization' || profileType=='Professional'">
+                <div class="control-label">Location <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="Where do you live? ex: City, State or Country" on-focus>
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Fan' || profileType=='Athlete'">
+                <div class="control-label">Team you follow <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="orgType=='Club'">
+                <div class="control-label">League <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="orgType=='Club'">
+                <div class="control-label">Amatuer of Professional <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Athlete'">
+                <div class="control-label">Club You Play For <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Organization'">
+                <div class="control-label">Name of Organization <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg ng-hide" data-ng-show="profileType=='Professional'">
+                <div class="control-label">Who do You work for <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="btn-group btn-group-lg ng-hide" data-ng-show="profileType=='Fan' || profileType=='Athlete' || profileType=='Organization' || profileType=='Professional'">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-primary btn-lg" data-ng-click="submitSignup()">Next</button>
+                </div>
+              </div>
+            </form>
+          </wz-step>
+          <wz-step class="ng-hide">
+            <div class="form-group">
+              <div class="control-label">Sport You Play <span class="mandatory">*</span></div>
+              <ul class="grid-view form-group">
+                <li data-ng-repeat="category in categories">
+                  <div class="radio">
+                    <input name="primarySport" type="radio" ng-model="category.selected" ng-change="checkOption()" id="category{{$index + 1}}">
+                    <label for="category{{$index + 1}}">
+                      <span class="img-svg">
+                        <img alt="" class="svg" ng-src="assets/categories/{{category.Icon}}.svg">
+                      </span>
+                      <span data-ng-bind="category.Name"></span> </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group btn-group-lg">
+              <div class="btn-toolbar btn-toolbar-right">
+                <button class="btn btn-primary btn-lg" data-target="#sportDetailsModal" data-toggle="modal">NEXT</button>
+              </div>
+            </div>
+          </wz-step>
+        </wizard>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sportDetailsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header modal-icon-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <span class="circle">
+        <svg class="svg-icons" width="40px" height="40px">
+          <use xlink:href="../assets/img/category.svg#americanFootballIco"></use>
+        </svg>
+        </span> </div>
+      <div class="modal-body">
+        <h3 class="text-center semibold">AMERICAN FOOTBALL</h3>
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">What Club <span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="Club Name">
+            <span class="error-block">Please Enter</span> </div>
+          <div class="form-group form-group-lg">
+            <div class="control-label">What League <span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="League Name">
+            <span class="error-block">Please Enter</span> </div>
+          <div class="form-group form-group-lg">
+            <div class="control-label">What Position <span class="mandatory">*</span></div>
+            <select data-chosen data-placeholder="Select Position" disable-search="true" class="form-control" on-focus>
+              <option>Position 1</option>
+              <option>Position 2</option>
+            </select>
+            <span class="error-block">Please Enter</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary" onclick="window.location='athlete/complete-your-profile.html'">NEXT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal End--> 
+<script src="../assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="../assets/js/vendor/angular.min.js"></script> 
+<script src="../assets/js/vendor/match-media.js"></script>
+<script src="../assets/js/vendor/bootstrap.min.js"></script> 
+<script src="../assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/angular-wizard.min.js"></script> 
+<script src="../assets/js/app.js"></script> 
+<script src="../assets/js/controllers.js"></script> 
+<script src="../assets/js/main.js"></script> 
+<script>
+$(function() {
+	$(".strength-bar > input").knob({
+		'draw':function() {$(this.i).val(this.cv + '%');}
+	});
+	$('#dateOfBirth').datepicker({
+		changeMonth: true,
+        changeYear: true
+	});
+	$(".sortable-panel").sortable({
+		containment: "parent"
+	}).disableSelection();
+
+
+//Range slider for distance
+  $("#sliderDistance").slider({
+    range: "min",
+    value: 1,
+    step: 0.1,
+    min: 0,
+    max: 3,
+    animate: true,
+    slide: function (event, ui) {
+        $(".changeDistValue").val(ui.value);
+    }
+  });
+  $(".changeDistValue").on("change",function(e){
+       $("#sliderDistance").slider("value",this.value);
+  });
+
+//Range slider for height
+  $("#sliderHight").slider({
+    range: "min",
+    value: 50,
+    step: 0.1,
+    min: 0,
+    max: 70,
+    animate: true,
+    slide: function (event, ui) {
+        $(".changeHightValue").val(ui.value);
+    }
+  });
+  $(".changeHightValue").on("change",function(e){
+       $("#sliderHight").slider("value",this.value);
+  });
+
+//Range slider for weight
+$("#sliderWeight").slider({
+    range: "min",
+    animate: true,
+    slide: function (event, ui) {
+        $(".changeWeightValue").val(ui.value);
+    }
+  });
+  $("#sliderWeight").slider('option',{min: 0, max: 100, value: 40, step: 0.1});
+  $(".changeWeightValue").on("change",function(e){
+       $("#sliderWeight").slider("value",this.value);
+  });
+});
+
+$(function() {
+   $('.time-ctrl input').focus(function(){
+	 var that = $(this);
+	 $('.time-ctrl').find('.input-group-btn-vertical > span').addClass('hide');
+	 $('#' + $(this).attr('data-role')).removeClass('hide');
+	 $('#hour .btn:first-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="hour"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal < 24) {
+		  $('[data-role="hour"]').val(currentVal + 1);
+		}
+	 });
+	 $('#hour .btn:last-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="hour"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal > 1) {
+		  $('[data-role="hour"]').val(currentVal - 1);
+		}
+	 });
+	 
+	 $('#minute .btn:first-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="minute"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal < 60) {
+		  $('[data-role="minute"]').val(currentVal + 1);
+		}
+	 });
+	 $('#minute .btn:last-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="minute"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal > 0) {
+		  $('[data-role="minute"]').val(currentVal - 1);
+		}
+	 });
+	 
+	 $('#second .btn:first-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="second"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal < 60) {
+		  $('[data-role="second"]').val(currentVal + 1);
+		}
+	 });
+	 $('#second .btn:last-of-type').on('click', function() {
+		var currentVal = parseInt($('[data-role="second"]').val(), 10);
+		if (!isNaN(currentVal) && currentVal > 0) {
+		  $('[data-role="second"]').val(currentVal - 1);
+		}
+	 });
+  });
+});
+
+//Autocomplete
+$(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#schoolId" ).autocomplete({
+      source: availableTags
+    });
+  });
+
+
+$("#endorsersList .scrollbox").scroll(function() {
+   if($("#endorsersList .scrollbox").scrollTop() + $("#endorsersList .scrollbox").height() == $("#endorsersList .scrollbox")[0].scrollHeight) {
+       alert("bottom!");
+   }
+});
+
+$('#endorsersModal').on('hide.bs.modal', function () {
+  $("#endorsersList .scrollbox").scrollTop(0);
+});
+
+/*window.onload=function() {
+	document.querySelector(".svg-sports").contentDocument.getElementsByTagName("svg")[0].setAttribute("fill", "#666");
+};*/
+
+</script>
+</body>
+</html>

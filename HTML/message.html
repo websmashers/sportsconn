@@ -1,0 +1,814 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-app="sportsConn" data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header header-after-login></header>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-default messagePanel">
+          <div class="message-left">
+            <div class="m-left-header"> <span class="msz-label">INBOX</span> 
+              <!-- visible-xs --> 
+              <div class="m-btn-toolbar">
+               <div class="dropdown">
+                  <a data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-sm"> <span class="text">More</span> <i class="caret"></i> </a>
+                  <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <li><a>Unread</a></li>
+                    <li><a>Archive</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+               </div>
+               <a class="btn btn-default btn-sm visible-xs" id="newMessage">
+                 <span class="icon">
+                    <svg class="svg-icons" width="17px" height="17px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#emailIco"></use>
+                    </svg>
+                  </span>
+               </a>
+             </div>
+            </div>
+            <div class="clear"></div>
+            <div class="m-search"> <a class="m-search-icon">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+              </svg>
+              </a>
+              <input type="text" class="m-search-input" value="" placeholder="Search">
+            </div>
+            <div class="m-left-scroll scrollbox">
+              <ul class="m-user-listing">
+                <li class="unread">
+                  <div class="m-user-thmb group-thumb-two"> <span><img src="assets/img/user-thmb.jpg" alt=""></span> <span><img src="assets/img/user-thmb.jpg" alt=""></span> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">11:40 am</span> <a class="m-new-msz">2 New</a>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson, Michael Morgan</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li class="one-to-one">
+                  <div class="m-user-thmb group-thumb"> <span><img src="assets/img/user-thmb.jpg" alt=""></span> <span><img src="assets/img/user-thmb.jpg" alt=""></span> <span><img src="assets/img/user-thmb.jpg" alt=""></span> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Yesterday</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson, Michael Morgan, Eric Curtis</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="m-user-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </div>
+                  <div class="m-msz-detail-right"> <span class="m-msz-time">Apr 26</span>
+                    <div class="m-msz-action"> <a class="msz-remove-icon" data-toggle="tooltip" data-placement="top" title="Remove" data-container="body">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#deleteIco"></use>
+                      </svg>
+                      </a> <a class="msz-archive-icon" data-toggle="tooltip" data-placement="top" title="Archive" data-container="body">
+                      <svg class="svg-icons" width="12px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#archiveIco"></use>
+                      </svg>
+                      </a> <a class="msz-read-icon" data-toggle="tooltip" data-placement="top" title="Mark as read / unread" data-container="body">
+                      <svg class="svg-icons" width="7px" height="7px">
+                        <use xlink:href="assets/img/sprite.svg#readIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                  <div class="m-msz-indetail"> <span class="m-ellipsis">Kevin Peterson</span>
+                    <div class="m-msz-short m-ellipsis">What is your plan, about</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="loader"></div>
+          </div>
+          <!-- Message Right Section -->
+          <div class="message-right overflow hidden-xs">
+            <div class="m-right-header">
+              <div class="row">
+              <div class="m-right-head-left col-xs-7 col-sm-6">
+                <div class="m-user-name">
+                  <div class="backto-list visible-xs" id="backTolist"> 
+                    <a class="back-icon">
+                      <svg class="svg-icons" width="15px" height="8px">
+                        <use xlink:href="assets/img/sprite.svg#backIco"></use>
+                      </svg>
+                    </a> 
+                  </div>
+                  <span class="m-name-list"> <span data-rel="group-usertip"> Ema, Watson </span> </span>
+                  <span class="edit-group-name">
+                    <button type="button" class="btn btn-sm btn-default" onclick="$('.m-edit-group-name').fadeIn();">
+                      <span class="icon">
+                        <svg class="svg-icons" width="15px" height="15px">
+                          <use xlink:href="assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
+                  <div class="m-edit-group-name">
+                    <div class="group-name-content">
+                      <div class="form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label text-left col-xs-6">Conversation Name</label>
+                          <div class="col-xs-6">
+                            <input type="text" class="form-control form-control-sm">
+                            <span class="error-block">Error message</span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label text-left col-xs-6">
+                            Conversation Picture
+                          </label>
+                          <div class="col-xs-6">
+                            <div class="group-pic-view pos-relative" style="display:none;"><i class="removemedia-icon"></i><img src="assets/img/dummy3.jpg" alt=""></div>
+                              <div class="browse-button">
+                                <button type="button" class="btn btn-primary btn-sm">BROWSE</button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="group-footer">
+                       <div class="btn-group btn-group-sm">
+                          <div class="btn-toolbar btn-toolbar-right">
+                            <button onclick="$('.m-edit-group-name').hide();" class="btn btn-default">CANCEL</button>
+                            <button onclick="$('.m-edit-group-name').hide();" class="btn btn-primary marleft10">DONE</button>
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="m-right-head-right col-xs-5 col-sm-6"> 
+                <div class="m-btn-toolbar">   
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-sm btn-default" data-toggle="dropdown"> <span class="icon">
+                    <svg class="svg-icons" width="18px" height="18px">
+                      <use xlink:href="assets/img/sprite.svg#settingsIco"></use>
+                    </svg>
+                    </span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                      <li><a data-toggle="modal" data-target="#addPeople">Add People</a></li>
+                      <li><a data-toggle="modal" data-target="#editParticipants">Edit Participants</a></li>
+                      <li><a data-toggle="modal" data-target="#deleteConversation">Delete Conversation</a></li>
+                    </ul>
+                  </div>
+
+                  <button type="button" class="btn btn-default btn-sm visible-xs" id="newMessage"> <span class="icon">
+                  <svg class="svg-icons" width="18px" height="18px">
+                    <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                  </svg>
+                  </span> </button>  
+
+                  <button type="button" class="btn btn-default btn-sm hidden-xs" onclick="$('.m-new-message').show();$('.m-conversation-content, .m-add-people-button').hide();"><span class="icon">
+                  <svg class="svg-icons" width="13px" height="13px">
+                    <use xlink:href="assets/img/sprite.svg#plusIco"></use>
+                  </svg>
+                  </span> <span class="text">New Message</span></button>
+
+                   
+                </div>
+              </div>
+
+              </div>
+
+            </div>
+            <div class="m-conversation">
+              <div class="loader"></div>
+              <aside class="m-new-message" style="display:none;"> <span class="m-message-to">To: </span>
+                <div class="m-autosuggest">
+                  <div id="sendMszto">
+                    <tags-input ng-model="tagsto" display-property="name" placeholder="Name" replace-spaces-with-dashes="false">
+                      <auto-complete source="loadFriendslist($query)" min-length="0" load-on-focus="true" load-on-empty="true" max-results-to-show="4" template="userDropdownTemplate"></auto-complete>
+                    </tags-input>
+                  </div>
+                  <script type="text/ng-template" id="userDropdownTemplate">
+                        <a href="javascript:void(0);" class="m-conv-list-thmb">
+                            <img ng-src="assets/img/{{data.thumb}}" alt="">
+                        </a>
+                        <a href="javascript:void(0);" class="m-u-list-name" ng-bind-html="$highlight($getDisplayText())"></a>
+                     </script> 
+                </div>
+              </aside>
+              <div class="m-conversation-block scrollbox">
+                <div class="m-conversation-content"> <abbr class="conv-started">Conversation started 10 Nov 2014</abbr>
+                  <ul class="m-conversation-list">
+                    <li> <a class="remove-icon">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> <a href="javascript:void(0);" class="m-conv-list-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </a>
+                      <div class="overflow m-conv-msz"> <a href="javascript:void(0);">Ema Qureshi</a> <span class="m-msz-time">11:40 am</span>
+                        <div class="m-msz-text">Visited the old Museum, It was pretty neat, Missed You!</div>
+                      </div>
+                    </li>
+                    <li> <a class="remove-icon">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> <a href="javascript:void(0);" class="m-conv-list-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </a>
+                      <div class="overflow m-conv-msz"> <a href="javascript:void(0);">Ema Qureshi</a> <span class="m-msz-time">11:40 am</span>
+                        <div class="m-msz-text">Visited the old Museum, It was pretty neat, Missed You!</div>
+                      </div>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="m-conv-list-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </a>
+                      <div class="overflow m-conv-msz"> <a href="javascript:void(0);">Ema Qureshi</a> <span class="m-msz-time">11:40 am</span>
+                        <div class="m-msz-text">Yelo file</div>
+                        <div class="m-attached-file"> <span class="m-attached-icon">
+                          <svg class="svg-icons" width="15px" height="20px">
+                            <use xlink:href="assets/img/sprite.svg#fileIco"></use>
+                          </svg>
+                          </span> <span class="filename">MyProfile.mp3</span> <a href="javascript:void(0);">Download</a> </div>
+                      </div>
+                    </li>
+                    <li class="m-conv-date"><span>13 Nov 2014</span></li>
+                    <li> <a href="javascript:void(0);" class="m-conv-list-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </a>
+                      <div class="overflow m-conv-msz"> <a href="javascript:void(0);">Ema Qureshi</a> <span class="m-msz-time">11:40 am</span>
+                        <div class="m-msz-text">Hi How are you,</div>
+                        <ul class="m-msz-attached lightGallery">
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="m-conv-list-thmb"> <img src="assets/img/user-thmb.jpg" alt=""> </a>
+                      <div class="overflow m-conv-msz"> <a href="javascript:void(0);">Ema Qureshi</a> <span class="m-msz-time">11:40 am</span>
+                        <div class="m-msz-text">Hi How are you,</div>
+                        <ul class="m-msz-attached lightGallery">
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                          <li class="attached-list" data-src="assets/img/dummy-img.jpg"> <img src="assets/img/dummy-img.jpg" alt=""> </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="m-group-activity"> <span class="m-msz-time pull-right">11:40 am</span>
+                      <div>You removed <a title="Ashish Choudhary" data-toggle="tooltip"> Ashish Choudhary</a> from the conversation. </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--  Write a Reply  -->
+            <div class="clear"></div>
+            <div class="m-write-reply">
+              <div class="m-write-reply-inner">
+                <div class="m-write-msz">
+                  <textarea name="" placeholder="Write a Reply"></textarea>
+                </div>
+                <div class="m-attachment-view mCustomScrollbar scrollbox " style="display:none;">
+                  <div class="loader" style="width:24px; height:24px; margin:-12px 0 0 -12px;"></div>
+                  <ul class="m-file-attached-list" style="display:none;">
+                    <li> <a class="m-attached-icon2">
+                      <svg class="svg-icons" width="15px" height="20px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#fileIco"></use>
+                      </svg>
+                      </a> Myportfolio.pdf <span class="remove-attached-icon pull-right"> <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> </span> </li>
+                    <li> <a class="m-attached-icon2">
+                      <svg class="svg-icons" width="15px" height="20px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#fileIco"></use>
+                      </svg>
+                      </a> Myportfolio.pdf <span class="remove-attached-icon pull-right"> <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> </span> </li>
+                    <li> <a class="m-attached-icon2">
+                      <svg class="svg-icons" width="15px" height="20px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#fileIco"></use>
+                      </svg>
+                      </a> Myportfolio.pdf <span class="remove-attached-icon pull-right"> <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> </span> </li>
+                    <li> <a class="m-attached-icon2">
+                      <svg class="svg-icons" width="15px" height="20px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#fileIco"></use>
+                      </svg>
+                      </a> Myportfolio.pdf <span class="remove-attached-icon pull-right"> <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> </span> </li>
+                  </ul>
+                  <div class="m-media-attached-list" data-scroll="scrollY" style="display:none;">
+                    <ul class="attachedList">
+                      <li> <img src="assets/img/dummy-img1.jpg" alt="">
+                        <div class="m-hoveraction"> <a class="removemedia-icon">
+                          <svg class="svg-icons" width="10px" height="10px">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                          </svg>
+                          </a> </div>
+                      </li>
+                      <li> <img src="assets/img/dummy-img1.jpg" alt="">
+                        <div class="m-hoveraction"> <a class="removemedia-icon">
+                          <svg class="svg-icons" width="10px" height="10px">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                          </svg>
+                          </a> </div>
+                      </li>
+                      <li> <img src="assets/img/dummy-img1.jpg" alt="">
+                        <div class="m-hoveraction"> <a class="removemedia-icon">
+                          <svg class="svg-icons" width="10px" height="10px">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                          </svg>
+                          </a> </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="m-attachment-block">
+                  <ul class="m-attachment-button">
+                    <li onclick="$('.m-file-attached-list, .m-attachment-view').show(); messageColresize();"> <a class="addfile-icon">
+                      <svg class="svg-icons" width="23px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#attechIco"></use>
+                      </svg>
+                      </a> Add Files
+                      <input type="file">
+                    </li>
+                    <li onclick="$('.m-media-attached-list, .m-attachment-view').show(); messageColresize();"> <a class="photo-icon">
+                      <svg class="svg-icons" width="18px" height="18px">
+                        <use xlink:href="assets/img/sprite.svg#imageIco"></use>
+                      </svg>
+                      </a> Add Photos
+                      <input type="file">
+                    </li>
+                  </ul>
+                  <button type="button" class="btn btn-primary btn-small pull-right"> Send </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearboth"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer>
+  <div class="container">
+    <ul class="nav nav-default">
+      <li><a>About</a></li>
+      <li><a>Privacy Policy</a></li>
+      <li><a>Terms &amp; Conditions</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <span class="copyright">&copy; SportsConn 2016</span></div>
+</footer>
+<!-- #EndLibraryItem --> 
+<!--Modal Start--> 
+<!-- Add People -->
+<div class="modal fade" id="addPeople" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <svg class="svg-icons" width="16px" height="16px">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+          </svg>
+        </button>
+        <h3 class="modal-title">Add People</h3>
+      </div>
+      <div class="modal-body">
+        <p>Enter the names of people you want to add. People you add will see all previous messages in this conversation.</p>
+        <div class="form-group">
+          <div class="form-group form-group-md">
+            <input type="text" placeholder="Add People..." class="form-control" on-focus="">
+          </div>
+        </div>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-primary" data-dismiss="modal">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Delete Conversation -->
+<div class="modal fade" id="deleteConversation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Delete This Entire Conversation?</h3>
+      </div>
+      <div class="modal-body">
+        <div class="m-confirm-content">
+          <p>Once you delete your copy of this conversation, it cannot be undone.</p>
+        </div>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-primary" data-dismiss="modal">DELETE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Participants -->
+<div class="modal fade" id="editParticipants" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true"> 
+  <!--modal-start-->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Edit Participants</h3>
+      </div>
+      <div class="modal-body no-pad">
+        <div class="panel-listing">
+          <div class="panel-body">
+            <div class="">
+              <ul class="list-group list-group-horizontal scrollbox scrollbox-md-height">
+                <li>
+                  <div class="media"> 
+                    <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media"> <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media"> <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media"> <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media"> <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="media"> <a class="close">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </a>
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                      <h3 class="media-heading"><a class="btn-link">Alex Railey</a></h3>
+                      <p>Football - GoalKeeper at Boston Club</p>
+                      <p class="gray-text">LA, California, USA</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right ">
+            <button class="btn btn-primary" data-dismiss="modal">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--modal-ends--> 
+</div>
+<!-- Custom tooltip -->
+<div class="customTooltip animated" data-rel="custom-tooltip">
+  <div class="tooltip-content mCustomScrollbar"> 
+    <!--tooltip content goes heer-->
+    <ul class="autosuggest-list">
+      <li>
+        <figure> <img src="assets/img/user-thmb.jpg" alt=""> </figure>
+        <a>Suresh Patidar</a> </li>
+      <li>
+        <figure> <img src="assets/img/user-thmb.jpg" alt=""> </figure>
+        <a>Suresh Patidar</a> </li>
+      <li>
+        <figure> <img src="assets/img/user-thmb.jpg" alt=""> </figure>
+        <a>Suresh Patidar</a> </li>
+      <li>
+        <figure> <img src="assets/img/user-thmb.jpg" alt=""> </figure>
+        <a>Suresh Patidar</a> </li>
+      <li>
+        <figure> <img src="assets/img/user-thmb.jpg" alt=""> </figure>
+        <a>Suresh Patidar</a> </li>
+    </ul>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/lightGallery.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function() {
+  $(".lightGallery").lightGallery();
+});
+</script>
+</body>
+</html>

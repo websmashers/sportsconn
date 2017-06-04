@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="CommandHandlerBase.php" server="//webserver/556-sportsconn/" local="131039018496034986" remote="131039018490000000" Dst="0" />
+<file name="CopyFiles.php" server="//webserver/556-sportsconn/" local="131039018496125046" remote="131039018490000000" Dst="0" />
+<file name="CreateFolder.php" server="//webserver/556-sportsconn/" local="131039018496205118" remote="131039018490000000" Dst="0" />
+<file name="DeleteFile.php" server="//webserver/556-sportsconn/" local="131039018496295179" remote="131039018490000000" Dst="0" />
+<file name="DeleteFolder.php" server="//webserver/556-sportsconn/" local="131039018496375224" remote="131039018490000000" Dst="0" />
+<file name="DownloadFile.php" server="//webserver/556-sportsconn/" local="131039018496455277" remote="131039018490000000" Dst="0" />
+<file name="FileUpload.php" server="//webserver/556-sportsconn/" local="131039018496535331" remote="131039018490000000" Dst="0" />
+<file name="GetFiles.php" server="//webserver/556-sportsconn/" local="131039018496605381" remote="131039018490000000" Dst="0" />
+<file name="GetFolders.php" server="//webserver/556-sportsconn/" local="131039018496685435" remote="131039018490000000" Dst="0" />
+<file name="Init.php" server="//webserver/556-sportsconn/" local="131039018496755479" remote="131039018490000000" Dst="0" />
+<file name="LoadCookies.php" server="//webserver/556-sportsconn/" local="131039018496815520" remote="131039018490000000" Dst="0" />
+<file name="MoveFiles.php" server="//webserver/556-sportsconn/" local="131039018496905583" remote="131039018490000000" Dst="0" />
+<file name="QuickUpload.php" server="//webserver/556-sportsconn/" local="131039018496965615" remote="131039018490000000" Dst="0" />
+<file name="RenameFile.php" server="//webserver/556-sportsconn/" local="131039018497045668" remote="131039018490000000" Dst="0" />
+<file name="RenameFolder.php" server="//webserver/556-sportsconn/" local="131039018497145751" remote="131039018490000000" Dst="0" />
+<file name="Thumbnail.php" server="//webserver/556-sportsconn/" local="131039018497215783" remote="131039018490000000" Dst="0" />
+<file name="XmlCommandHandlerBase.php" server="//webserver/556-sportsconn/" local="131039018497315850" remote="131039018490000000" Dst="0" />
+</dwsync>

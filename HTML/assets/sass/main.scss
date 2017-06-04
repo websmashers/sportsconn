@@ -1,0 +1,79 @@
+/*! Bootstrap v3.3.6 */
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+//fonts
+@import "bootstrap/fonts";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+// Core CSS
+@import "bootstrap/icons";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/loader";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+@import "bootstrap/footer";
+@import "bootstrap/nodata-message";
+@import "bootstrap/cover-image";
+@import "bootstrap/edit-items";
+@import "bootstrap/post-comment";
+@import "bootstrap/polls";
+@import "bootstrap/message";
+@import "bootstrap/filter";
+@import "bootstrap/static-pages";
+@import "bootstrap/video";
+@import "bootstrap/chart";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+@import "bootstrap/datepicker";
+@import "bootstrap/scroll";
+@import "bootstrap/jquery-ui-reset";
+@import "bootstrap/draggable";
+@import "bootstrap/range-slider";
+@import "bootstrap/croper";
+@import "bootstrap/autocomplete";
+@import "bootstrap/skills";
+@import "bootstrap/accordion";
+@import "bootstrap/jcarousel.responsive";
+@import "bootstrap/404-page";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+@import "bootstrap/extra";
+
+//light gallery
+@import "bootstrap/lightGallery";

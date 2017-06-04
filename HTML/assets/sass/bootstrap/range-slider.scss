@@ -1,0 +1,220 @@
+/* Jquery UI
+----------------------------------*/
+.ui-slider {
+  position: relative;
+  text-align: left;
+}
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+
+/* support: IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+
+.ui-slider-horizontal{height:10px;}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.3em;
+  margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+.ui-slider-vertical {
+  width: .8em;
+  height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+  left: -.3em;
+  margin-left: 0;
+  margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+/* Slider custom theme css */
+.ui-slider{
+  background-color:$gray-light;
+  @include border-left-radius(6px);
+  @include border-right-radius(6px);
+  .ui-slider-range {
+    background:$brand-default;
+    @include border-left-radius(6px);
+    @include border-right-radius(6px);
+  }
+  .ui-slider-handle{
+    background:url(../../assets/img/sprite.png) no-repeat -350px 0 #fff;      
+    border: 2px solid #fff;
+    border-radius: 50%;
+    outline: none;
+    top:-6px;
+    @include square(22px);
+    
+  }
+  .ui-value-handle{
+    position:absolute; 
+    top: -40px;
+    width: 48px;
+    text-align: center;
+    margin-left: -16px;
+    background: #fff;
+    border: 1px solid $gray-light;
+    @include box-shadow(0px 0px 2px $gray-light);
+    .form-control{
+      text-align:center;
+      border:none;
+      height:28px;
+    }
+    &:after, &:before {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }  
+    &:after {
+      border-color:tranparent;
+      border-top-color: #fff;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+    &:before {
+      border-color:tranparent;
+      border-top-color:$gray-light;
+      border-width: 9px;
+      margin-left: -9px;
+    }
+  }
+}
+.range-slider{
+  border:1px solid $gray-light;
+  border-radius:$border-radius-base; 
+  padding:15px;
+  position:relative
+}
+.range-bar{
+  display:table;
+  width:100%;
+  > .range-min, .range-max, .range-strip{
+    display:table-cell;
+    text-align:center;
+    white-space:nowrap;
+    line-height:1;
+    font-weight:$font-weight-semibold;
+  }  
+  .range-min{text-align:left; padding-right:15px;}
+  .range-strip{text-align:center; width:100%;}
+  .range-max{text-align:right; padding-left:15px;}
+}
+
+
+/* Timing-slider*/
+.time-bar{
+  margin-bottom:0;
+  padding-left:0;
+  
+  > li{
+    position: relative;
+  }  
+  .startRunIcn,.endRunIcn{
+    position:absolute; 
+  > .svg-icons {
+      fill:$brand-default;
+    } 
+  }
+  .startRunIcn{    
+    left:0;
+  }
+  .endRunIcn{
+    right:0;
+  }
+  .time-track{
+  vertical-align:bottom;
+    >img{
+      max-width:100%;
+      height:24px;
+    }
+  }  
+}
+
+.time-ctrl {
+  display: table;
+  margin: 0 auto;
+  .input-group-input-vertical {
+    display: table;
+    .form-control {
+      width:48px;
+      height:44px;
+      text-align: center;
+      float: none;
+      border: none;
+      font-size:$font-size-large+2;
+      font-weight: $font-weight-light;
+      padding-left: 5px;
+      padding-right: 5px;
+      display: table-cell;
+      @media (max-width:$screen-xs-max) {
+        width:34px;
+        font-size:$font-size-base+2; 
+      }
+
+    }    
+    .time-addon {
+      display: table-cell;
+      vertical-align: middle;
+      background-color: #eee;
+      color: #999;
+      border: 1px solid #CED1CC;
+      border-top:none;
+      border-bottom:none;
+      padding:0 5px;
+    }
+  }
+  .input-group-btn-vertical {
+    .btn {
+      height:24px;
+      margin-left:-2px;
+    }
+  }
+
+}
+
+
+
+

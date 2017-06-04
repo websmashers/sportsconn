@@ -1,0 +1,415 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header data-header-after-login></header><!-- /header -->
+<div class="cover-container">
+  <div class="cover-image">
+    <div class="draggable" style="display:none;"><img src="assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+    <div class="cover-fill" id="coverViewimg"><img src="assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+  </div>
+  <div class="profile-details">
+    <div class="container">
+      <figure class="profile-pic">
+        <a><img src="assets/img/profile-img.jpg" width="170" height="170" class="img-thumbnail" alt=""/></a> </figure>
+      <div class="details">
+        <div class="editable-panel">
+          <div class="editable-item edit-lg">
+            <h2 class="title semibold">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight">Jason Thomas</span> </h2>
+          </div>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item">
+            <h3 class="sub-title">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="10px" height="10px">
+                <use xlink:href="assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight">@Jason</span> </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-details">
+  <div class="container">
+    <div class="row details">
+      <aside class="col-sm-6">
+        <div class="editable-panel">
+          <div class="editable-item">
+            <button class="btn edit-btn">
+            <svg class="svg-icons" width="10px" height="10px">
+              <use xlink:href="assets/img/sprite.svg#editIco"></use>
+            </svg>
+            </button>
+            <div class="edit-highlight">
+              <ul class="list-group-inline">
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="16px">
+                    <use xlink:href="assets/img/sprite.svg#profIco"></use>
+                  </svg>
+                  </span> <span class="text">Fan</span></li>
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                  </svg>
+                  </span> <span class="text">LA, California, USA</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <aside class="col-sm-6">
+        <ul class="list-group-inline breack-list">
+          <li>120<small class="block">Followers</small></li>
+          <li>140<small class="block">Following</small></li>
+          <li>224<small class="block">Connections</small></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSecond">ABOUT</button>
+    </div>
+    <div id="navbarSecond" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a>ABOUT</a></li>
+        <li><a>ACTIVITY</a></li>
+        <li class="active"><a>PAGES</a></li>
+        <li><a>MEDIA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <aside class="col-sm-4 col-sm-push-8">
+        <div class="panel panel-default">
+          <div class="panel-header"><h4 class="panel-title">CREATE NEW PAGE</h4></div>
+          <div class="panel-body">
+            <ul class="list-group">
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/create-page.jpg" width="48" height="48" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <p class="semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                   <button class="btn btn-primary btn-sm" onclick="location.href = 'create-page.html'"><span class="icon">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#plusIco"></use>
+                    </svg>
+                    </span> <span class="text">CREATE PAGE</span></button>
+
+                </div>
+                
+             </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-post">
+          <div class="panel-header"><h4 class="panel-title">SUGGESTED PAGES</h4></div>
+            <ul class="list-group user-list">
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">Sports Events</a></h4>
+                   <ul class="list-group-inline">
+                      <li> <span class="bullet">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">2 Followers</span>
+                      </li>
+                    </ul>
+                   <a class="btn btn-info btn-xs">Like</a>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">Best Players</a></h4>
+                   <ul class="list-group-inline">
+                      <li> <span class="bullet">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">24 Followers</span>
+                      </li>
+                    </ul>
+                   <a class="btn btn-info btn-xs">Like</a>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">Sports Designs</a></h4>
+                   <ul class="list-group-inline">
+                      <li> <span class="bullet">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">21 Followers</span>
+                      </li>
+                    </ul>
+                   <a class="btn btn-info btn-xs">Like</a>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+            </ul>
+            <div class="panel-footer text-center">
+              <a class="btn-link">VIEW MORE</a>
+            </div>
+        </div>
+      </aside>
+      <div class="col-sm-8 col-sm-pull-4">     
+        <div class="page-title row">
+          <aside class="col-sm-4">
+            <h4 class="page-header semibold">PAGES</h4>
+          </aside>
+          <aside class="col-sm-4">
+            <div class="input-group form-group">
+              <input type="text" placeholder="Search" class="form-control input-sm" data-on-focus>
+              <span class="input-group-addon">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+              </svg>
+              </span> </div>
+          </aside>
+          <aside class="col-sm-4 form-group-sm">
+            <select data-chosen data-placeholder="Sort By Type" disable-search="true" class="form-control" on-focus>
+              <option>Name</option>
+              <option>Type</option>
+              <option>Activity Date</option>
+            </select>
+          </aside>
+        </div> 
+        <div class="panel panel-listing">
+          <div class="panel-heading">
+            <h4 class="panel-title">PAGES I MANAGE</h4>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group user-list">
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">FA Barcelona Fans Club</a></h4>
+                   <ul class="list-group-inline">
+                      <li>
+                        <span class="text"><span class="gray-text">By</span> <a>William Turner</a></span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                        </svg>
+                        </span> <span class="text">20 Likes</span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">2 Followers</span>
+                      </li>
+                      <li><span class="text"><span class="gray-text">Last Activity :</span> Jan 15, 2016</span></li>
+                    </ul>
+                    <p>This is to collaborate ideas to make this project better each day.</p>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">FA Barcelona Fans Club</a></h4>
+                   <ul class="list-group-inline">
+                      <li>
+                        <span class="text"><span class="gray-text">By</span> <a>William Turner</a></span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                        </svg>
+                        </span> <span class="text">20 Likes</span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">2 Followers</span>
+                      </li>
+                      <li><span class="text"><span class="gray-text">Last Activity :</span> Jan 15, 2016</span></li>
+                    </ul>
+                    <p>This is to collaborate ideas to make this project better each day.</p>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+            </ul>
+            <div class="panel-bottom seprator">
+              <a>
+                <span class="text">LOAD MORE</span>
+                <i class="caret"></i>
+              </a>
+            </div>
+          </div>
+          <div class="panel-heading">
+            <h4 class="panel-title">PAGES I FOLLOW</h4>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group user-list">
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">FA Barcelona Fans Club</a></h4>
+                   <ul class="list-group-inline">
+                      <li>
+                        <span class="text"><span class="gray-text">By</span> <a>William Turner</a></span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                        </svg>
+                        </span> <span class="text">20 Likes</span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">2 Followers</span>
+                      </li>
+                      <li><span class="text"><span class="gray-text">Last Activity :</span> Jan 15, 2016</span></li>
+                    </ul>
+                    <p>This is to collaborate ideas to make this project better each day.</p>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+             <li class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""/></figure>
+                <div class="media-body">
+                   <h4 class="media-heading"><a class="btn-link">FA Barcelona Fans Club</a></h4>
+                   <ul class="list-group-inline">
+                      <li>
+                        <span class="text"><span class="gray-text">By</span> <a>William Turner</a></span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                        </svg>
+                        </span> <span class="text">20 Likes</span>
+                      </li>
+                      <li> <span class="bullet gray-text">
+                        <svg class="svg-icons" width="14px" height="12px">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">2 Followers</span>
+                      </li>
+                      <li><span class="text"><span class="gray-text">Last Activity :</span> Jan 15, 2016</span></li>
+                    </ul>
+                    <p>This is to collaborate ideas to make this project better each day.</p>
+                </div>
+                <div class="media-right">
+                   <a class="close">
+                      <svg class="svg-icons" width="10px" height="10px">
+                         <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                   </a>
+                </div>
+             </li>
+            </ul>
+            <div class="panel-bottom">
+              <a>
+                <span class="text">LOAD MORE</span>
+                <i class="caret"></i>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer> 
+<!--Modal Start-->
+
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function() {
+	
+});
+</script>
+</body>
+</html>

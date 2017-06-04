@@ -1,0 +1,269 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-app="sportsConn" data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div header-after-login></div>
+<section class="content-section">
+  <div class="container">
+    <h3 class="page-header semibold">FOLLOWERS
+      <span class="text sub-page-header"><span class="gray-base">2,000</span> <span class="gray-text">Followers</span></span>
+    </h3>  
+
+    <div class="row">
+      <div class="col-sm-12 col-md-10">
+        <div class="panel panel-listing">
+           <div class="panel-heading panel-search-heading">
+              <div class="row">
+                 <div class="col-sm-6">
+                  <ul class="nav-dot">
+                    <li>
+                      <span class="checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll">Select All</label>
+                      </span>
+                    </li>
+                    <li><a>
+                      <svg class="svg-icons" width="16px" height="17px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                      </svg>
+                      <span class="count">Message</span></a></li>
+                      <li><a>Remove</a></li>
+                  </ul>
+                 </div>
+                 <div class="col-sm-6">
+                    <div class="post-search-ctrl clearfix" data-addclass>
+                       <a class="search" ng-toggle-class="open">
+                          <svg class="svg-icons" width="14px" height="14px">
+                             <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+                          </svg>
+                       </a>
+                       <div class="post-search form-group">
+                        <div class="input-group">
+                          <input type="text" ng-model="searchPost" placeholder="Search" class="form-control input-sm" data-on-focus>
+                          <a class="input-group-addon" ng-click="searchPost = null" ng-toggle-class="open">
+                              <svg class="svg-icons" width="10px" height="10px">
+                                <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                              </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="panel-heading">
+              <h4 class="panel-title">PAGE MANAGER (4)</h4>
+           </div>
+           <div class="panel-body">
+              <div class="row">
+                 <ul class="list-group list-group-horizontal">
+                    <li class="col-sm-6">
+                       <div class="media">
+                          <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                          <div class="media-body">
+                             <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                             <p>American Soccer - GoalKeeper at Eagle Club</p>
+                              <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Admin</span> <i class="caret"></i></a>
+                              <ul class="dropdown-menu">
+                                 <li><a>Remove Admin Rights</a></li>
+                                 <li><a>Remove From Followers</a></li>
+                              </ul>
+                          </div>
+                       </div>
+                    </li>
+                    <li class="col-sm-6">
+                       <div class="media">
+                          <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                          <div class="media-body dropdown">
+                             <h3 class="media-heading"><a class="btn-link">Aamit SK</a></h3>
+                             <p>American Soccer - GoalKeeper at Eagle Club</p>
+                             <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Creator</span> <i class="caret"></i></a>
+                             <ul class="dropdown-menu">
+                                <li><a>Remove Admin Rights</a></li>
+                                <li><a>Remove From Followers</a></li>
+                             </ul>
+                          </div>
+                       </div>
+                    </li>
+                    <li class="col-sm-6">
+                       <div class="media">
+                          <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                          <div class="media-body">
+                             <h3 class="media-heading"><a class="btn-link">Amber Chin</a></h3>
+                             <p>American Soccer - GoalKeeper at Eagle Club</p>
+                                <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Admin</span> <i class="caret"></i></a>
+                                <ul class="dropdown-menu">
+                                   <li><a>Remove Admin Rights</a></li>
+                                   <li><a>Remove From Followers</a></li>
+                                </ul>
+                          </div>
+                       </div>
+                    </li>
+                    <li class="col-sm-6">
+                       <div class="media">
+                          <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                          <div class="media-body dropdown">
+                             <h3 class="media-heading"><a class="btn-link">Aamit SK</a></h3>
+                             <p>American Soccer - GoalKeeper at Eagle Club</p>
+                             <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Creator</span> <i class="caret"></i></a>
+                             <ul class="dropdown-menu">
+                                <li><a>Remove Admin Rights</a></li>
+                                <li><a>Remove From Followers</a></li>
+                             </ul>
+                          </div>
+                       </div>
+                    </li>
+                 </ul>
+              </div>
+           </div>
+           <div class="panel-heading">
+              <h4 class="panel-title">FOLLOWERS (1,996)</h4>
+           </div>
+           <div class="panel-body">
+            <div class="row">
+              <ul class="list-group list-group-horizontal">
+                 <li class="col-sm-6">
+                    <div class="media">
+                       <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                       <div class="media-body">
+                          <h3 class="media-heading"><a class="btn-link">Adam Hilary</a></h3>
+                          <p>Rugby - Halfback at LA Pirates</p>
+                           <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Follower</span> <i class="caret"></i></a>
+                           <ul class="dropdown-menu">
+                              <li><a>Can not add Posts</a></li>
+                              <li><a>Make Admin</a></li>
+                              <li><a>Remove From Followers</a></li>
+                           </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li class="col-sm-6">
+                    <div class="media">
+                       <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                       <div class="media-body">
+                          <h3 class="media-heading"><a class="btn-link">Adam Hilary</a></h3>
+                          <p>Rugby - Halfback at LA Pirates</p>
+                          <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Follower</span> <i class="caret"></i></a>
+                           <ul class="dropdown-menu">
+                              <li><a>Can not add Posts</a></li>
+                              <li><a>Make Admin</a></li>
+                              <li><a>Remove From Followers</a></li>
+                           </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li class="col-sm-6">
+                    <div class="media">
+                       <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                       <div class="media-body">
+                          <h3 class="media-heading"><a class="btn-link">Adam Hilary</a></h3>
+                          <p>Rugby - Halfback at LA Pirates</p>
+                          <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Follower</span> <i class="caret"></i></a>
+                           <ul class="dropdown-menu">
+                              <li><a>Can not add Posts</a></li>
+                              <li><a>Make Admin</a></li>
+                              <li><a>Remove From Followers</a></li>
+                           </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li class="col-sm-6">
+                    <div class="media">
+                       <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="70" height="70" class="img-rounded" alt=""></figure>
+                       <div class="media-body">
+                          <h3 class="media-heading"><a class="btn-link">Adam Hilary</a></h3>
+                          <p>Rugby - Halfback at LA Pirates</p>
+                          <a class="gray-text" data-toggle="dropdown" aria-expanded="false"><span class="text">Follower</span> <i class="caret"></i></a>
+                           <ul class="dropdown-menu">
+                              <li><a>Can not add Posts</a></li>
+                              <li><a>Make Admin</a></li>
+                              <li><a>Remove From Followers</a></li>
+                           </ul>
+                       </div>
+                    </div>
+                 </li>
+              </ul>
+              <div class="load-more">
+                 <span class="gray-text semibold">Loading</span><i class="loading"></i>
+              </div>
+            </div> 
+           </div>
+        </div>
+      </div>
+      <div class="col-md-2 hidden-xs hidden-sm">
+        <figure class="google-ads"><img src="assets/img/google-ads4.jpg" width="148" height="556" alt=""></figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer>
+  <div class="container">
+    <ul class="nav nav-default">
+      <li><a>About</a></li>
+      <li><a>Privacy Policy</a></li>
+      <li><a>Terms &amp; Conditions</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <span class="copyright">&copy; SportsConn 2016</span></div>
+</footer>
+<!-- #EndLibraryItem --> 
+<!--Modal Start-->
+<div id="removeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <h3 class="lead">Are you sure you want to remove all the connections ?</h3>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-primary">REMOVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function() {
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header"> <a class="navbar-brand" href="home.html">
+        <svg class="svg-icons">
+          <use xlink:href="assets/img/sprite.svg#logoIco"></use>
+        </svg>
+        </a> </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-controls="navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      <div id="navbar1" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a>ABOUT SPORTSCONN</a></li>
+          <li><a>JOIN NOW</a></li>
+          <li><a>LOGIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<section class="static-banner" data-banner data-imgsrc="assets/img/contact-bg.jpg">
+  <div class="container">
+    <div class="banner-content">
+      <h2>CONTACT US</h2>
+    </div>
+  </div>
+</section>
+<section class="main-section">
+  <div class="container">
+    <div class="panel panel-contact">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <form data-rel="form">
+              <div class="form-group form-group-lg">
+                <div class="control-label">Full Name<span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="">
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Email<span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="">
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Contact Number<span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="">
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Subject<span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="">
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg">
+                <div class="control-label">Message<span class="mandatory">*</span></div>
+                <textarea class="form-control" rows="5"></textarea>
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="btn-group btn-group-lg">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-primary">SUBMIT</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-6">
+            <h3 class="semibold">GET IN TOUCH</h3>
+            <ul class="list-group address-list">
+              <li class="media">
+                <div class="media-left"> <span class="circle circle-line">
+                  <svg class="svg-icons" width="10px" height="16px">
+                    <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                  </svg>
+                  </span> </div>
+                <div class="media-body">
+                  <p class="text-muted">OFFICE</p>
+                  58 A, East Madison St Monica, MD, Australia 4508 Sydney 012 Australia. </div>
+              </li>
+              <li class="media">
+                <div class="media-left"> <span class="circle circle-line">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#phoneIco"></use>
+                  </svg>
+                  </span> </div>
+                <div class="media-body">
+                  <p class="text-muted">PHONE NUMBER</p>
+                  (+012) 0803 - 080 - 3081 </div>
+              </li>
+              <li class="media">
+                <div class="media-left"> <span class="circle circle-line">
+                  <svg class="svg-icons" width="15px" height="15px">
+                    <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                  </svg>
+                  </span> </div>
+                <div class="media-body">
+                  <p class="text-muted">EMAIL</p>
+                  <a href="mailto:emailsportsconn@gmail.com">emailsportsconn@gmail.com</a> </div>
+              </li>
+            </ul>
+            <div class="contact-map"> 
+              <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+              <div class="google-map">
+                <div class="map-canvas" id="gmap_canvas"></div>
+                <div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div>
+                <div><small><a href="http://www.autohuren.world/locaties/amsterdam/">auto huren amsterdam</a></small></div>
+                <style>
+#gmap_canvas img{max-width:none!important;background:none!important}
+</style>
+              </div>
+              <script type="text/javascript">function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(40.76651529999999,-74.41595519999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.76651529999999,-74.41595519999998)});infowindow = new google.maps.InfoWindow({content:'<strong>SportsConn</strong><br>58 A, East Madison St Monica, MD, Australia 4508 Sydney 012 Australia<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.close(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer>
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script>
+</body>
+</html>

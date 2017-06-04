@@ -1,0 +1,253 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div data-header-after-login></div>
+<section class="content-section">
+  <div class="google-ads"><figure><img src="assets/img/google-ads3.jpg" width="728" height="90" alt=""/></figure><br></div>
+  <div class="container">
+    <div class="row">
+      <aside class="col-sm-4 col-md-3">
+      	<div class="panel">
+        	<div class="panel-header"><h5 class="panel-title">FEATURED ATHELETE</h5></div>
+            <a class="thumbnail">
+            <figure class="img-panel"><img src="assets/img/thumbnail3.jpg" class="img-full" width="232" height="150" alt=""/></figure>
+            <div class="caption text-center">
+              <figure class="img-thumbnail img-overlap"><img src="assets/img/thumb70x70.jpg" width="64" height="64" alt=""></figure>
+              <h4 class="semibold">Tommy Heinz <small class="block">@tommy</small></h4>
+              <ul class="list-group-inline">
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="15px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#rugbyIco"></use>
+                  </svg>
+                  </span> <span class="text">Rugby - fullback at fulham</span></li>
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="16px">
+                    <use xlink:href="assets/img/sprite.svg#profIco"></use>
+                  </svg>
+                  </span> <span class="text">Professional Athelete</span></li>
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                  </svg>
+                  </span> <span class="text">LA, California, USA</span></li>
+              </ul>
+              Sport (UK) or sports (US) are all forms of usually competitive physical activity or games.</div>
+          </a>
+        </div>
+        <div class="panel">
+        <div class="panel-header"><h5 class="panel-title">PLAY OF THE DAY</h5></div>
+        <div class="thumbnail thumbnail-default">
+            <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <a class="play-btn">
+              <svg class="svg-icons" width="12px" height="17px">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#playIco"></use>
+              </svg>
+              </a> </figure>
+            <div class="caption">
+              <h3 class="semibold">Finally the winter olympics back in canada</h3>
+              <ul class="list-group-inline list-group-justify">
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                  </svg>
+                  </span> <span class="text">1000</span></a></li>
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="20px" height="12px">
+                    <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+              </ul>
+            </div>
+          </div></div>
+      </aside>
+      <div class="col-sm-8 col-md-6">
+      	<div class="panel wall-post">
+        	<textarea class="form-control" rows="2" placeholder="What’s on your mind" data-type="wall-post"></textarea>
+            <div class="attached-panel ng-hide">
+            	<div class="attached-thumbs scrollbox-horizontal">
+                <div class="">
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                  <figure></figure>
+                </div>
+              </div>
+              <div class="caption"><input type="text" class="form-control" placeholder="Say something about these pictures"></div>
+            </div>
+            <div class="post-btn-group">
+            	<div class="pull-left">
+                   <div class="btn-circle">
+                      <div class="fileupload">
+                        <label for="addImg"></label>
+                        <span class="upload-btn">
+                        <svg class="svg-icons" width="18px" height="14px">
+                          <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                        </svg></span>
+                        <input type="file" id="addImg">
+                     </div>
+                   </div>
+                </div>
+                <div class="pull-right">
+                  <div class="dropup">
+                    <button class="btn btn-info btn-sm" type="button" id="postDropDown" data-toggle="dropdown"><span class="icon">
+                    <svg class="svg-icons" width="18px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                    </svg>
+                    </span> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown" data-getvalue="dropdown">
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="14px" height="14px">
+                          <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                        </svg>
+                        </span> <span class="text">Everyone</span></a></li>
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="18px" height="16px">
+                          <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                        </svg>
+                        </span> <span class="text">Friends</span></a></li>
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="14px" height="14px">
+                          <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                        </svg>
+                        </span> <span class="text">Only Me</span></a></li>
+                    </ul>
+                  </div>
+                  <button class="btn btn-primary btn-sm">POST</button>
+                </div>
+              </div>
+        </div>
+        <div class="post-search-ctrl clearfix" data-addclass>
+          <a class="search" ng-toggle-class="open">
+          	<svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+            </svg>
+          </a>
+          <div class="post-search form-group">
+            <div class="input-group">
+              <input type="text" ng-model="searchPost" placeholder="Search" class="form-control input-sm" data-on-focus>
+              <a class="input-group-addon" ng-click="searchPost = null" ng-toggle-class="open">
+				  <svg class="svg-icons" width="10px" height="10px">
+                    <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                  </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <div class="nodata-text"> <span class="nodat-icon"><img src="assets/img/activity-empty.png" width="220" height="118" alt=""/></span>
+              <p>There are no feeds to show. <br><a class="btn-link">Grow your network</a> here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="col-sm-3 hidden-xs hidden-sm">
+      	<div class="panel panel-post">
+        	<div class="panel-header"><h5 class="panel-title">PEOPLE YOU MAY KNOW</h5></div>
+            <ul class="list-group user-list">
+            	<li class="media">
+                	<figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt=""/></figure>
+                    <div class="media-body">
+                    	<h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                        <p>American Soccer - GoalKeeper at Eagl...</p>
+                        <a class="btn btn-info btn-xs">CONNECT</a>
+                    </div>
+                </li>
+                <li class="media">
+                	<figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt=""/></figure>
+                    <div class="media-body">
+                    	<h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                        <p>American Soccer - GoalKeeper at Eagl...</p>
+                        <a class="btn btn-info btn-xs">CONNECT</a>
+                    </div>
+                </li>
+                <li class="media">
+                	<figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt=""/></figure>
+                    <div class="media-body">
+                    	<h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                        <p>American Soccer - GoalKeeper at Eagl...</p>
+                        <a class="btn btn-info btn-xs">CONNECT</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="panel-footer text-center">
+            	<a class="btn-link">VIEW MORE</a>
+            </div>
+        </div>
+        <div class="panel panel-brand">
+        	<div class="panel-header"><h5 class="panel-title">TRENDING</h5></div>
+            <div class="panel-body">
+               <ul class="list-custom">
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+              </ul>
+            </div>
+            <div class="panel-footer text-center">
+            	<a class="btn-link">View More</a>
+            </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer> 
+<!--Modal Start-->
+
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+  $(document).ready(function() {       
+    mainNav(2);     
+  });  
+</script>
+</body>
+</html>

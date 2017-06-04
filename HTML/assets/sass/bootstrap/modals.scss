@@ -1,0 +1,212 @@
+.modal-open,.modal-another{
+  overflow:hidden;
+}
+
+.modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    height:100%;
+    z-index: $zindex-modal;
+    -webkit-overflow-scrolling: touch;
+    outline:0;
+
+    & .modal-dialog {
+    @include translate(0, -25%);
+    @include transition-transform(0.3s ease-out);
+    }
+    &.in .modal-dialog{
+    @include translate(0, 0);
+    }
+
+    .modal-body .btn-group{
+    margin-top:30px;
+    }
+
+    &.fadeModal .modal-dialog {
+      @include opacity(0);
+      @include transition(opacity 0.3s ease-out);
+      @include translate(0, 0);
+    }
+    &.fadeModal.in .modal-dialog {
+      @include opacity(1);
+      @include translate(0, 0);
+    }
+    .modal-info{
+    background-color:$gray-lighter;
+    padding:20px 15px;
+    margin-bottom:20px;
+    h3{
+      margin-bottom:0;
+      @include font-weight($font-weight-normal);
+    }
+    }
+    .panel{
+      margin-bottom:0;
+
+      .panel-heading{
+          position:relative;
+
+          .close{
+              position:absolute;
+              right:15px;
+              top:15px;
+          }
+      }
+    }
+    .form-panel-group{
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        padding: 0;
+    }
+}
+.modal-open .modal,
+.modal-another .modal{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+.modal-content {
+  position: relative;
+  background-color: $modal-content-bg;
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  background-clip: padding-box;
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-background;
+  background-color: $modal-backdrop-bg;
+  
+  &.fade { @include opacity(0); }
+  &.in { @include opacity($modal-backdrop-opacity); }
+}
+
+.modal-header {
+  padding: $modal-title-padding;
+  @include clearfix;
+  position:relative;
+  background-color:$modal-header-bg;
+  color:#fff;
+  min-height:46px;
+  
+  &.transparent{
+	  
+	  .close .svg-icons{fill:$gray;}
+  }
+  
+  &.modal-icon-header{
+	  background-image:url(../img/star-bg.png);
+	  background-repeat:no-repeat;
+	  background-position:center;
+	  height:90px;
+	  margin-bottom:30px;
+	  
+	  .circle{position:absolute; left:50%; margin-left:-35px; bottom:-35px;}
+  }
+}
+
+.modal-header .close{
+	position:absolute;
+	right:20px;
+	top:50%;
+	margin-top:-8px;
+	
+	.svg-icons{fill:#fff;}
+}
+
+.modal-title {
+  margin: 0;
+  line-height:$modal-title-line-height;
+  @include font-weight($font-weight-semibold);
+  margin-right:16px;
+}
+
+.modal-body {
+  position: relative;
+  padding: $modal-inner-padding;
+  &.no-pad{
+    padding:0 0 20px;
+  }
+  @media (min-width: $screen-sm-min) {
+    &.lg-pad{
+      padding:40px;
+    }
+    &.p-b-50{
+      padding-bottom:50px;
+    }
+  }
+  + .modal-footer{padding-top:0;}
+}
+
+
+.modal-footer {
+  padding: $modal-inner-padding;
+  text-align: right;
+  @include clearfix;
+
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Scale up the modal
+@media (min-width: $screen-sm-min) {
+  .modal-dialog {
+    width: 480px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+  }
+
+  .modal-sm { width: $modal-sm; }
+  .modal-md { width: $modal-md; }
+  .modal-lg { width: $modal-md; }
+}
+
+@media (min-width: $screen-md-min) {
+  .modal-lg { width: $modal-lg; }
+}
+
+
+.modal-full{
+	width:100%;
+	margin:0;
+	@media (min-width: $screen-sm-min) {
+		height:100%;
+		
+		.modal-content{
+			height:100%;
+		}
+	}
+}
+/*Modal scrollbox height*/
+.modal-scrollbox-md-height{
+  max-height:420px;
+}

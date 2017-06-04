@@ -1,0 +1,189 @@
+/* Mixin */
+@mixin edit-size($editable-size) {
+  .edit-btn{
+	  width:$editable-size;
+	  height:$editable-size;
+  }
+  .edit-highlight{
+	  line-height:$editable-size;
+	  min-height:$editable-size;
+  }
+}
+.editable-panel + .editable-panel,
+.editable-panel + .list-group-inline{
+	margin-top:5px;
+}
+
+.editable-item{
+	display:inline-block;
+	position:relative;
+	
+	.edit-highlight{
+		display:inline-block;
+		padding-left:3px;
+		padding-right:3px;
+		margin-left:-3px;
+		margin-right:-3px;
+		vertical-align:top;
+		line-height:24px;
+		min-height:24px;
+		@include transition(background-color 0.2s ease);
+		
+		.tagged-list{
+			margin-top:0;
+			margin-bottom:0;
+		}
+	}
+	
+	.edit-btn{
+		display:none;
+		position:absolute;
+		top:0;
+		left:auto;
+		right:0;
+		margin-left:10px;
+		padding:7px;
+		width:24px;
+		height:24px;
+		@include opacity(0);
+		@include animation-duration(0.2s);
+		@include animation-fill-mode(both);
+	}	
+	.edit-popover{
+		display:block;
+		max-width:none;
+		width:$popover-max-width;
+		left:100%;
+		top:-5px;
+		margin-left:15px;		
+		@media (min-width: $screen-sm-min) {
+			&:after{
+				content:"";
+				@include arrow(left, #fff, 8px);
+				top:15px;
+			}
+			&:before{
+				content:"";
+				@include arrow(left, #ddd, 9px);
+				top:14px;
+			}
+		}
+		.form-control{min-width:140px;}
+		[class^="col-"], [class*=" col-"]{
+			.form-control{min-width:inherit;}
+		}		
+		@media (max-width: $screen-xs-max) {
+			top:100%;
+			left:0;
+			margin-top:5px;
+			margin-left:0;
+			
+			&:after{
+				content:"";
+				@include arrow(top, #fff, 8px);				
+				margin-left:10px;
+				
+			}
+			&:before{
+				content:"";
+				@include arrow(top, #ddd, 9px);
+				margin-left:9px;
+			}
+		}
+		
+	}
+}
+.details{
+	.editable-item{
+		.edit-popover{
+			@media (max-width: $screen-sm-max) {
+				left:50%;
+				top:100%;
+				margin-left:-($popover-max-width/2);
+				margin-top:5px;
+				
+				&:after{
+					content:"";
+					@include arrow(top, #fff, 8px);
+					left:50%;
+					margin-left:-8px;
+					border-top:none; 
+				}
+				&:before{
+					content:"";
+					@include arrow(top, #ddd, 9px);
+					left:50%;
+					margin-left:-9px;
+					border-top:none; 
+				}
+			}
+		}
+	}
+	
+}
+.cover-container, .cover-container .touch-edit{
+	@media (min-width: $screen-sm-min) {
+		.editable-item{
+			.edit-btn{
+				background-color:rgba(0,0,0,.50);
+				
+				.svg-icons{fill:#fff;}
+			}
+		}
+		
+		.edit-hover:hover .edit-highlight, .touch-edit .edit-highlight{
+			background-color:rgba(0,0,0,.50);
+			color:#fff;
+		}
+	}
+}
+
+/* Hover */
+.edit-hover:hover, .touch-edit{
+	.edit-btn{
+		display:block;
+		@include opacity(1);
+		@include animation-name(fadeIn);
+	}
+	.edit-highlight{
+		background-color:$gray-lighter;
+		color:$gray-dark;
+		
+		.tagged-list > li{
+			background-color:#fff;
+		}
+	}
+}
+
+.edit-hover, .touch-edit{
+	.editable-item{
+		padding-right:34px;
+		
+		.edit-highlight{cursor:pointer;}
+		
+		&:hover .edit-highlight,
+		&:hover .edit-highlight .list-group-inline > li{
+			color:$link-color;
+		}
+		&:hover .edit-btn .svg-icons,
+		&:hover .list-group-inline > li .bullet > .svg-icons,
+		&:hover .list-group-inline > li .bullet .svg.svg-sports,
+		&:hover .edit-highlight .bullet > .svg-icons,
+		&:hover .edit-highlight .bullet .svg.svg-sports{
+			fill:$link-color;
+		}
+		
+		&.edit-lg{
+			padding-right:44px;
+		}
+	}
+}
+/* Size */
+.edit-lg {
+  @include edit-size(34px);
+}
+.read-more,
+.read-less{
+	color:$gray-base;
+	@include font-weight($font-weight-semibold);
+}

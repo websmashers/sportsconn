@@ -1,0 +1,739 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>:: SportsConn ::</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="{{baseUrl}}">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body data-ng-controller="mainCtrl">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    <header data-header-after-login></header>
+    <!-- /header -->
+    <section class="content-section">
+        <div class="vertical-ads">
+            <figure><img src="assets/img/ice-me-logo.jpg" width="728" height="90" alt="" /></figure>
+            <br>
+        </div>
+        <div class="container">
+            <div class="row">
+                <aside class="col-sm-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h5 class="panel-title">FEATURED ATHELETE</h5>
+                        </div>
+                        <a class="thumbnail thumbnail-cover">
+                            <figure class="img-panel"><img src="assets/img/cover-default.jpg" class="img-full" width="232" height="140" alt="" /></figure>
+                            <div class="caption text-center">
+                                <figure class="img-thumbnail img-overlap"><img src="assets/img/profile-default.jpg" width="64" height="64" alt=""></figure>
+                                <h4 class="semibold">Tommy Heinz <small class="block">@tommy</small></h4>
+                                <ul class="list-group-inline">
+                                    <li> <span class="bullet">
+                <svg class="svg-icons" width="15px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#rugbyIco"></use>
+                </svg>
+                </span> <span class="text">Rugby - fullback at fulham</span></li>
+                                    <li> <span class="bullet">
+                <svg class="svg-icons" width="8px" height="16px">
+                  <use xlink:href="assets/img/sprite.svg#profIco"></use>
+                </svg>
+                </span> <span class="text">Professional Athelete</span></li>
+                                    <li> <span class="bullet">
+                <svg class="svg-icons" width="8px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                </svg>
+                </span> <span class="text">LA, California, USA</span></li>
+                                </ul>
+                                Sport (UK) or sports (US) are all forms of usually competitive physical activity or games.</div>
+                        </a>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h5 class="panel-title">PLAY OF THE DAY</h5>
+                        </div>
+                        <div class="thumbnail thumbnail-default">
+                            <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full">
+                                <a class="play-btn" data-target="#playVideoModal" data-toggle="modal">
+                                    <svg class="svg-icons" width="12px" height="17px">
+                                        <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                                    </svg>
+                                </a>
+                            </figure>
+                            <div class="caption">
+                                <h3 class="semibold">Finally the winter olympics back in canada</h3>
+                                <ul class="list-group-inline list-group-justify">
+                                    <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                  </svg>
+                  </span> <span class="text">1000</span></a></li>
+                                    <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="20px" height="12px">
+                    <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+                                    <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-sm-8 col-md-6">
+                    <div class="panel wall-post">
+                        <textarea class="form-control" rows="2" placeholder="What’s on your mind" data-type="wall-post"></textarea>
+                        <div class="attached-panel ng-hide">
+                            <div class="attached-thumbs scrollbox-horizontal">
+                                <div class="">
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                    <figure></figure>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <input type="text" class="form-control" placeholder="Say something about these pictures">
+                            </div>
+                        </div>
+                        <div class="post-btn-group">
+                            <div class="pull-left">
+                                <div class="btn-circle">
+                                    <div class="fileupload">
+                                        <label for="addImg"></label>
+                                        <span class="upload-btn">
+                  <svg class="svg-icons" width="18px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                  </svg>
+                  </span>
+                                        <input type="file" id="addImg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="dropup">
+                                    <button class="btn btn-info btn-sm" type="button" id="postDropDown" data-toggle="dropdown"><span class="icon">
+                <svg class="svg-icons" width="18px" height="16px">
+                  <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                </svg>
+                </span> <span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown" data-getvalue="dropdown">
+                                        <li><a><span class="icon">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                    </svg>
+                    </span> <span class="text">Everyone</span></a></li>
+                                        <li><a><span class="icon">
+                    <svg class="svg-icons" width="18px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                    </svg>
+                    </span> <span class="text">Friends</span></a></li>
+                                        <li><a><span class="icon">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                    </svg>
+                    </span> <span class="text">Only Me</span></a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-primary btn-sm">POST</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-search-ctrl clearfix" data-addclass>
+                        <a class="search" ng-toggle-class="open">
+                            <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+                            </svg>
+                        </a>
+                        <div class="post-search form-group">
+                            <div class="input-group">
+                                <input type="text" ng-model="searchPost" placeholder="Search" class="form-control input-sm" data-on-focus>
+                                <a class="input-group-addon" ng-click="searchPost = null" ng-toggle-class="open">
+                                    <svg class="svg-icons" width="10px" height="10px">
+                                        <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-post"> <span class="pin">
+          <svg class="svg-icons" width="9px" height="14px">
+            <use xlink:href="assets/img/sprite.svg#pinIco"></use>
+          </svg>
+          </span>
+                        <div class="panel-body">
+                            <div class="media">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="media-heading"><a class="btn-link">Miranda Care</a> tagged <a class="btn-link">Jason Thomas</a></div>
+                                    <ul class="nav-dot">
+                                        <li><span>2 mins ago</span></li>
+                                        <li>
+                                            <div class="dropdown"> <a class="btn" type="button" id="postDropDown1" data-toggle="dropdown" aria-expanded="false"><span class="icon">
+                      <svg class="svg-icons" width="16px" height="14px">
+                        <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                      </svg>
+                      </span> <span class="caret"></span></a>
+                                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown1" data-getvalue="dropdown">
+                                                    <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                          </svg>
+                          </span> <span class="text">Everyone</span></a></li>
+                                                    <li><a><span class="icon">
+                          <svg class="svg-icons" width="16px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                          </svg>
+                          </span> <span class="text">Friends</span></a></li>
+                                                    <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                          </svg>
+                          </span> <span class="text">Only Me</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="media-right">
+                                    <div class="dropdown"><a class="menu-bar-v bar-default" data-toggle="dropdown"><i></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                                            <li><a>Unpin post</a></li>
+                                            <li><a>Unsubscribe</a></li>
+                                            <li><a>Remove Post</a></li>
+                                            <li><a>Block User</a></li>
+                                            <li><a>Disable Comments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <p><span read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</span><span class="block"><a class="btn-link">@Jason Thomas</a></span></p>
+                            <ul class="nav-dot">
+                                <li><a>Like</a></li>
+                                <li><a>Share</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="media post-comment" data-post-focus="show">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" placeholder="Write Comment" data-on-focus>
+                                        <span class="input-group-addon">
+                  <div class="fileupload">
+                    <label for="addImg2"></label>
+                    <span class="upload-btn">
+                    <svg width="22px" height="18px" class="svg-icons">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                    </svg>
+                    </span>
+                                        <input type="file" id="addImg2" ng-model="postImd" class="ng-pristine ng-untouched ng-valid">
+                                    </div>
+                                    </span>
+                                </div>
+                                <div class="attached-thumbs hide">
+                                    <button class="close">
+                                        <svg width="10px" height="10px" class="svg-icons">
+                                            <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                        </svg>
+                                    </button>
+                                    <figure></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-post">
+                    <div class="panel-body">
+                        <div class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="media-heading"><a class="btn-link">Miranda Care</a> tagged <a class="btn-link">Jason Thomas</a></div>
+                                <ul class="nav-dot">
+                                    <li><span>2 mins ago</span></li>
+                                    <li>
+                                        <div class="dropdown"> <a class="btn" type="button" id="postDropDown2" data-toggle="dropdown" aria-expanded="false"><span class="icon">
+                      <svg class="svg-icons" width="16px" height="14px">
+                        <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                      </svg>
+                      </span> <span class="caret"></span></a>
+                                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown2" data-getvalue="dropdown">
+                                                <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                          </svg>
+                          </span> <span class="text">Everyone</span></a></li>
+                                                <li><a><span class="icon">
+                          <svg class="svg-icons" width="16px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                          </svg>
+                          </span> <span class="text">Friends</span></a></li>
+                                                <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                          </svg>
+                          </span> <span class="text">Only Me</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="media-right">
+                                <div class="dropdown"><a class="menu-bar-v bar-default" data-toggle="dropdown"><i></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                                        <li><a>Unpin post</a></li>
+                                        <li><a>Unsubscribe</a></li>
+                                        <li><a>Remove Post</a></li>
+                                        <li><a>Block User</a></li>
+                                        <li><a>Disable Comments</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p><span read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</span><span class="block"><a class="btn-link">@Jason Thomas</a></span></p>
+                        <ul class="nav-dot">
+                            <li><a>Like</a></li>
+                            <li><a>Share</a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer"> <span class="all-likes">
+            <svg class="svg-icons" width="16px" height="17px">
+              <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+            </svg>
+            <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> </div>
+                    <div class="panel-footer">
+                        <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                        <div class="comment-group">
+                            <div class="media">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.</div>
+                                    <ul class="nav-dot">
+                                        <li><span>2 mins ago</span></li>
+                                        <li><a>Unlike</a></li>
+                                        <li>
+                                            <a class="btn-like active">
+                                                <svg class="svg-icons" width="16px" height="17px">
+                                                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                                </svg>
+                                                <span class="count">50</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="media-heading"><a class="btn-link">Julia Robers</a> Heart touching video Please also share.</div>
+                                    <ul class="nav-dot">
+                                        <li><span>2 mins ago</span></li>
+                                        <li><a>Like</a></li>
+                                        <li>
+                                            <a class="btn-like">
+                                                <svg class="svg-icons" width="16px" height="17px">
+                                                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                                </svg>
+                                                <span class="count">50</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="media post-comment">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" placeholder="Write Comment" data-on-focus="">
+                                        <span class="input-group-addon">
+                    <div class="fileupload">
+                      <label for="addImg4"></label>
+                      <span class="upload-btn">
+                      <svg width="22px" height="18px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                      </svg>
+                      </span>
+                                        <input type="file" id="addImg4" ng-model="postImd" class="ng-pristine ng-untouched ng-valid">
+                                    </div>
+                                    </span>
+                                </div>
+                                <div class="attached-thumbs">
+                                    <div class="scrollbox">
+                                        <figure>
+                                            <button class="close">
+                                                <svg width="10px" height="10px" class="svg-icons">
+                                                    <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                </svg>
+                                            </button>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-post">
+                <div class="panel-body">
+                    <div class="media">
+                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                            <div class="media-heading"><a class="btn-link">Miranda Care</a> tagged <a class="btn-link">Jason Thomas</a></div>
+                            <ul class="nav-dot">
+                                <li><span>2 mins ago</span></li>
+                                <li>
+                                    <div class="dropdown"> <a class="btn" type="button" id="postDropDown3" data-toggle="dropdown" aria-expanded="false"><span class="icon">
+                      <svg class="svg-icons" width="16px" height="14px">
+                        <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                      </svg>
+                      </span> <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown3" data-getvalue="dropdown">
+                                            <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                          </svg>
+                          </span> <span class="text">Everyone</span></a></li>
+                                            <li><a><span class="icon">
+                          <svg class="svg-icons" width="16px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                          </svg>
+                          </span> <span class="text">Friends</span></a></li>
+                                            <li><a><span class="icon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                          </svg>
+                          </span> <span class="text">Only Me</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="media-right">
+                            <div class="dropdown"><a class="menu-bar-v bar-default" data-toggle="dropdown"><i></i></a>
+                                <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                                    <li><a>Unpin post</a></li>
+                                    <li><a>Unsubscribe</a></li>
+                                    <li><a>Remove Post</a></li>
+                                    <li><a>Block User</a></li>
+                                    <li><a>Disable Comments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p><span read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</span><span class="block"><a class="btn-link">@Jason Thomas</a></span></p>
+                    <ul class="nav-dot">
+                        <li><a>Like</a></li>
+                        <li><a>Share</a></li>
+                    </ul>
+                </div>
+                <div class="panel-footer"> <span class="all-likes">
+            <svg class="svg-icons" width="16px" height="17px">
+              <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+            </svg>
+            <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> </div>
+                <div class="panel-footer">
+                    <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                    <div class="comment-group">
+                        <div class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.</div>
+                                <ul class="nav-dot">
+                                    <li><span>2 mins ago</span></li>
+                                    <li><a>Unlike</a></li>
+                                    <li>
+                                        <a class="btn-like active">
+                                            <svg class="svg-icons" width="16px" height="17px">
+                                                <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                            </svg>
+                                            <span class="count">50</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="media-heading"><a class="btn-link">Julia Robers</a> Heart touching video Please also share.</div>
+                                <figure class="reply-img"><img src="assets/img/img1.jpg" width="544" height="225" class="img-responsive" alt="" /></figure>
+                                <ul class="nav-dot">
+                                    <li><span>2 mins ago</span></li>
+                                    <li><a>Like</a></li>
+                                    <li>
+                                        <a class="btn-like">
+                                            <svg class="svg-icons" width="16px" height="17px">
+                                                <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                            </svg>
+                                            <span class="count">50</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media post-comment">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="input-group form-group">
+                                    <input type="text" class="form-control" placeholder="Write Comment" data-on-focus="">
+                                    <span class="input-group-addon">
+                    <div class="fileupload">
+                      <label for="addImg5"></label>
+                      <span class="upload-btn">
+                      <svg width="22px" height="18px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                      </svg>
+                      </span>
+                                    <input type="file" id="addImg5" ng-model="postImd" class="ng-pristine ng-untouched ng-valid">
+                                </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-loading"> <span class="loading"></span> </div>
+        </div>
+        <aside class="col-sm-3 hidden-xs hidden-sm" data-scroll="sticky">
+            <div class="theiaStickySidebar">
+                <div class="panel panel-post">
+                    <div class="panel-header">
+                        <h5 class="panel-title">PEOPLE YOU MAY KNOW</h5>
+                    </div>
+                    <ul class="list-group user-list">
+                        <li class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                                <p>American Soccer - GoalKeeper at Eagl...</p>
+                                <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                        </li>
+                        <li class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                                <p>American Soccer - GoalKeeper at Eagl...</p>
+                                <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                        </li>
+                        <li class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                                <p>American Soccer - GoalKeeper at Eagl...</p>
+                                <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                        </li>
+                    </ul>
+                    <div class="panel-footer text-center"> <a class="btn-link">VIEW MORE</a> </div>
+                </div>
+                <div class="panel panel-brand">
+                    <div class="panel-header">
+                        <h5 class="panel-title">TRENDING</h5>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-custom">
+                            <li><span class="bullet">
+                <svg class="svg-icons" width="16px" height="11px">
+                  <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                </svg>
+                </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                            <li><span class="bullet">
+                <svg class="svg-icons" width="16px" height="11px">
+                  <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                </svg>
+                </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                            <li><span class="bullet">
+                <svg class="svg-icons" width="16px" height="11px">
+                  <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                </svg>
+                </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer text-center"> <a class="btn-link">View More</a> </div>
+                </div>
+                <div class="google-ads">                         
+                    <a>
+                        <img src="assets/img/google-ads5.jpg" alt="">
+                    </a> 
+                </div>
+                <div class="google-ads">                         
+                    <a>
+                        <img src="assets/img/google-ads2.jpg" alt="">
+                    </a> 
+                </div>                
+            </div>
+        </aside>
+        </div>
+        </div>
+    </section>
+    <footer data-footer></footer>
+    <!--Modal Start-->
+    <div id="playVideoModal" class="modal fade fadeModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="video-container">
+                    <div class="video-panel">
+                        <div class="video-player">
+                            <div id="bannerVideo"></div>
+                        </div>
+                        <div class="video-action">
+                            <ul class="list-group-inline pull-left">
+                                <li> <a><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                </svg>
+                </span> <span class="text">Like</span></a></li>
+                                <li> <a><span class="bullet">
+                <svg class="svg-icons" width="17px" height="9px">
+                  <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                </svg>
+                </span> <span class="text">Comment</span></a></li>
+                                <li> <a><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                </svg>
+                </span> <span class="text">Share</span></a></li>
+                            </ul>
+                            <ul class="list-group-inline pull-right">
+                                <li><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                </svg>
+                </span> <span class="text">1000</span></li>
+                                <li><span class="bullet">
+                <svg class="svg-icons" width="17px" height="9px">
+                  <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                </svg>
+                </span> <span class="text">2000</span></li>
+                                <li><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                </svg>
+                </span> <span class="text">2500</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <aside class="detail-sidebar">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                    <div class="media-body">
+                                        <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a></div>
+                                        <ul class="nav-dot">
+                                            <li><span>Yesterday</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="scrollbox">
+                                    <p read-more limit="100">Infuse your life with action. Don’t wait for it to happen. Make it happen.@Amit Chourey Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high.</p>
+                                    <p>#Sports, #Rugby, #South Africa</p>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                                <div class="comment-group scrollbox">
+                                    <div class="media">
+                                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                                        <div class="media-body"> <a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.
+                                            <ul class="nav-dot">
+                                                <li><span>2 days ago</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="media-right"> <a class="btn-link"><span class="icon">
+                    <svg height="12px" width="12px" class="svg-icons">
+                      <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </span></a> </div>
+                                    </div>
+                                    <div class="media">
+                                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                                        <div class="media-body"> <a class="btn-link">Julia Robers</a> Heart touching video Please also share.
+                                            <ul class="nav-dot">
+                                                <li><span>2 mins ago</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="media-right"> <a class="btn-link"><span class="icon">
+                    <svg height="12px" width="12px" class="svg-icons">
+                      <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </span></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media post-comment">
+                                <div class="media-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Comment" data-on-focus="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+    <a class="btn-gotop" data-back="top">
+        <svg class="svg-icons" width="28px" height="21px">
+            <use xlink:href="assets/img/sprite.svg#backToTopIco"></use>
+        </svg>
+        Back to Top
+    </a>
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/angular.min.js"></script>
+    <script src="assets/js/vendor/match-media.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/angular-wizard.min.js"></script>
+    <script type="text/javascript" src="assets/js/jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">
+        jwplayer.key = "Dtw8XIrirt0jOoDeYv+GewD2piVCeaDQezuMKg==";
+
+    </script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            mainNav(2);
+            $('[data-scroll="sticky"]').theiaStickySidebar({
+                additionalMarginTop: 70
+            });
+        });
+        $('#playVideoModal').on('shown.bs.modal', function() {
+            /* Video player */
+            var playerInstance = jwplayer("bannerVideo");
+            playerInstance.setup({
+                file: "assets/video/big_buck_bunny.mp4",
+                //image:"video/poster1.jpg",
+                width: "100%",
+                height: "100%",
+                stretching: "fill",
+                controls: true,
+                repeat: false,
+                autostart: true
+            });
+        })
+
+    </script>
+</body>
+
+</html>

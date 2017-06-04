@@ -1,0 +1,284 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div data-header-before-login></div>
+<div class="banner-default">
+  <figure class="banner-img" data-banner data-imgsrc="assets/img/fan-banner.jpg"></figure>
+  <div class="carousel-caption">
+    <table class="carousel-container">
+      <tr>
+        <td><div class="text">
+            <h2>WELCOME, JASON THOMAS</h2>
+            <p class="lead">A strong network needs a strong profile. Please fill following information, we will create a profile for you.</p>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<section class="main-section">
+  <div class="container form-overlay">
+    <div class="panel panel-default form-default">
+      <div class="panel-body">
+        <wizard hide-indicators="true">
+          <wz-step>
+            <form data-rel="form" data-ng-controller="signupCtrl">
+              <div class="form-group form-group-lg">
+                <h3>Profile Type <span class="mandatory">*</span></h3>
+                <br>
+                <div class="profile-type" data-addclass ng-class="{'selected': ProfileChecked == 'Fan' || ProfileChecked=='Athlete' || ProfileChecked=='Organization' || ProfileChecked=='Professional'}">
+                  <div class="type-value" ng-toggle-class="open" data-onhold>
+                  	<div class="media">
+                      <div class="media-left media-middle">
+                      <span class="icon"><svg class="svg-icons" width="25px" height="36px">
+                          <use xlink:href="" ng-attr-xlink:href="{{'assets/img/sprite.svg#' + profiledata.icon}}"></use>
+                        </svg>
+                        </span> </div>
+                      <div class="media-body media-middle">
+                        <h4 class="media-heading" ng-bind="profiledata.type">Fan</h4>
+                        <span ng-bind="profiledata.description">You enjoy watching sport, but never play</span> </div>
+                        <div class="media-right media-middle">
+                        	<svg class="svg-icons block" width="8px" height="5px">
+							  <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+							</svg>
+                        </div>
+                    </div>
+                  </div>
+                  <ul class="list-group list-seprator">
+                    <li class="media" data-ng-repeat="profiletype in profiletypes" ng-class="{active: ProfileChecked == '{{profiletype.type}}'}" ng-click="onChecked($index)">
+                      <div class="media-left media-middle"> <span class="radio">
+                        <input name="ProfileName" type="radio" data-ng-model="$parent.ProfileChecked" value="{{profiletype.type}}" id="profile{{$index + 1}}">
+                        <label for="profile{{$index + 1}}"></label>
+                        </span> <span class="icon">
+                        <svg class="svg-icons" width="25px" height="36px">
+                          <use xlink:href="" ng-attr-xlink:href="{{'assets/img/sprite.svg#' + profiletype.icon}}"></use>
+                        </svg>
+                        </span> </div>
+                      <div class="media-body media-middle">
+                        <h4 class="media-heading" data-ng-bind="profiletype.type"></h4>
+                        <span data-ng-bind="profiletype.description"></span> </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Organization'">
+                <div class="control-label">Type of Organization <span class="mandatory">*</span></div>
+                <select data-chosen data-placeholder="Organization Type" data-ng-model="orgType" data-ng-options="opt for opt in orgtypeOpt" disable-search="true" class="form-control" on-focus>
+                  <option></option>
+                </select>
+              </div>
+              <div class="row" ng-cloak data-ng-if="ProfileChecked=='Fan' || ProfileChecked=='Athlete' || ProfileChecked=='Professional'">
+                <div class="col-sm-6 form-group">
+                  <div class="control-label">Date of Birth <span class="mandatory">*</span></div>
+                  <div class="input-group">
+                    <input type="text" class="form-control input-lg" value="" id="dateOfBirth" placeholder="Select Date" on-focus>
+                    <label class="input-group-addon" for="dateOfBirth">
+                      <svg class="svg-icons" width="18px" height="20px">
+                        <use xlink:href="assets/img/sprite.svg#calendarIco"></use>
+                      </svg>
+                    </label>
+                    <span class="error-block">Please Enter Your Eamil</span></div>
+                </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Gender <span class="mandatory">*</span></div>
+                  <div class="radio-inline btn-checkbox row">
+                    <div class="col-xs-6"><span class="radio show">
+                      <input name="gender" type="radio" id="maleRd" checked>
+                      <label for="maleRd">
+                        <svg class="svg-icons" width="22px" height="17px">
+                          <use xlink:href="assets/img/sprite.svg#maleIco"></use>
+                        </svg>
+                        Male</label>
+                      </span></div>
+                    <div class="col-xs-6"><span class="radio show">
+                      <input name="gender" type="radio" id="femaleRd">
+                      <label for="femaleRd">
+                        <svg class="svg-icons" width="19px" height="17px">
+                          <use xlink:href="assets/img/sprite.svg#femaleIco"></use>
+                        </svg>
+                        Female</label>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" ng-cloak data-ng-if="ProfileChecked=='Athlete'">
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Height</div>
+                  <div class="row">                    
+                    <div class="col-xs-6">
+                      <div class="row no-gutter sep">
+                        <div class="col-xs-6">
+                          <input type="text" class="form-control" on-focus placeholder="Feet">
+                        </div>
+                        <div class="col-xs-6">
+                          <input type="text" class="form-control" on-focus placeholder="Inch">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control">
+                        <option ng-option>Feet/Inches</option>
+                        <option ng-option>Centimeter</option>                        
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 form-group form-group-lg">
+                  <div class="control-label">Weight</div>
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <input type="text" class="form-control" value="78" on-focus>
+                    </div>
+                    <div class="col-xs-8">
+                      <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control" on-focus>
+                        <option>Kg</option>
+                        <option>Gram</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Fan' || ProfileChecked=='Athlete' || ProfileChecked=='Organization' || ProfileChecked=='Professional'">
+                <div class="control-label">Location <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" placeholder="Where do you live? ex: City, State or Country" on-focus>
+                <span class="error-block">Please Enter Your Eamil</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Fan' || ProfileChecked=='Athlete'">
+                <div class="control-label">Team you follow <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="orgType=='Club'">
+                <div class="control-label">League <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="orgType=='Club'">
+                <div class="control-label">Amatuer of Professional <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Athlete'">
+                <div class="control-label">Club You Play For <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Organization'">
+                <div class="control-label">Name of Organization <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="form-group form-group-lg" ng-cloak data-ng-if="ProfileChecked=='Professional'">
+                <div class="control-label">Who do You work for <span class="mandatory">*</span></div>
+                <input type="text" class="form-control" on-focus>
+                <span class="error-block">Error text</span> </div>
+              <div class="btn-group btn-group-lg" ng-cloak data-ng-if="ProfileChecked=='Fan' || ProfileChecked=='Athlete' || ProfileChecked=='Organization' || ProfileChecked=='Professional'">
+                <div class="btn-toolbar btn-toolbar-right">
+                  <button class="btn btn-primary btn-lg" data-ng-click="submitSignup()">Next</button>
+                </div>
+              </div>
+            </form>
+          </wz-step>
+          <wz-step class="ng-hide">
+            <div class="form-group">
+              <div class="control-label">Sport You Play <span class="mandatory">*</span></div>
+              <ul class="grid-view form-group">
+                <li data-ng-repeat="category in categories">
+                  <div class="radio">
+                    <input name="primarySport" type="radio" ng-model="category.selected" ng-change="checkOption()" id="category{{$index + 1}}">
+                    <label for="category{{$index + 1}}"> <span class="img-svg"> <img alt="" class="svg" ng-src="assets/categories/{{category.Icon}}.svg"> </span> <span data-ng-bind="category.Name"></span> </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group btn-group-lg">
+              <div class="btn-toolbar btn-toolbar-right">
+                <button class="btn btn-primary btn-lg" data-target="#sportDetailsModal" data-toggle="modal">NEXT</button>
+              </div>
+            </div>
+          </wz-step>
+        </wizard>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer>
+<!--Modal Start-->
+<div id="sportDetailsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header modal-icon-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <span class="circle">
+        <svg class="svg-icons" width="40px" height="40px">
+          <use xlink:href="assets/img/category.svg#americanFootballIco"></use>
+        </svg>
+        </span> </div>
+      <div class="modal-body">
+        <h3 class="text-center semibold">AMERICAN FOOTBALL</h3>
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">What Club <span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="Club Name">
+            <span class="error-block">Please Enter</span> </div>
+          <div class="form-group form-group-lg">
+            <div class="control-label">What League <span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="League Name">
+            <span class="error-block">Please Enter</span> </div>
+          <div class="form-group form-group-lg">
+            <div class="control-label">What Position <span class="mandatory">*</span></div>
+            <select data-chosen data-placeholder="Select Position" disable-search="true" class="form-control" on-focus>
+              <option>Position 1</option>
+              <option>Position 2</option>
+            </select>
+            <span class="error-block">Please Enter</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary" onclick="window.location='athlete/complete-your-profile.html'">NEXT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script type="text/javascript">
+$(function () {	
+	$('#dateOfBirth').datepicker({
+		changeMonth: true,
+        changeYear: true,
+		yearRange:"-70:+0",
+		maxDate:new Date
+	});
+	headerFixed()
+});
+</script>
+</body>
+</html>

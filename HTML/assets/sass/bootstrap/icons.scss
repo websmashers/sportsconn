@@ -1,0 +1,39 @@
+@mixin icons-image($background-position, $width, $height, $background-position-hover) {
+  background-position:$background-position;
+  width:$width;
+  height:$height;
+  &:hover{
+	  background-position:$background-position-hover;
+  }
+}
+
+/*main sprite*/
+$icons: url("../img/sprite.png");
+
+[class^="icon-"], [class*=" icon-"]{display:inline-block; background-image:$icons; background-repeat:no-repeat; vertical-align:text-top;}
+
+[class^="svg-"], [class*=" svg-"]{
+	display:inline-block;
+	vertical-align:text-top;
+	fill:$gray-base;
+	@include transition(fill 0.2s ease);
+}
+.svg-hover{
+	cursor:pointer;
+	
+	&:hover{fill:$brand-default !important;}
+}
+.athlete-svg{fill:$brand-default;}
+.organization-svg{fill:#FBBC05;}
+.sport-svg{fill:#EA4335;}
+.fans-svg{fill:#34A853;}
+.svg.svg-sports,
+.svg-sports{
+	width:auto;
+	height:18px;
+	fill:$gray-dark;
+	
+	svg{
+		fill:$gray-dark;
+	}
+}

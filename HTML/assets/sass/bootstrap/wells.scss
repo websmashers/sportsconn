@@ -1,0 +1,55 @@
+/*well start*/
+.well {
+  min-height:20px;
+  padding:20px;
+  margin-bottom:20px;
+  background-color:$well-bg;
+  border:1px solid $well-border;
+}
+.well-lg {
+  padding:24px;
+}
+.well-sm {
+  padding:10px;
+}
+.well-nopad {
+  padding:0;
+}
+
+.well-default,.well-primary{
+	background-color:#fff;
+}
+.well-heading{border-bottom:1px solid transparent;}
+.well-title{margin: 0; font-weight: 600;}
+
+.well-primary{		
+	.well-heading{
+		border-color:$gray-light;
+		padding:$well-heading-padding;
+		@media (min-width:$grid-float-breakpoint) {
+		  padding:($well-body-padding) ($well-body-padding)+5;
+	  	}
+		.well-title{
+		    color:$brand-primary;
+			.text{
+				display: block;
+			    overflow: hidden;
+			    line-height:20px;
+			}
+		}
+		.close{margin-top:5px;}
+	}
+}
+.well-body{
+	padding:$well-body-padding;
+	@media (min-width:$grid-float-breakpoint) {
+		padding:($well-body-padding)+5 ($well-body-padding)+5;
+	}
+}
+.well-footer{
+	padding:($well-body-padding/15)-1;		
+	@media (min-width:$grid-float-breakpoint) {
+		padding:($well-body-padding/15)-1 ($well-body-padding)+5 ($well-body-padding)+5;
+	}
+}
+/*well end*/

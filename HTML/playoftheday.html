@@ -1,0 +1,866 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div data-header-after-login></div>
+<section class="content-section">
+  <div class="container">
+    <div class="page-title row">
+      <aside class="col-sm-7">
+      <ul class="nav nav-pills tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#potd" aria-controls="potd" role="tab" data-toggle="tab"><span class="text">PLAY OF THE DAY</span></a></li>
+        <li role="presentation"><a href="#participant" aria-controls="participant" role="tab" data-toggle="tab"><span class="text">PARTICIPANT VIDEOS</span></a></li>
+      </ul>
+
+        <!-- <h4 class="page-header semibold">PLAY OF THE DAY</h4> -->
+      </aside>
+      <aside class="col-sm-5 form-horizontal">
+        <div class="form-group"> <span class="control-label col-sm-4">Sort by:</span>
+          <div class="col-sm-8">
+            <div class="dropdown select-dropdown" data-dropdown="onhold">
+              <button type="button" class="btn btn-default btn-block" data-toggle="dropdown"><i class="caret"></i><span class="text">Most Recent</span></button>
+              <ul class="dropdown-menu dropdown-divider" data-getvalue="dropdown" role="menu">
+                <li><a>Today</a></li>
+                <li><a>Yesterday</a></li>
+                <li><a>Last Week</a></li>
+                <li><a>Last Month</a></li>
+                <li class="date-range">
+                  <div class="input-group form-group">
+                    <input type="text" class="form-control input-sm" value="" id="fromDate" placeholder="Select Date" on-focus>
+                    <label class="input-group-addon" for="fromDate">
+                      <svg class="svg-icons" width="18px" height="20px">
+                        <use xlink:href="assets/img/sprite.svg#calendarIco"></use>
+                      </svg>
+                    </label>
+                    <span class="error-block">Error</span> </div>
+                  <span class="control-label">To</span>
+                  <div class="input-group form-group">
+                    <input type="text" class="form-control input-sm" value="" id="toDate" placeholder="Select Date" on-focus>
+                    <label class="input-group-addon" for="toDate">
+                      <svg class="svg-icons" width="18px" height="20px">
+                        <use xlink:href="assets/img/sprite.svg#calendarIco"></use>
+                      </svg>
+                    </label>
+                    <span class="error-block">Error</span></div>
+                  <button type="button" class="btn btn-primary btn-sm btn-block">FILTER</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active"  id="potd">
+        <div class="row">
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">20-June-16</span></p><p class="regular">Winner date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-loading"> <span class="loading"></span> </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade"  id="participant">
+        <div class="row">
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-default">
+              <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full"> <span class="time">8:00</span> <a class="video-overlay" data-target="#playVideoModal" data-toggle="modal">
+                <svg class="svg-icons" width="12px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#playIco"></use>
+                </svg>
+                </a> </figure>
+              <div class="caption caption-default">
+                <figure class="img-thumbnail"><img src="assets/img/thumb70x70.jpg" width="30" height="30" alt=""></figure>
+                <div class="content"> <span class="thumb-title"><a class="btn-link">By Gesha Petrovich</a></span>
+                <p class="regular">Posted date : <span class="gray-text">21-June-16</span></p></div>
+                <ul class="list-group-inline list-group-justify">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="panel-loading"> <span class="loading"></span> </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer data-footer></footer>
+<!--Modal Start-->
+<div id="playVideoModal" class="modal fade fadeModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="video-container">
+          <div class="video-panel">
+          	<div class="video-player"><div id="bannerVideo"></div></div>
+            <div class="video-action">
+            	<ul class="list-group-inline pull-left">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">Like</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="17px" height="9px">
+                      <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                    </svg>
+                    </span> <span class="text">Comment</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">Share</span></a></li>
+                </ul>
+                <ul class="list-group-inline pull-right">
+                  <li><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">1000</span></li>
+                  <li><span class="bullet">
+                    <svg class="svg-icons" width="17px" height="9px">
+                      <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                    </svg>
+                    </span> <span class="text">2000</span></li>
+                  <li><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                    </svg>
+                    </span> <span class="text">2500</span></li>
+                </ul>
+            </div>
+          </div>
+          <aside class="detail-sidebar">
+            <div class="panel">
+              <div class="panel-body">
+                <div class="media">
+                  <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a></div>
+                    <ul class="nav-dot">
+                      <li><span>Yesterday</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="scrollbox">
+                	<p read-more limit="100">Infuse your life with action. Don’t wait for it to happen. Make it happen.@Amit Chourey Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high.</p>
+                	<p>#Sports, #Rugby, #South Africa</p>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                <div class="comment-group scrollbox">
+                  <div class="media">
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                    <div class="media-body"> <a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.
+                      <ul class="nav-dot">
+                        <li><span>2 days ago</span></li>
+                      </ul>
+                    </div>
+                    <div class="media-right"> <a class="btn-link"><span class="icon">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </span></a> </div>
+                  </div>
+                  <div class="media">
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                    <div class="media-body"> <a class="btn-link">Julia Robers</a> Heart touching video Please also share.
+                      <ul class="nav-dot">
+                        <li><span>2 mins ago</span></li>
+                      </ul>
+                    </div>
+                    <div class="media-right"> <a class="btn-link"><span class="icon">
+                      <svg height="12px" width="12px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </span></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="media post-comment">
+                <div class="media-body">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Comment" data-on-focus="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script type="text/javascript" src="assets/js/jwplayer/jwplayer.js"></script>
+<script type="text/javascript">jwplayer.key="Dtw8XIrirt0jOoDeYv+GewD2piVCeaDQezuMKg==";</script>
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script type="text/javascript">
+$(function () {	
+	$('#fromDate').datepicker({
+		changeMonth: true,
+        changeYear: true,
+		yearRange:"-70:+0"/*,
+		maxDate:new Date*/
+	});
+	$('#toDate').datepicker({
+		changeMonth: true,
+        changeYear: true,
+		yearRange:"-70:+0"
+	});
+	$('#ui-datepicker-div').on('click touchstart', function(e) {
+		e.stopPropagation();
+	});
+	mainNav(3);
+});
+$('#playVideoModal').on('shown.bs.modal', function () {
+	/* Video player */
+	var playerInstance = jwplayer("bannerVideo"); 
+    playerInstance.setup({
+        file:"assets/video/people-are-good.mp4",
+        //image:"video/poster1.jpg",
+        width:"100%",
+        height:"100%",
+        stretching:"fill",
+        controls:true,
+        repeat:false,
+        autostart:true
+    });
+})
+</script>
+</body>
+</html>

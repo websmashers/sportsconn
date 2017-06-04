@@ -1,0 +1,105 @@
+.success-message{
+	text-align:center;
+	
+	.svg-icons{margin-bottom:15px;}
+	
+	h2{margin-bottom:5px;}
+	.lead{
+		font-size:$font-size-base+2;
+	}
+}
+
+.nodata-panel{
+	position:relative;
+	
+	.nodata-text{
+		font-size:$font-size-base+2;
+		color:$gray;
+		text-align:center;
+		padding-top:$grid-gutter-width;
+		padding-bottom:$grid-gutter-width;
+		
+		.page-header{
+			margin-bottom:5px;
+		}
+		
+		.nodata-img{
+			margin-bottom:30px;
+		}
+		
+		.nodat-svg{
+			display:block;
+			margin-bottom:10px;
+			
+			.svg-icons{
+				fill:$gray-light;
+			}
+		}
+		
+		.lead{
+			margin-bottom:5px;
+			color:$gray-dark;
+		}
+	}
+	.nodat-circle{
+		display:block;
+		border:1px dashed $gray;
+		border-radius:50%;
+		@include square(50px);
+		position:relative;
+		margin:0 auto 15px auto;
+		vertical-align:middle;
+		
+		.svg-icons{
+			@include transform-center;
+			fill:$gray-light;
+		}
+	}
+	a.nodat-circle{
+		.svg-icons{
+			fill:$link-color;
+		}
+		&:hover .svg-icons{
+			fill:$link-hover-color;
+		}
+	}
+	.nodat-icon{
+		display:inline-block;
+		margin-bottom:20px;
+		vertical-align:top;
+	}
+	.nodata-fill-circle{
+		display:block;
+		border-radius:50%;
+		@include square(100px);
+		position:relative;
+		margin:0 auto;
+		vertical-align:middle;
+		background-color:#212121;
+		
+		.svg-icons{
+			@include transform-center;
+			fill:$gray-light;
+		}
+	}
+}
+
+.comingsoon-modal{
+	.modal-body{
+		text-align:center;
+		
+		& > figure{
+			margin-bottom:20px;
+		}
+		h2{
+			margin:0;
+		}
+		@media (min-width:$screen-sm-min) {
+			padding:50px;
+			
+			h2{
+				font-size:36px;
+			}
+		}
+	}
+}

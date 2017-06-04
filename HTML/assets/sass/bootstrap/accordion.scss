@@ -1,0 +1,36 @@
+.accordion {
+    .form-group {
+        margin-bottom: 12px;
+    }
+    .panel-title {
+        padding-right: 20px;
+        position: relative;
+        margin-bottom: 0;
+        cursor: pointer;
+        .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            @include rotate(180deg);
+            @include transition(all 0.3s ease-out);
+            .svg-icons {
+                @include transform-center;
+            }
+        }
+        &.collapsed {
+            .icon {
+                @include rotate(0);
+            }
+        }
+    }
+    .collapse,
+    .collapsing {
+        &:before {
+            content: " ";
+            display: block;
+            height: 15px;
+        }
+    }
+}

@@ -1,0 +1,219 @@
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width:100%;
+
+  &[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .form-control {
+    position: relative;
+    z-index: 2;
+
+    float: left;
+
+    width: 100%;
+    margin-bottom: 0;
+    
+    &:focus {
+      z-index: 3;
+    }
+  }
+}
+
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn {
+  @extend .input-lg;
+}
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn {
+  @extend .input-sm;
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell;
+
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.input-group-addon {
+  line-height:1;
+  background-color:$input-group-addon-bg;
+  border:1px solid $input-group-addon-border-color;
+  @include square($input-height-base);
+  text-align:center;
+  position:relative;
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+  
+  & .svg-icons{
+	  display:block;
+	  fill:$gray;
+	  margin:0 auto;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+  
+  &.btn-addon{
+	  background-color:$gray-lighter;
+	  color:$gray;
+	  width:1%;
+	  padding-left:20px;
+	  padding-right:20px;
+	  @include font-weight($font-weight-semibold);
+	  
+	  &:after{display:none;}
+  }
+  &.addon-static{
+    background-color:$gray-lighter;
+    color:$gray;
+    width:1%;
+    padding-left:12px;
+    padding-right:12px;
+    @include font-weight($font-weight-semibold);    
+    +.form-control{
+      padding-left:12px;
+    }
+  }
+  & + .form-control,
+  & ~ .chosen-container-single .chosen-single{
+	  padding-left:0;
+  }
+}
+.input-sm ~ .input-group-addon,
+.form-group-sm .input-group-addon{
+	@include square($input-height-small);
+}
+.input-lg ~ .input-group-addon,
+.form-group-lg .input-group-addon{
+	@include square($input-height-large);
+}
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  @include border-right-radius(0);
+}
+.input-group-addon:first-child{
+  border-right:0;
+}
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  @include border-left-radius(0);
+}
+.input-group-addon:last-child, .form-control ~ .input-group-addon, .input-group-addon + .form-control, .input-group-addon ~ .chosen-container-single .chosen-single{
+  border-left: 0;
+}
+.form-control ~ .input-group-addon{
+	position:relative;
+	
+	&:after{content:""; position:absolute; left:-1px; top:0; bottom:0; height:(($input-height-base)-2)\9; width:1px; background-color:$input-bg; z-index:3;}
+}
+.input-lg.form-control ~ .input-group-addon:after,
+.form-group-lg .form-control ~ .input-group-addon:after{height:(($input-height-large)-2)\9;}
+.input-sm.form-control ~ .input-group-addon:after,
+.form-group-sm .form-control ~ .input-group-addon:after{height:(($input-height-small)-2)\9;}
+
+.input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+
+  > .btn {
+    position: relative;
+    + .btn {
+      margin-left: -1px;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 2;
+    }
+  }
+
+  &:first-child {
+    > .btn,
+    > .btn-group {
+      margin-right: -1px;
+    }
+  }
+  &:last-child {
+    > .btn,
+    > .btn-group {
+      z-index: 2;
+      margin-left: -1px;
+    }
+  }
+}
+
+
+.showhidePass{
+	
+	input{
+		position:absolute;
+		@include opacity(0);
+		@include transform-center;
+		z-index:1;
+		
+		&:checked + label .svg-icons,
+		&:checked:focus + label .svg-icons{
+			fill:$brand-default;
+		}
+		&:focus + label .svg-icons{
+			fill:$gray-dark;
+		}
+	}
+	
+	label{
+		display:block;
+		margin:0;
+		font-size:0;
+		cursor:pointer;
+		position:relative;
+		z-index:2;
+		
+		&:hover .svg-icons{
+			fill:$gray-dark;
+		}
+	}
+}
+
+/* Fine uploader */
+.fine-upload-unique{
+	
+	.qq-upload-button{
+		display:block;
+		height:$input-height-base - 2;
+		
+		.svg-icons{
+			@include transform-center;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.close {
+  float: right;
+  line-height:1;
+  @include opacity(0.8);
+  @include transition(opacity 0.3s ease);
+  font-size:0;
+  
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    cursor: pointer;
+    @include opacity(1);
+  }
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}

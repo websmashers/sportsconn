@@ -1,0 +1,879 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>:: SportsConn ::</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="{{baseUrl}}">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body data-ng-controller="mainCtrl">
+    <!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    <header data-header-after-login></header>
+    <!-- /header -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <aside class="col-sm-4 col-md-3">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h5 class="panel-title">
+                                FILTER POLLS
+                                <a class="pull-right clearFilter btn-link" style="display: none;">
+                                  <span class="crose-icon">
+                                      <svg width="9px" height="9px" class="svg-icons">
+                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                      </svg>
+                                  </span> 
+                                Clear
+                               </a> 
+                            </h5>
+                        </div>
+                        <div class="poll-filter">
+                             <div class="form-group"> 
+                                <select data-chosen data-placeholder="Filter Polls" disable-search="true" class="form-control" data-ng-model="filterShow"
+                                  ng-options="value for value in dropdownval">                                                                         
+                                    <option value=""></option> 
+                                </select>
+                            </div> 
+                            <div class="form-group" ng-cloak ng-show="filterShow == 'By User'">
+                                <input type="text" class="form-control" placeholder="Type user name">
+                            </div>
+                            <div class="form-group" ng-cloak ng-show="filterShow == 'By Post Date'">
+                                <div class="input-group filter-date">
+                                    <input type="text" class="form-control" id="SelectFrom" placeholder="From">
+                                    <div class="input-group-addon"> - </div>
+                                    <input type="text" class="form-control" id="SelectTo" placeholder="To">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-sm-8 col-md-6">
+                    <div class="panel wall-post">
+                        <div class="polls-creation" data-poll="creation">
+                            <div class="panel-body">
+                                <div class="poll-body">
+                                    <figure class="user-thmb"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                    <div class="post-content">
+                                        <div class="media-heading" id="CreatePoll">
+                                            <div class="create-poll">
+                                                <h5>Create a Poll</h5>
+                                                <span>Lorem ipsum set dolor emit.</span>
+                                            </div>
+                                        </div>
+                                        <div id="askQuestion">
+                                            <div class="ask-question border-r">
+                                                <textarea name="ask question" id="" class="form-control write-question" placeholder="Ask a question"></textarea>
+                                                <div class="attached-panel ">
+                                                    <div class="attached-thumbs scrollbox-horizontal">
+                                                      <div class="">
+                                                        <figure>
+                                                          <a class="inner">
+                                                            <span class="text">
+                                                              ALL <span>3</span>
+                                                            </span>
+                                                          </a>
+                                                        </figure>
+                                                        <figure class="loading"><img src="assets/img/thumbnail.jpg" alt="" width="128" height="128" ></figure>
+                                                        <figure>
+                                                          <button class="close">
+                                                            <svg width="10px" height="10px" class="svg-icons">
+                                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                            </svg>
+                                                          </button>
+                                                        <img src="assets/img/thumbnail.jpg" alt="" width="128" height="128" ></figure>
+                                                        <figure>
+                                                          <button class="close">
+                                                            <svg width="10px" height="10px" class="svg-icons">
+                                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                            </svg>
+                                                          </button>
+                                                        </figure>
+                                                        <figure></figure>
+                                                        <figure></figure>
+                                                        <figure></figure>
+                                                        <figure></figure>
+                                                      </div>
+                                                    </div>
+                                                    <div class="caption">
+                                                      <input type="text" class="form-control" placeholder="Say something about these pictures">
+                                                    </div>
+                                                  </div>
+                                               <div class="upolad-q-img">
+                                                 <div class="pull-left">
+                                                      <div class="btn-circle">
+                                                        <div class="fileupload">
+                                                          <label for="addImg"></label>
+                                                          <span class="upload-btn">
+                                                          <svg class="svg-icons" width="18px" height="14px">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                                                          </svg>
+                                                          </span>
+                                                          <input type="file" id="addImg">
+                                                        </div>
+                                                      </div>
+                                                </div>
+                                               </div>
+                                                <div class="choice-block">
+                                                    <ul class="choice-listing">
+                                                        <li>
+                                                            <div class="pull-left poll-list-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <div class="bullet-icon">
+                                                                            <span></span><span></span>
+                                                                            <span></span><span></span>
+                                                                            <span></span><span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" placeholder="Choice 1">
+                                                                    <span class="input-group-addon">
+                                                                    <div class="fileupload">
+                                                                        <label for="choiceId1"></label>
+                                                                        <span class="upload-btn">
+                                                                            <svg width="20px" height="16px" class="svg-icons">
+                                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    <input type="file" id="choiceId1">
+                                                                </div>
+                                                                </span>
+                                                            </div>
+                                                      </div>
+                                                            <div class="upload-view">
+                                                              <span> 
+                                                                  <svg width="10px" height="10px" class="svg-icons">
+                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                                  </svg>
+                                                              </span>
+                                                              <img src="assets/img/thumb70x70.jpg" alt="" width="40px" height="40px;">
+                                                          </div>
+                                                          </li>
+                                                          <li>
+                                                              <div class="pull-left poll-list-group">
+                                                                  <div class="input-group">
+                                                                      <div class="input-group-addon">
+                                                                          <div class="bullet-icon">
+                                                                              <span></span><span></span>
+                                                                              <span></span><span></span>
+                                                                              <span></span><span></span>
+                                                                          </div>
+                                                                      </div>
+                                                                      <input type="text" class="form-control" placeholder="Choice 2">
+                                                                      <span class="input-group-addon">
+                                                                          <div class="fileupload">
+                                                                                  <label for="choiceId2"></label>
+                                                                                  <span class="upload-btn">
+                                                                                      <svg width="20px" height="16px" class="svg-icons">
+                                                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                                                                                      </svg>
+                                                                                  </span>
+                                                                              <input type="file" id="choiceId2">
+                                                                          </div>
+                                                                  </span>
+                                                              </div>
+                                                      </div>
+                                                      <div class="upload-view">
+                                                          <span> 
+                                                                <svg width="10px" height="10px" class="svg-icons">
+                                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                                </svg>
+                                                            </span>
+                                                          <img src="assets/img/thumb70x70.jpg" alt="" width="40px" height="40px;"></div>
+                                                      </li>
+                                                      <li>
+                                                          <div class="pull-left poll-list-group">
+                                                              <div class="input-group">
+                                                                  <div class="input-group-addon">
+                                                                      <div class="bullet-icon">
+                                                                          <span></span><span></span>
+                                                                          <span></span><span></span>
+                                                                          <span></span><span></span>
+                                                                      </div>
+                                                                  </div>
+                                                                  <input type="text" class="form-control" placeholder="Choice 3">
+                                                                  <span class="input-group-addon">
+                                                                  <div class="fileupload">
+                                                                      <label for="choiceId2"></label>
+                                                                      <span class="upload-btn">
+                                                                          <svg width="20px" height="16px" class="svg-icons">
+                                                                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                                                                          </svg>
+                                                                      </span>
+                                                                      <input type="file" id="choiceId2">
+                                                                  </div>
+                                                              </span>
+                                                          </div>
+                                                    </div>
+                                                       <div class="upload-view">
+                                                      <label>
+                                                          <svg width="10px" height="10px" class="svg-icons">
+                                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                          </svg>
+                                                      </label>
+                                                      </li>
+                                                      </ul>
+                                                      <div class="add-more-link"><a class="btn-link"> + Add a choice</a></div>
+                                                 </div>
+                                          </div>
+                                    <div class="poll-expiry">
+                                        <span>Poll Expiry</span>
+                                          <label class="dropdown pollExpiryDate">
+                                              <div class="form-group"> 
+                                                  <select data-chosen data-placeholder="Poll Expiry" disable-search="true" class="form-control" data-ng-model="pollExpiry" ng-options="value for value in pollExpiryday">                                                                         
+                                                   <option value=""></option>                                                       
+                                                  </select>
+                                              </div> 
+
+                                             <!--  <a class="btn-link">Select Date and Time</a>
+                                             <ul class="dropdown-menu poll-expiry-menu">
+                                                 <li>Select Date and Time</li>
+                                                 <li role="separator" class="divider"></li>
+                                                 <li class="select-date">
+                                                     <div class="datePicker">
+                                                         <label>Date</label>
+                                                         <div class="reminder-calendar">
+                                                             <div data-calendar="selectDate"></div>
+                                                         </div>
+                                                     </div>
+                                                     <div class="timePicker">
+                                                         <div class="timePicker-header">
+                                                             <label>Time</label>
+                                                             <ul class="am-pm-button pull-right">
+                                                                 <li><span class="selected"> <input type="radio" value="AM" name="time" checked=""> AM </span> </li>
+                                                                 <li><span> <input type="radio" value="PM" name="time"> PM </span> </li>
+                                                             </ul>
+                                                         </div>
+                                                         <ul>
+                                                             <li>HH</li>
+                                                             <li><span class="disabled"> <input type="radio" value="1" name="HH" disabled=""> 1 </span> </li>
+                                                             <li><span class="disabled"> <input type="radio" value="2" name="HH" disabled=""> 2</span> </li>
+                                                             <li><span class="disabled"> <input type="radio" value="3" name="HH" disabled=""> 3</span></li>
+                                                             <li><span> <input type="radio" value="4" name="HH"> 4</span> </li>
+                                                             <li><span class="reminderSet"> <input type="radio" value="5" name="HH"> 5</span> </li>
+                                                             <li><span class="selected"> <input type="radio" value="6" name="HH" checked=""> 6</span> </li>
+                                                             <li><span> <input type="radio" value="7" name="HH"> 7</span> </li>
+                                                             <li><span> <input type="radio" value="8" name="HH"> 8</span> </li>
+                                                             <li><span> <input type="radio" value="9"  name="HH"> 9</span> </li>
+                                                             <li><span> <input type="radio" value="10" name="HH"> 10</span> </li>
+                                                             <li><span> <input type="radio" value="11" name="HH"> 11</span> </li>
+                                                             <li><span> <input type="radio" value="12" name="HH"> 12</span> </li>
+                                                         </ul>
+                                                         <ul class="minutes">
+                                                             <li>MM</li>
+                                                             <li><span> <input type="radio" value="0" name="MM"> 0 </span> </li>
+                                                             <li><span> <input type="radio" value="15" name="MM"> 15</span> </li>
+                                                             <li><span class="selected"> <input type="radio" value="30" name="MM" checked=""> 30</span></li>
+                                                             <li><span> <input type="radio" value="45" name="MM"> 45</span> </li>
+                                                         </ul>
+                                                     </div>
+                                                 </li>
+                                                 <li><button class="btn btn-primary btn-sm pull-right">Apply</button></li>
+                                             </ul> -->
+                                          </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-btn-group"> 
+                            <div class="pull-right">
+                                <div class="pull-left">
+                                    <button type="button" class="btn btn-info btn-sm on-off-btn on">
+                                        <span class="icon">
+                                        <svg width="16px" height="15px" class="svg-icons">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#commentIco"></use>
+                                        </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="dropup">
+                                    <button class="btn btn-info btn-sm" type="button" id="postDropDown" data-toggle="dropdown">
+                                        <span class="icon">
+                                        <svg class="svg-icons" width="18px" height="16px">
+                                        <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                                        </svg>
+                                        </span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown" data-getvalue="dropdown">
+                                        <li>
+                                            <a>
+                                                <span class="icon">
+                                                  <svg class="svg-icons" width="14px" height="14px">
+                                                  <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+                                                  </svg>
+                                                  </span>
+                                                <span class="text">Everyone</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="icon">
+                                                <svg class="svg-icons" width="18px" height="16px">
+                                                <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                                                </svg>
+                                                </span>
+                                                <span class="text">Friends</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="icon">
+                                                  <svg class="svg-icons" width="14px" height="14px">
+                                                  <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                                                  </svg>
+                                                  </span>
+                                                <span class="text">Only Me</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-primary btn-sm">POST</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-post">
+                <div class="panel-body">
+                    <div class="media">
+                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                        <div class="media-body">
+                            <div class="media-heading"><a class="btn-link">Miranda Care</a> created a new <a class="btn-link">poll</a></div>
+                            <ul class="nav-dot">
+                                <li><span>2 mins ago</span></li>
+                                <li>
+                                    <div class="dropdown"> <a class="btn" type="button" id="postDropDown1" data-toggle="dropdown" aria-expanded="false"><span class="icon">
+<svg class="svg-icons" width="16px" height="14px">
+<use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+</svg>
+</span> <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postDropDown1" data-getvalue="dropdown">
+                                            <li><a><span class="icon">
+<svg class="svg-icons" width="14px" height="14px">
+<use xlink:href="assets/img/sprite.svg#globeIco"></use>
+</svg>
+</span> <span class="text">Everyone</span></a></li>
+                                            <li><a><span class="icon">
+<svg class="svg-icons" width="16px" height="14px">
+<use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+</svg>
+</span> <span class="text">Friends</span></a></li>
+                                            <li><a><span class="icon">
+<svg class="svg-icons" width="14px" height="14px">
+<use xlink:href="assets/img/sprite.svg#userIco"></use>
+</svg>
+</span> <span class="text">Only Me</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="media-right">
+                            <div class="dropdown"><a class="menu-bar-v bar-default" data-toggle="dropdown"><i></i></a>
+                                <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                                    <li><a>Unpin post</a></li>
+                                    <li><a>Unsubscribe</a></li>
+                                    <li><a>Remove Post</a></li>
+                                    <li><a>Block User</a></li>
+                                    <li><a>Disable Comments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        <strong>What browser do you use???</strong>
+                    </p>
+                    <div class="poll-block">
+                        <ul class="poll-list  with-radio">
+                            <li>
+                                <div class="poll-left pull-left">
+                                    <div class="radio">
+                                        <input type="radio" name="vote" id="01">
+                                        <label for="01">&nbsp;</label>
+                                    </div>
+                                    <label><b>70%</b> Mozilla Firefox</label>
+                                    <span>15 votes</span>
+                                </div>
+                                <ul class="attached-list">
+                                    <li></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="poll-left pull-left">
+                                    <div class="radio">
+                                        <input type="radio" name="vote" id="02">
+                                        <label for="02">&nbsp;</label>
+                                    </div>
+                                    <label><b>20%</b> Google Chrome</label>
+                                    <ul class="mutual-friends">
+                                        <li>
+                                            <a></a>
+                                        </li>
+                                        <li>
+                                            <a></a>
+                                        </li>
+                                        <li><span>+20 others voted</span></li>
+                                    </ul>
+                                </div>
+                                <ul class="attached-list">
+                                    <li></li> 
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="poll-left pull-left">
+                                    <div class="radio">
+                                        <input type="radio" name="vote" id="03">
+                                        <label for="03">&nbsp;</label>
+                                    </div>
+                                    <label><b>5%</b> Safari</label>
+                                    <span>15 votes</span>
+                                </div>
+                                <ul class="attached-list">
+                                    <li></li> 
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="poll-left pull-left">
+                                    <div class="radio">
+                                        <input type="radio" name="vote" id="04">
+                                        <label for="04">&nbsp;</label>
+                                    </div>
+                                    <label><b>3%</b> Internet Explorer</label>
+                                    <span>5 votes</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="poll-left pull-left">
+                                    <div class="radio">
+                                        <input type="radio" name="vote" id="05">
+                                        <label for="05">&nbsp;</label>
+                                    </div>
+                                    <label><b>3%</b> Other</label>
+                                    <span>2 votes</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="poll-footer">
+                            <button class="btn btn-primary btn-sm">VOTE</button>
+                            <button class="btn btn-primary btn-sm">
+                                <span class="icon"><svg class="svg-icons" width="16px" height="16px">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#editIco"></use>
+                                  </svg></span>
+                            </button>     
+                               <div class="pie-chart pull-right"  data-html="true" data-toggle="tooltip" data-placement="top" title='
+                                <div class="chart-block">
+                                  <div class="chart-view"><img src="assets/img/pie-chart.png" alt=""></div>
+                                  <ul class="vote-lisitng">
+                                      <li><span style="background-color: #28D0C8;"></span> 70% Mozilla Firefox</li>
+                                      <li><span style="background-color: #D575BA;"></span> 20% Google Chrome</li>
+                                      <li><span style="background-color: #0083F9;"></span> 10% Safari</li>
+                                      <li><span style="background-color: #FAAE7C;"></span> 8% Internet Explorer</li>
+                                      <li><span style="background-color: #FF6C70;"></span> 2% Other</li>
+                                  </ul>
+                                </div>
+                               '>
+                                <svg class="svg-icons" width="16px" height="16px">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#pieChart"></use>
+                                </svg>
+                            </div>                        
+                            <ul class="nav-dot"> 
+                                <li><a><b>20</b> People voted</a></li>
+                                 
+                            </ul> 
+                        </div>
+                         </div>
+                        <div class="poll-expiry mar-btm15">
+                            <span>Poll Expiry (days):</span>
+                              <label class="dropdown pollExpiryDate">
+                                  <div class="form-group"> 
+                                      <select data-chosen="" data-placeholder="Poll Expiry" disable-search="true" class="form-control" data-ng-model="pollExpiry" ng-options="value for value in pollExpiryday">
+                                      <option></option>
+                                      </select> 
+                                      </div>
+                              </label>
+                              <div class="pull-right">
+                                    <button class="btn btn-primary btn-sm pull-right">SAVE</button>
+                                    <button class="btn btn-default btn-sm pull-right">CANCEL</button>
+                              </div>
+                        </div>
+                   
+                    <div class="footer-nav">
+                        <ul class="nav-dot">
+                            <li><a>Like</a></li>
+                            <li><a>Comment</a></li>
+                            <li><a>Share</a></li>
+                            <li><a>+ Invite</a></li>
+                        </ul>
+                        <span class="time-left time-expired">23 hours left</span>
+                    </div>
+                </div>
+                <div class="panel-footer"> <span class="all-likes">
+        <svg class="svg-icons" width="16px" height="17px">
+          <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+        </svg>
+        <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> </div>
+                <div class="panel-footer">
+                    <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                    <div class="comment-group">
+                        <div class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.</div>
+                                <ul class="nav-dot">
+                                    <li><span>2 mins ago</span></li>
+                                    <li><a>Unlike</a></li>
+                                    <li>
+                                        <a class="btn-like active">
+                                            <svg class="svg-icons" width="16px" height="17px">
+                                                <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                            </svg>
+                                            <span class="count">50</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="media-heading"><a class="btn-link">Julia Robers</a> Heart touching video Please also share.</div>
+                                <figure class="reply-img"><img src="assets/img/img1.jpg" width="544" height="225" class="img-responsive" alt="" /></figure>
+                                <ul class="nav-dot">
+                                    <li><span>2 mins ago</span></li>
+                                    <li><a>Like</a></li>
+                                    <li>
+                                        <a class="btn-like">
+                                            <svg class="svg-icons" width="16px" height="17px">
+                                                <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                            </svg>
+                                            <span class="count">50</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media post-comment">
+                            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                            <div class="media-body">
+                                <div class="input-group form-group">
+                                    <input type="text" class="form-control" placeholder="Write Comment" data-on-focus="">
+                                    <span class="input-group-addon">
+                <div class="fileupload">
+                  <label for="addImg5"></label>
+                  <span class="upload-btn">
+                  <svg width="22px" height="18px" class="svg-icons">
+                    <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                  </svg>
+                  </span>
+                                    <input type="file" id="addImg5" ng-model="postImd" class="ng-pristine ng-untouched ng-valid">
+                                </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+        <div class="panel panel-post">
+            <div class="panel-body">
+                <div class="media">
+                    <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                    <div class="media-body">
+                        <div class="media-heading"><a class="btn-link">Miranda Care</a> created a new <a class="btn-link">anonymous poll</a></div>
+                        <ul class="nav-dot">
+                            <li><span>2 mins ago</span></li>
+                            <li>
+                                <div class="dropdown"> <a class="btn" type="button" id="postDropDown1"><span class="icon">
+<svg class="svg-icons" width="16px" height="14px">
+<use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+</svg>
+</span> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="media-right">
+                        <div class="dropdown"><a class="menu-bar-v bar-default" data-toggle="dropdown"><i></i></a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                                <li><a>Unpin post</a></li>
+                                <li><a>Unsubscribe</a></li>
+                                <li><a>Remove Post</a></li>
+                                <li><a>Block User</a></li>
+                                <li><a>Disable Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <strong>What browser do you use???</strong>
+                </p>
+                <div class="post-images">
+                <figure><img src="assets/img/img-detail.jpg" alt=""></figure>
+                
+            </div>
+
+                <div class="poll-block">
+                    <ul class="poll-list">
+                        <li>
+                            <div class="poll-left pull-left">
+                                <label><b>70%</b> Mozilla Firefox</label>
+                                <span>15 votes</span>
+                            </div>
+                            <ul class="attached-list">
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="poll-left pull-left">
+                                <label><b>20%</b> Google Chrome</label>
+                                <ul class="mutual-friends">
+                                    <li>
+                                        <a></a>
+                                    </li>
+                                    <li>
+                                        <a></a>
+                                    </li>
+                                    <li><span>+20 others voted</span></li>
+                                </ul>
+                            </div>
+                            <ul class="attached-list">
+                                <li></li>
+                               <!--  <li></li>
+                               <li><span>+4</span></li> -->
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="poll-left pull-left">
+                                <label><b>5%</b> Safari</label>
+                                <span>15 votes</span>
+                            </div>
+                            <ul class="attached-list">
+                                <li></li>
+                               
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="poll-left pull-left">
+                                <label><b>3%</b> Internet Explorer</label>
+                                <span>5 votes</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="poll-left pull-left">
+                                <label><b>3%</b> Other</label>
+                                <span>2 votes</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="poll-footer">
+                        <span class="pie-chart pull-right">
+                            <svg class="svg-icons" width="16px" height="16px">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#pieChart"></use>
+                            </svg>
+                        </span>
+                        <ul class="nav-dot"> 
+                            <li><a><b>20</b> People voted</a></li>
+                             
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="nav-dot">
+                        <li><a>Like</a></li>
+                        <li><a>Comment</a></li>
+                        <li><a>Share</a></li>
+                        <li><a>+ Invite</a></li>
+                    </ul>
+                    <span class="time-left">23 hours left</span>
+                </div>
+            </div>
+            <div class="panel-footer"> 
+                            <span class="all-likes">
+                            <svg class="svg-icons" width="16px" height="17px">
+                              <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                            </svg>
+                            <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> 
+                    </div>
+                    <div class="panel-footer">
+                        <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+                        <div class="comment-group">
+                            <div class="media">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.</div>
+                                    <ul class="nav-dot">
+                                        <li><span>2 mins ago</span></li>
+                                        <li><a>Unlike</a></li>
+                                        <li>
+                                            <a class="btn-like active">
+                                                <svg class="svg-icons" width="16px" height="17px">
+                                                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                                </svg>
+                                                <span class="count">50</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="media-heading"><a class="btn-link">Julia Robers</a> Heart touching video Please also share.</div>
+                                    <ul class="nav-dot">
+                                        <li><span>2 mins ago</span></li>
+                                        <li><a>Like</a></li>
+                                        <li>
+                                            <a class="btn-like">
+                                                <svg class="svg-icons" width="16px" height="17px">
+                                                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                                                </svg>
+                                                <span class="count">50</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="media post-comment">
+                                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                                <div class="media-body">
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" placeholder="Write Comment" data-on-focus="">
+                                        <span class="input-group-addon">
+                              <div class="fileupload">
+                                <label for="addImg4"></label>
+                                <span class="upload-btn">
+                                <svg width="22px" height="18px" class="svg-icons">
+                                  <use xlink:href="assets/img/sprite.svg#cameraIco"></use>
+                                </svg>
+                                </span>
+                                        <input type="file" id="addImg4" ng-model="postImd" class="ng-pristine ng-untouched ng-valid">
+                                    </div>
+                                    </span>
+                                </div>
+                                <div class="attached-thumbs">
+                                    <div class="scrollbox">
+                                        <figure>
+                                            <button class="close">
+                                                <svg width="10px" height="10px" class="svg-icons">
+                                                    <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                                                </svg>
+                                            </button>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="panel-loading"> <span class="loading"></span> </div>
+        </div>
+        <aside class="col-sm-3 hidden-xs hidden-sm">
+            <div class="panel panel-post">
+                <div class="panel-header">
+                    <h5 class="panel-title">PEOPLE YOU MAY KNOW</h5>
+                </div>
+                <ul class="list-group user-list">
+                    <li class="media">
+                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                            <p>American Soccer - GoalKeeper at Eagl...</p>
+                            <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                    </li>
+                    <li class="media">
+                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                            <p>American Soccer - GoalKeeper at Eagl...</p>
+                            <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                    </li>
+                    <li class="media">
+                        <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="50" height="50" class="img-rounded" alt="" /></figure>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a class="btn-link">Amber Chin</a></h4>
+                            <p>American Soccer - GoalKeeper at Eagl...</p>
+                            <a class="btn btn-info btn-xs">CONNECT</a> </div>
+                    </li>
+                </ul>
+                <div class="panel-footer text-center"> <a class="btn-link">VIEW MORE</a> </div>
+            </div>
+            <div class="panel panel-brand">
+                <div class="panel-header">
+                    <h5 class="panel-title">TRENDING</h5>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-custom">
+                        <li><span class="bullet">
+<svg class="svg-icons" width="16px" height="11px">
+<use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+</svg>
+</span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                        <li><span class="bullet">
+<svg class="svg-icons" width="16px" height="11px">
+<use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+</svg>
+</span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                        <li><span class="bullet">
+<svg class="svg-icons" width="16px" height="11px">
+<use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+</svg>
+</span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                    </ul>
+                </div>
+                <div class="panel-footer text-center"> <a class="btn-link">View More</a> </div>
+            </div>
+        </aside>
+        </div>
+        </div>
+    </section>
+    <footer data-footer></footer>
+    <!--Modal Start-->
+    <!--Modal End-->
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/angular.min.js"></script>
+    <script src="assets/js/vendor/match-media.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/angular-wizard.min.js"></script>
+    <script src="assets/js/angular-wizard.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    $(document).ready(function() {
+        mainNav(1);
+        $('#SelectFrom, #SelectTo').datepicker({
+            changeMonth: false,
+            changeYear: false,
+            maxDate: new Date
+        });
+        $('[data-calendar="selectDate"]').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date
+        });
+
+
+
+    });
+    </script>
+</body>
+
+</html>

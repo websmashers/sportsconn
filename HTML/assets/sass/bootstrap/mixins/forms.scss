@@ -1,0 +1,67 @@
+@mixin form-control-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  &.radio label,
+  &.checkbox label {
+    color:$text-color !important;
+  }
+
+  .form-control {
+    border-color:$border-color !important;
+	  color:$text-color !important;
+
+    &:focus {
+      border-color: darken($border-color, 10%);
+      $shadow:0 0 4px lighten($border-color, 20%);
+      @include box-shadow($shadow);
+    }
+  }
+  .input-group-addon {
+    color:$text-color !important;
+    border-color:$border-color !important;
+	
+	/*.svg-icons{fill:$background-color;}*/
+  }
+  .form-control-feedback {
+    color:$text-color !important;
+  }
+
+}
+
+@mixin form-control-focus($color: $input-border-focus) {
+  &:focus {
+    border-color: $color;
+    outline: 0;
+  }
+}
+
+@mixin form-control-focus-disabled($color: $input-border) {
+  $color-rgba: rgba(red($color), green($color), blue($color), 1);
+  &:focus {
+    border-color: $color;
+    outline: 0;
+    @include box-shadow(none);
+  }
+}
+
+@mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  #{$parent} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+  }
+
+  select#{$parent} {
+    height: $input-height;
+    line-height: $input-height;
+  }
+
+  textarea#{$parent},
+  select[multiple]#{$parent} {
+    height: auto;
+  }
+}

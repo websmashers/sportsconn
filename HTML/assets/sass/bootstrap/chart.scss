@@ -1,0 +1,13 @@
+.panel-chart{
+    position:relative;
+    padding-bottom:100%;
+    height:0;
+    overflow:hidden;
+	
+	& > .chart{
+		position:absolute;
+		top:0;
+		left:0;
+		@include square(100%);
+	}
+}

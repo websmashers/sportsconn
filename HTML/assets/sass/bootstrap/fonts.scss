@@ -1,0 +1,57 @@
+@mixin font-face($style-name, $file, $family, $category:"") {
+    $filepath: "../fonts/" + $family + "/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff2") format('woff2'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }	
+}
+
+@mixin font-weight($font-weight){
+  $font-name: gotham;
+  @if $font-family-base == $font-custom{
+	@if $font-weight == $font-weight-bold {
+		font-family:$font-name + "-bold";
+		font-weight: normal;
+	} @else if $font-weight == $font-weight-semibold {
+		font-family:$font-name + "-semibold";
+		font-weight: normal;
+	} @else if $font-weight == $font-weight-light {
+		font-family:$font-name + "-light";
+		font-weight: normal;
+	} @else if $font-weight == $font-weight-normal {
+		font-family:$font-name + "-normal";
+		font-weight: normal;
+	}
+  }
+  @else {
+	  @if $font-weight == $font-weight-bold{
+		  font-weight: $font-weight-bold;
+	  } @else if $font-weight == $font-weight-semibold{
+		  font-weight: $font-weight-semibold;
+	  } @else if $font-weight == $font-weight-light{
+		  font-weight: $font-weight-light;
+	  } @else if $font-weight == $font-weight-normal{
+		  font-weight: $font-weight-normal;
+	  }
+  }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700);
+
+/*@include font-face(gotham-normal, gotham-book-webfont, gotham, sans-serif);
+@include font-face(gotham-light, gotham-light-webfont, gotham, sans-serif);
+@include font-face(gotham-semibold, gotham-medium-webfont, gotham, sans-serif);
+@include font-face(gotham-bold, gotham-bold-webfont, gotham, sans-serif);
+@include font-face(gotham-black, gotham-black-webfont, gotham, sans-serif);*/

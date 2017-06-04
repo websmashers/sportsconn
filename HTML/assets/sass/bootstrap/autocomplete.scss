@@ -1,0 +1,56 @@
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  color:$gray-dark;
+  font-size: $font-size-base;
+  text-align:left;
+  background-color: $dropdown-bg;
+  overflow-y: auto;
+  @include box-shadow(0 0 5px rgba(0,0,0,.30));
+  background-clip: padding-box;
+  display:block;
+  @include list-unstyled();
+  max-height: $navbar-collapse-max-height;
+  z-index:$zindex-modal+5;
+
+    @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
+      max-height: 200px;
+    }
+ & li{
+  padding:10px 15px;
+  line-height: $line-height-computed;
+  color: $dropdown-link-color;
+  cursor:pointer;
+  &:hover,&:focus{
+    text-decoration: none;
+    color: $dropdown-link-hover-color;
+    background-color: $dropdown-link-hover-bg; 
+  }
+  & + li {
+    border-top:1px solid $dropdown-divider;
+  }
+  .label, a{
+    color: $dropdown-link-color;
+    outline:none;    
+  }
+ } 
+}
+.ui-menu .ui-menu-item a.ui-corner-all:hover, 
+.ui-menu .ui-menu-item a.ui-corner-all:focus, 
+.ui-menu .ui-menu-item a.ui-corner-all:active {
+  color: $dropdown-link-hover-color;
+  background-color: $dropdown-link-hover-bg;
+}
+
+.ui-state-hover, 
+.ui-widget-content .ui-state-hover, 
+.ui-widget-header .ui-state-hover, 
+.ui-state-focus, 
+.ui-widget-content 
+.ui-state-focus, 
+.ui-widget-header .ui-state-focus {
+  color: $dropdown-link-hover-color;
+  background-color: $dropdown-link-hover-bg;
+}

@@ -1,0 +1,90 @@
+/* Center */
+@mixin absolute-center($width, $height) {
+	width:$width;
+	height:$height;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:(-$height/2) 0 0 (-$width/2);
+}
+@mixin transform-center() {
+	position:absolute;
+	left:50%;
+	top:50%;
+	@include translate(-50%, -50%);
+}
+
+/*List style*/
+@mixin ul-list($list, $margin, $padding){
+	list-style:$list;
+	margin:$margin;
+	padding:$padding;
+}
+
+/*Elipsis*/
+@mixin elipsis($maxwidth){
+	display:block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	max-width:$maxwidth;
+}
+
+/*Elipsis*/
+@mixin circle($bgColor:#fff, $size:70px){
+	display:inline-block;
+	background-color:$bgColor;
+	border-radius:50%;
+	@include square($size);
+}
+
+/*overlay*/
+@mixin overlay($r:0, $g:0, $b:0, $a:0.7){
+	position:relative;
+	
+	&:after{content:""; background-color:rgba($r,$g,$b,$a); position:absolute; left:0; top:0; right:0; bottom:0;}
+}
+
+/*Arrow*/
+@mixin arrow($direction, $color, $size){
+    display:block;
+    height:0;
+    width:0;
+	position:absolute;
+    
+    @if $direction == 'top' {
+        border-left: $size solid transparent;
+    	border-right: $size solid transparent;
+    	border-bottom: $size solid $color;
+		top: -$size;
+    } @else if $direction == 'right' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+    	border-left: $size solid $color;
+		right: -$size;
+		left: auto;
+    } @else if $direction == 'bottom' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+		top: auto;
+		bottom: -$size;
+    } @else if $direction == 'left' {
+        border-top: $size solid transparent;
+    	border-right: $size solid $color;
+    	border-bottom: $size solid transparent;
+		left: -$size;
+    } @else if $direction == 'top-left' {
+        border-top: $size solid $color; 
+        border-right: $size solid transparent;	
+    } @else if $direction == 'top-right' {
+        border-top: $size solid $color; 
+        border-left: $size solid transparent;
+    } @else if $direction == 'bottom-left' {
+        border-bottom: $size solid $color; 
+        border-right: $size solid transparent;	
+    } @else if $direction == 'bottom-right' {
+        border-bottom: $size solid $color; 
+        border-left: $size solid transparent;
+    }
+}

@@ -1,0 +1,341 @@
+.skills-section {
+	@include list-unstyled;
+	@include clearfix;
+	margin:20px 0; 
+}
+.endorse-item {
+	overflow:hidden;
+	&.endorse-remove{
+		.endorse-item-name{
+			border-right:none;
+			@include border-right-radius(0);
+		}
+	}
+	+ .endorse-item{
+		margin-top:10px;
+	}
+}
+.skill-pill {
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	overflow: hidden;
+	cursor: default;
+	.endorse-count, .endorse-item-name, .endorse-item-close, .endorse-button {
+	    display:table-cell;
+	    vertical-align:middle;
+	    line-height:1.35;
+	    padding:5px 10px;
+	}
+	.endorse-item-close{
+		padding-left:0;
+		>.svg-icons{
+			fill:$gray-dark;
+			vertical-align: baseline;
+		}		
+		&:hover, &:focus{
+			>.svg-icons{
+				text-decoration: none;
+				fill:$link-hover-color;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.endorse-count + .endorse-item-name{
+		@include border-left-radius(0);
+	}
+	.endorse-item-name {		
+		+ .endorse-item-close{
+			@include border-right-radius(3px);
+			background-color: $gray-lighter;
+			border:1px solid $gray-light;
+			border-left:none;
+
+		}
+	}
+
+	.endorse-button{
+		padding-top:2px;
+		padding-bottom:2px;
+	}
+}
+a.skill-pill{
+    cursor: pointer;
+    
+    &:hover,
+    &:hover .endorse-item-name,
+    &:hover .endorse-item-name > em{
+        color:$link-hover-color;
+        
+        .endorse-item-close > .svg-icons{
+            fill:$link-hover-color;
+        }
+    }
+}
+
+.skills-section .skill-pill {
+	@media (min-width: $screen-sm-min) {
+		 float: left;
+		 margin-bottom:0;
+	}		
+}
+
+.endorse-count {
+	font-size:$font-size-base;
+	color: #fff;
+	background-color:$brand-default;
+	@include border-left-radius(3px);
+	text-align: center;
+	min-width:30px;
+	padding:0 2px;
+	&:hover,&:focus {
+		background-color:$link-hover-color;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+.endorse-item-name {
+	padding:0 10px;
+	font-size:$font-size-base;
+	@include font-weight($font-weight-normal);
+	position: relative;
+	color:$gray-dark;
+	border-radius:$border-radius-small;
+	background-color: $gray-lighter;
+	border:1px solid $gray-light;
+	& em{
+		color:$gray-base;
+		font-style:normal;
+		@include font-weight($font-weight-semibold);
+	}
+	span + span:after{
+		content:"";
+		margin:0 5px;
+		background-image:url(../../assets/img/sprite.png);
+		background-repeat:no-repeat;
+		background-position:-350px -50px;
+		width:6px;
+		height:10px;
+		display:inline-block;
+	}
+	.endorse-item-arrow{
+		padding:0 5px;
+		>.svg-icons{
+			vertical-align: baseline;
+			fill:$gray-dark;
+		}
+	}
+	.endorse-item-icon{
+		display:inline-block;
+		vertical-align:text-top;
+		font-size:0;
+		
+		.svg{
+			@include size(auto, 18px);
+			fill:$gray-dark;
+			margin-right:4px;
+		}
+	}
+}
+.endorsers-pics {
+	@include list-unstyled;
+	float: right;
+	overflow: visible;
+	height:30px;
+	li {
+		float: left;
+		margin-left: 2px;
+		margin-right: 0px;
+		height:30px;
+		&.endorsers-action{
+			position: relative;
+			padding:0 15px 0 0;
+		}
+	}
+}
+
+.endorsable .endorse-button{
+	&:hover, &:focus{
+		.endorse-plus, .endorse-close{
+			.svg-icons{
+				fill:$link-color;
+			}
+		}
+	}
+}
+
+.endorsed-by-viewer {
+	.viewer-pic{
+		border-bottom:2px solid $link-color;
+    	padding-bottom: 1px;
+	}
+	.endorse-minus{
+		.svg-icons{
+			fill:$link-color;
+		}
+	}
+}
+
+.endorsed-by-viewer  {
+	.endorse-plus{
+		.svg-icons{
+			fill:$link-color;
+		}
+	}
+}
+.endorsable .endorsing, 
+.endorsed-by-viewer .endorsing {
+	display: block
+}
+
+.endorse-plus, .endorse-minus, .endorse-close {
+	overflow: hidden;
+	position: relative;	
+	float: left;
+	background-color:$gray-lighter;
+}
+.endorse-icon{
+	@include square(26px);
+	.svg-icons{
+		@include transform-center();
+		fill:$gray;
+	}
+}
+
+.endorse-button .endorsing {
+	text-decoration: none;
+	position: absolute;
+	overflow: hidden;
+	padding:2px 10px 2px 5px;
+}
+.endorse-button .endorse-plus {
+	display: block
+} 
+.endorse-button .endorse-minus {
+	display: none
+}
+.endorsable .endorse-button:hover .endorse-plus, 
+.endorsable .endorse-button:focus .endorse-plus{
+	display: block
+}
+.endorsable .endorse-button:hover .endorse-minus,
+.endorsable .endorse-button:focus .endorse-minus {
+	display: none
+}
+.endorsed-by-viewer .endorse-button:hover .endorse-plus, 
+.endorsed-by-viewer .endorse-button:focus .endorse-plus{
+	display: none
+}
+.endorsed-by-viewer .endorse-button:hover .endorse-minus,  
+.endorsed-by-viewer .endorse-button:focus .endorse-minus{
+	display: block
+}
+.endorsers-container {
+	overflow: hidden;
+	.see-all-endorsers{
+		@include arrow(right, $gray, 5px);
+		@include transform-center();
+		&:hover, &:focus{
+			border-left-color:$link-color;
+		}
+	}
+}
+.line-container {
+	line-height: 30px;
+	padding-top: 15px;
+	display: block;
+	.hr-line {
+		border-top: 1px solid $gray-light;	
+		overflow: hidden;
+		display: block;
+		height:15px;
+	}
+}
+.viewer-pic-container, 
+.viewer-pic-plus {
+	position: relative;	
+}
+.viewer-pic-plus{
+	.viewer-pic {
+		max-width:100%;
+		height:auto;
+	}
+
+	.viewer-overlay{	
+		display:block;
+		border:2px solid $brand-default;
+		width:30px;
+		@include overlay($r:0, $g:0, $b:0, $a:0.5);		
+		.svg-icons{
+			@include transform-center();
+			fill:#fff;
+			z-index:1;
+		}
+	}
+}
+
+.pending-group{
+	
+	& > h4{
+		@include font-weight($font-weight-normal);
+		color:$gray-dark;
+	}
+}
+@media (max-width: $screen-sm-max) {
+	.endorsers-container{display:none;}
+}
+
+.compact-view {
+	overflow:hidden;
+	@include list-unstyled;
+	font-size:0;
+	margin-bottom:-10px;
+}
+.compact-view .endorse-item {
+	display:inline-block;
+	vertical-align:middle;
+	zoom:1;
+	margin:0 10px 10px 0;
+}
+.pending-count{
+	font-size:$font-size-base+2;
+	@include font-weight($font-weight-semibold);	
+	.badge-arrow{
+		margin-left:5px;
+	}
+}
+.badge-arrow{
+	border: 2px solid #EE4034;
+    border-radius:10px;
+    padding: 0 5px;
+    min-width: 40px;
+    display: inline-block; 
+    color:#EE4034;
+    line-height:1;
+    vertical-align:top;    
+    font-size:$font-size-base+2;
+	@include font-weight($font-weight-semibold);
+	&:hover, &:focus{
+		color:#fff;
+    	background-color:#EE4034;
+    	>.svg-icons{
+	    	fill:#fff;
+	    }
+	}
+    >.svg-icons{
+    	fill:#EE4034;
+    }
+    .text{
+		vertical-align:top;
+	}
+    &.open{
+    	color:#fff;
+    	background-color:#EE4034;
+    	>.svg-icons{
+	    	fill:#fff;
+	    	@include rotate(180deg);
+	    }
+    }
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Common Admin</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="assets/css/normalize.min.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/tipsy.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/skills.css" type="text/css" />
+<!-- <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css" type="text/css" /> -->
+<link rel="stylesheet" href="assets/css/fixes.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/jquery-ui.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="plugins/chosen/css/chosen.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/summernote.css" type="text/css" />
+<!-- Here is include modernizer.js becuase it always on top of page-->
+<script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div class="notifications success" id="successMsz">
+  <div class="content"> <span>SUCCESS!</span> This is a success message.
+    <div class="icon"></div>
+    <div class="close-notification"></div>
+  </div>
+</div>
+<div class="popup confirme-popup animated" id="confirmePopups">
+  <div class="popup-title">Confirmation <i class="icon-close" onClick="closePopDiv('confirmePopups', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <p>Are you sure you want to do this ?</p>
+    <div class="communicate-footer text-center">
+      <button class="button wht" onClick="closePopDiv('confirmePopups', 'bounceOutUp');">No</button>
+      <button class="button" onClick="closePopDiv('confirmePopups', 'bounceOutUp'); sucessMsz(); ">Yes</button>
+    </div>
+  </div>
+</div>
+<div class="communicate-morelist">
+  <div class="tip-content"> <i class="icon-tiparrow">&nbsp;</i> <a href="javascript:void(0);">Vikas Makwana</a> <a href="javascript:void(0);">Pooja Jain</a> <a href="javascript:void(0);">Akshatha Prabhudev</a> <a href="javascript:void(0);">Vikas Makwana</a> </div>
+</div>
+<div class="popup confirme-popup animated" id="confirmePopup">
+  <div class="popup-title">Confirmation <i class="icon-close" onClick="closePopDiv('confirmePopup', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <p>Are you sure you want to delete ?</p>
+    <div class="communicate-footer text-center">
+      <button class="button wht" onClick="closePopDiv('confirmePopup', 'bounceOutUp');">No</button>
+      <button class="button" onClick="closePopDiv('confirmePopup', 'bounceOutUp'); sucessMsz(); ">Yes</button>
+    </div>
+  </div>
+</div>
+<div class="popup communicate animated" id="communicateSingle">
+  <div class="popup-title">Communicate <i class="icon-close" onClick="closePopDiv('communicateSingle', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <div class="user-detial-block"> <a href="javascript:void(0);" class="user-thmb"><img src="assets/img/user-thmb48.jpg" alt=""></a>
+      <div class="overflow"> <a href="javascript:void(0);" class="name-txt">Vikas Makwana</a>
+        <div class="dob-id"><span>Jul 10, 2013</span> <a href="javascript:void(0);">Vikasm@vinfotech.com</a></div>
+      </div>
+    </div>
+    <div class="communicate-footer row-flued">
+      <div class="from-subject">
+        <label class="label">From</label>
+        <div class="text-field">
+          <select>
+            <option>Akshatha Prabhudev</option>
+            <option>Pooja Jain</option>
+            <option>Friend Messages</option>
+            <option>Pooja Jain</option>
+          </select>
+        </div>
+        <label class="label" for="subjects">Subject</label>
+        <div class="text-field">
+          <input type="text" id="subjects">
+        </div>
+      </div>
+      <div class="text-msz">
+        <textarea id="ckeditorCustom">Enter your message</textarea>
+      </div>
+      <button class="button" onClick="closePopDiv('communicateSingle', 'bounceOutUp');">Submit</button>
+    </div>
+  </div>
+</div>
+<div class="popup communicate animated" id="communicateMultiple">
+  <div class="popup-title">Communicate <i class="icon-close" onClick="closePopDiv('communicateMultiple', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <div class="multiple-comunicate"> <a href="javascript:void(0);" class="name-tag"><span>Vikas Makwana</span></a> <a href="javascript:void(0);" class="name-tag"><span>Nitin Bundele</span></a> <a href="javascript:void(0);" class="name-tag"><span>Amit Bhuyan</span></a> <a href="javascript:void(0);" class="name-tag morelist" data-tip="tooltip"><span>+ 5 More</span></a> </div>
+    <div class="communicate-footer row-flued">
+      <div class="from-subject">
+        <label class="label">From</label>
+        <div class="text-field">
+          <select>
+            <option>Akshatha Prabhudev</option>
+            <option>Pooja Jain</option>
+            <option>Friend Messages</option>
+            <option>Pooja Jain</option>
+          </select>
+        </div>
+        <label class="label" for="subject">Subject</label>
+        <div class="text-field">
+          <input type="text" id="subject">
+        </div>
+      </div>
+      <div class="text-msz">
+        <textarea id="multipleComu">Enter your message</textarea>
+      </div>
+      <button class="button" onClick="closePopDiv('communicateMultiple', 'bounceOutUp');">Submit</button>
+    </div>
+  </div>
+</div>
+<div class="popup changepwd animated" id="changePwd">
+  <div class="popup-title">CHANGE PASSWORD <i class="icon-close" onClick="closePopDiv('changePwd', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <div class="form-content">
+      <div class="form-control">
+        <div class="text-field" data-type="focus">
+          <label for="NewPassword">New Password</label>
+          <input type="password" id="NewPassword">
+        </div>
+        <div class="error-holder"><span>Invalid email or password.</span></div>
+      </div>
+      <div class="form-control">
+        <div class="text-field" data-type="focus">
+          <label for="RetypeNewPassword">Retype New Password</label>
+          <input type="password" id="RetypeNewPassword">
+        </div>
+        <div class="error-holder"><span>Invalid email or password.</span></div>
+      </div>
+      <div class="form-control">
+        <input type="button" value="CANCEL" class="button wht" onClick="closePopDiv('changePwd', 'bounceOutUp');">
+        <input type="button" value="SAVE" class="button" onClick="closePopDiv('changePwd', 'bounceOutUp');">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup merge-popup animated" id="mergePopup">
+  <div class="popup-title">Merge <i class="icon-close" onClick="closePopDiv('mergePopup', 'bounceOutUp');">&nbsp;</i></div>
+  <div class="popup-content">
+    <p>Are you sure you want to delete ?</p>
+    <div class="communicate-footer text-center">
+      <button class="button wht" onClick="closePopDiv('mergePopup', 'bounceOutUp');">No</button>
+      <button class="button" onClick="closePopDiv('mergePopup', 'bounceOutUp'); sucessMsz(); ">Yes</button>
+    </div>
+  </div>
+</div>
+<section class="notification"> Use Shift or Control key for multiple selection </section>
+<section class="page-wrpper">
+  <header>
+    <section class="header-wrapper"> <a href="users.html" class="logo-block"><img src="assets/img/logo.png"></a>
+      <div class="header-right">
+        <nav class="main-nav">
+          <ul>
+            <li><a>USERS </a></li>
+            <li class="dropdown"> <a>CONTENT <i class="icon-arrow"></i></a>
+              <ul>
+                <li> <a>Media <i class="icon-rightarrow">&nbsp;</i></a>
+                  <ul class="wd190">
+                    <li><a>Abuse Report</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown"><a>ANALYTICS <i class="icon-arrow"></i></a>
+              <ul class="wd200">
+                <li><a>Login Analytics</a></li>
+                <li><a>Email Analytics</a></li>
+                <li><a>Signup Analytics</a></li>
+                <li><a>Media Analytics</a></li>
+                <li><a>Most Active Users</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a>EMAIL SETTINGS <i class="icon-arrow"></i></a>
+              <ul class="wd190">
+                <li><a>Emails</a></li>
+                <li><a>SMTP Settings</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a>REQUEST<i class="icon-arrow"></i></a>
+              <ul class="wd190">
+                <li><a>Support Ticket</a></li>
+                <li><a>Error Log</a></li>
+              </ul>
+            </li>
+            <li><a>IPs</a></li>
+            <li><a class="selected">Skills Mapping</a></li>
+          </ul>
+        </nav>
+        <div class="nav-right">
+          <ul class="right-control">
+            <li class=""> <a href="javascript:void(0);" class="user-setting"><i class="icon-setting"></i></a><ul class="action-dropdown userSettingdropdown">
+             <li><a href="beta-invite.html">Beta Invite</a></li>
+                <li><a href="admin-demo.html">Admin Demo</a></li>
+                <li><a href="global-config-management.html">Configuration</a></li>
+                <li><a href="change-password.html">Change password</a></li>
+                <li><a href="login.html">Logout</a></li>
+              </ul>
+            </li>
+            <li> <a href="javascript:void(0);" class="month-view"><span id="selectedTime">3 Months</span> <i class="icon-arrow"></i></a>
+              <div class="action-dropdown monthView wid210">
+                <ul class="viewList">
+                  <li><a href="javascript:void(0);">Today</a></li>
+                  <li><a href="javascript:void(0);">This week</a></li>
+                  <li><a href="javascript:void(0);">This month</a></li>
+                  <li><a href="javascript:void(0);">This year</a></li>
+                </ul>
+                <ul class="custom-select">
+                  <li><a href="javascript:void(0);" class="customSelect">Custom</a></li>
+                </ul>
+                <ul class="customView">
+                  <li>
+                    <div class="mng"> <span class="from">From</span>
+                      <div class="text-field search-field tfld" data-type="focus">
+                        <input type="text" id="dateFrom">
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mng"> <span class="from">To</span>
+                      <div class="text-field search-field tfld" data-type="focus">
+                        <input type="text"  id="dateTo" >
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mng"> <a href="javascript:void(0);" id="submitBtn">Submit</a> </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </header>
+  
+  <!--/Header End-->
+  
+  <section class="content-wrapper">  
+      <aside class="sidebar-left">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-control">
+              <label class="label">Skill name</label>
+              <div class="text-field large" data-type="focus">
+                   <input type="text" value="Shooting" placeholder="">
+              </div>
+              <div class="error-holder" style="display:none;"><span>Error</span></div>
+            </div>
+          </div>
+        </div>
+        <h4 class="page-header semibold">Add to Categories</h4>            
+        <div class="panel-group accordion" id="accordion">
+          <div class="input-group search-group">
+            <input type="text" placeholder="Quick search" class="form-control">
+            <span class="input-group-addon">
+            <svg class="svg-icons" width="14px" height="14px">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#searchIco"></use>
+            </svg>
+            </span> 
+          </div>
+          <div class="panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <span class="checkbox">
+                  <input type="checkbox" id="categories">
+                  <label for="categories">All categories</label>
+                </span>  
+              </h4>
+            </div>
+            <div class="panel-heading">
+              <h4 class="panel-title accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <span class="checkbox">
+                <input type="checkbox" id="Athletics">
+                <label for="Athletics">Athletics</label>
+              </span>  
+              <i class="caret"></i>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                 <ul class="list-group list-seprator">
+                  <li class="list-group-item">
+                    <span class="radio">
+                      <input type="radio" id="High-Jump">
+                      <label for="High-Jump">High Jump</label>
+                    </span>
+                  </li>
+                </ul>
+            </div>
+          </div>
+          <div class="panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              <span class="checkbox">
+                <input type="checkbox" id="Athletics">
+                <label for="Athletics">Soccer</label>
+              </span>  
+              <i class="caret"></i>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                 <ul class="list-group list-seprator">
+                  <li class="list-group-item">
+                    <span class="radio">
+                      <input type="radio" id="Goalkeeping" name="soccer">
+                      <label for="Goalkeeping">Goalkeeping</label>
+                    </span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class="radio">
+                      <input type="radio" id="Defender" name="soccer">
+                      <label for="Defender">Defender</label>
+                    </span>
+                  </li>
+                </ul>
+            </div>
+          </div>
+          <div class="panel-footer text-center">
+            <a class="semibold">+20 more</a>
+          </div>
+        </div>         
+      </aside>
+      <section class="content-right">
+        <h3 class="page-title semibold">Edit Skill</h3>
+        <div class="panel panel-info">
+          <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-6">
+                    <h4 class="well-title">Icon</h4>
+                    <div class="well well-sm">
+                        <div class="upload-btn"> 
+                            <span class="up-icon">
+                              <label for="addIcon"></label>
+                              <svg class="svg-icons" width="18px" height="22px">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#arrowUpIco"></use>
+                              </svg>                               
+                              <input type="file" id="addIcon">
+                            </span>
+                            <span class="up-text">Upload Icon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="well-title">Also include suggestions from</h4>
+                    <div class="well well-sm">
+                        <ul class="compact-view">
+                          <li class="endorse-item endorse-remove">
+                            <span class="skill-pill">
+                              <span class="endorse-item-name">
+                                <span class="endorse-item-icon">
+                                  <img alt="" class="svg" src="assets/categories/soccer.svg">
+                                </span>
+                                <span>Soccer</span>
+                                <span>Defender</span>
+                                <em>Reflexes</em>
+                              </span>
+                              <a class="endorse-item-close">
+                                <svg height="10px" width="10px" class="svg-icons">
+                                  <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                                </svg>
+                              </a>
+                            </span>
+                          </li>                  
+                        </ul>
+                        <div class="form-control">
+                          <div class="text-field large text-noborderd" data-type="focus">
+                               <input type="text" placeholder="Suggestions">
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                    <h4 class="well-title">Associated with categories</h4>
+                    <div class="well well-sm well-nopad">
+                        <div class="input-group search-group">
+                          <input type="text" placeholder="Quick search" class="form-control">
+                          <span class="input-group-addon">
+                          <svg class="svg-icons" width="14px" height="14px">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#searchIco"></use>
+                          </svg>
+                          </span> 
+                        </div> 
+                        <div class="well-body">
+                          <ul class="compact-view">
+                          <li class="endorse-item">
+                              <span class="skill-pill">
+                                <span class="endorse-item-name">
+                                  <span class="endorse-item-icon">
+                                    <img alt="" class="svg" src="assets/categories/soccer.svg">
+                                  </span>
+                                  <span>Soccer</span>
+                                  <span>Defender</span>
+                                  <em>Reflexes</em>
+                                </span>
+                              </span>
+                            </li>                  
+                          </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="well-title">Already merged with</h4>
+                    <div class="well well-sm">
+                        <ul class="compact-view">
+                          <li class="endorse-item endorse-remove">
+                            <span class="skill-pill">
+                              <span class="endorse-item-name">
+                                <span class="endorse-item-icon">
+                                  <img alt="" class="svg" src="assets/categories/soccer.svg">
+                                </span>
+                                <span>Soccer</span>
+                                <span>Defender</span>
+                                <em>Reflexes</em>
+                              </span>
+                              <a class="endorse-item-close">
+                                <svg height="10px" width="10px" class="svg-icons">
+                                  <use xlink:href="../assets/img/sprite.svg#closeIco"/>
+                                </svg>
+                              </a>
+                            </span>
+                          </li>                  
+                        </ul>
+
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+  </section>
+  <div class="pushfooter"></div>
+</section>
+<section class="footer-wrapper">
+  <footer>
+    <ul class="footer-links">
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+    <div class="powered-by">
+      <label>POWERED BY </label>
+      <a href="javascript:void(0);" class="icon-vinfotech-logo">&nbsp;</a> </div>
+  </footer>
+</section>
+<!-- Main JS Files --> 
+<script src="assets/js/vendor/jquery-1.10.1.min.js"></script>
+<script src="assets/js/vendor/jquery-ui.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.tipsy.js"></script>
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/main.js"></script>
+<script>
+function sucessMsz(){
+	  $('.notifications').addClass('active');
+	  setTimeout(function(){
+		  $('.notifications').removeClass('active');
+		  },3000);
+ 	  }	
+$(function(){
+  $('select').selectbox();  
+  $('#dateFrom').datepicker();
+  $('#dateTo').datepicker();
+  $('#ui-datepicker-div').mouseup(function (e) {
+	     return false;
+	});
+});  
+</script>
+</body>
+</html>

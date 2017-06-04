@@ -1,0 +1,661 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-app="sportsConn" data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div header-after-login></div>
+<nav class="navbar navbar-inverse navbar-static" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarStatic">PEOPLE</button>
+    </div>
+    <div id="navbarStatic" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="search-people.html">PEOPLE</a></li>
+        <li class="active"><a href="search-organization.html">ORGANIZATION</a></li>
+        <li><a href="search-pages.html">PAGES</a></li>
+        <li><a href="search-media.html">MEDIA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="panel panel-info">
+      <div class="row">
+        <div class="col-md-3 col-sm-4">
+          <div class="panel-header">
+            <h4 class="panel-title">FILTER YOUR RESULTS</h4>
+          </div>
+          <div class="panel-filter">
+            <ul class="nav">
+              <li class="active"><a><span class="arrow-right">
+                <svg class="svg-icons" width="15px" height="7px">
+                  <use xlink:href="assets/img/sprite.svg#arrowIco"></use>
+                </svg>
+                </span><span class="text">People</span></a></li>
+              <li><a><span class="arrow-right">
+                <svg class="svg-icons" width="15px" height="7px">
+                  <use xlink:href="assets/img/sprite.svg#arrowIco"></use>
+                </svg>
+                </span><span class="text">Pages</span></a></li>
+            </ul>
+            <div class="panel-body base-pad">
+              <h5 class="panel-title">USER TYPE</h5>
+              <div class="checkbox-group"> <span class="checkbox">
+                <input type="checkbox" id="athleteId">
+                <label for="athleteId">Athlete</label>
+                </span> <span class="checkbox">
+                <input type="checkbox" id="fanId">
+                <label for="fanId">Fan</label>
+                </span> <span class="checkbox">
+                <input type="checkbox" id="organizationId">
+                <label for="organizationId">Organization</label>
+                </span> <span class="checkbox">
+                <input type="checkbox" id="professionalId">
+                <label for="professionalId">Professional</label>
+                </span> </div>
+            </div>
+            <div class="accordion">
+            	<div class="panel-body base-pad">
+                  <h5 class="panel-title" data-toggle="collapse" href="#locationAccordion">LOCATION <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="locationAccordion" class="collapse in">
+                    <div class="form-group">
+                      <input type="text" class="form-control input-sm" placeholder="Type Location">
+                    </div>
+                    <div class="checkbox-group"> <span class="checkbox">
+                      <input type="checkbox" id="locId1">
+                      <label for="locId1">United States(500)</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="locId2">
+                      <label for="locId2">United Kingdom(400)</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="locId3">
+                      <label for="locId3">Australia(300)</label>
+                      </span> </div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title" data-toggle="collapse" href="#relationshipAccordion">RELATIONSHIP <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="relationshipAccordion" class="collapse in">
+                    <div class="checkbox-group"> <span class="checkbox">
+                      <input type="checkbox" id="relId1">
+                      <label for="relId1">1st Connections</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="relId2">
+                      <label for="relId2">2st Connections</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="relId3">
+                      <label for="relId3">3rd &amp; Everyone Else</label>
+                      </span> </div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#primaryAccordion">PRIMARY SPORT <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="primaryAccordion" class="collapse">
+                    <div class="form-group form-group-sm">
+                      <select data-chosen data-placeholder="Choose Sport" disable-search="true" data-ng-model="chooseSport" class="form-control" on-focus>
+                        <option>Sport 1</option>
+                        <option>Sport 2</option>
+                        <option>Sport 3</option>
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="form-group form-group-sm">
+                      <select data-chosen data-placeholder="Choose Position" disable-search="true" data-ng-model="choosePosition" class="form-control" on-focus>
+                        <option>Position 1</option>
+                        <option>Position 2</option>
+                        <option>Position 3</option>
+                        <option>Position 4</option>
+                        <option>Position 5</option>
+                        <option>Position 6</option>
+                        <option>Position 7</option>
+                        <option>Position 8</option>
+                        <option>Position 9</option>
+                        <option>Position 10</option>
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#ageAccordion">AGE <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="ageAccordion" class="collapse">
+                    <div class="scrollbox"><div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="ageId1">
+                      <label for="ageId1">10 to 20 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId2">
+                      <label for="ageId2">20 to 30 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId3">
+                      <label for="ageId3">30 to 40 years</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="ageId4">
+                      <label for="ageId4">40 to 50 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId5">
+                      <label for="ageId5">50 to 60 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId6">
+                      <label for="ageId6">60 to 70 years</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="ageId7">
+                      <label for="ageId7">70 to 80 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId8">
+                      <label for="ageId8">80 to 90 years</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="ageId9">
+                      <label for="ageId9">90 to 100 years</label>
+                      </span>
+                    </div></div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#genderAccordion">GENDER <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="genderAccordion" class="collapse">
+                    <div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="genId1">
+                      <label for="genId1">Male</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="genId2">
+                      <label for="genId2">Female</label>
+                      </span>
+                    </div>
+                  </div>                  
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#skillAccordion">SKILLS <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="skillAccordion" class="collapse">
+                    <div class="form-group">
+                      <input type="text" class="form-control input-sm" placeholder="Type Skill">
+                    </div>
+                    <div class="scrollbox"><div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="skillId1">
+                      <label for="skillId1">Positive Attitude</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="skillId2">
+                      <label for="skillId2">Motivate self</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="skillId3">
+                      <label for="skillId3">Interpersonal skills</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="skillId4">
+                      <label for="skillId4">Stress Management</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="skillId5">
+                      <label for="skillId5">Maintain concentration</label>
+                      </span> 
+                    </div></div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#personAccordion">PERSONAL BEST <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="personAccordion" class="collapse">
+                   <div class="form-group">
+                      <input type="text" class="form-control input-sm" placeholder="Type Personal Best">
+                    </div>
+                    <div class="scrollbox"><div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="perId1">
+                      <label for="perId1">Aerobic</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="perId2">
+                      <label for="perId2">Anaerobic</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="perId3">
+                      <label for="perId3">Speed</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="perId4">
+                      <label for="perId4">Power</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="perId5">
+                      <label for="perId5">Agility</label>
+                      </span> 
+                    </div></div>
+                  </div>
+                </div>                
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#physicalAccordion">PHYSICAL ATTRIBUTES <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="physicalAccordion" class="collapse">
+                    <div class="form-group">
+                      <input type="text" class="form-control input-sm" placeholder="Type physical Attribute">
+                    </div>
+                    <div class="scrollbox"><div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="phyId1">
+                      <label for="phyId1">Speed</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="phyId2">
+                      <label for="phyId2">Agility</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="phyId3">
+                      <label for="phyId3">Flexibility</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="phyId4">
+                      <label for="phyId4">Power</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="phyId5">
+                      <label for="phyId5">Vertical Leap</label>
+                      </span> 
+                    </div></div>
+                  </div>
+                </div>
+                <div class="panel-body base-pad">
+                  <h5 class="panel-title collapsed" data-toggle="collapse" href="#educationAccordion">EDUCATION <span class="icon">
+                    <svg class="svg-icons" width="8px" height="5px">
+                      <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+                    </svg>
+                    </span></h5>
+                  <div id="educationAccordion" class="collapse">
+                    <div class="form-group">
+                      <input type="text" class="form-control input-sm" placeholder="Type Education">
+                    </div>
+                    <div class="scrollbox"><div class="checkbox-group">
+                      <span class="checkbox">
+                      <input type="checkbox" id="eduId1">
+                      <label for="eduId1">Aarhus University</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="eduId2">
+                      <label for="eduId2">Academy of Art University</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="eduId3">
+                      <label for="eduId3">Aegean University</label>
+                      </span>
+                      <span class="checkbox">
+                      <input type="checkbox" id="eduId4">
+                      <label for="eduId4">Aalborg University</label>
+                      </span> <span class="checkbox">
+                      <input type="checkbox" id="eduId5">
+                      <label for="eduId5">Arizona State University</label>
+                      </span> 
+                    </div></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 col-sm-8 search-list">
+          <div class="panel-header">
+            <div class="row">
+              <div class="col-xs-4"> <span class="count">1200 <span class="gray-text">Results for</span> Tom</span> </div>
+              <div class="col-xs-8">
+                <div class="post-search-ctrl clearfix open" data-addclass> <a class="search" ng-toggle-class="open">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#searchIco"></use>
+                  </svg>
+                  </a>
+                  <div class="post-search form-group">
+                    <div class="input-group">
+                      <input type="text" ng-model="searchPost" placeholder="Search" class="form-control input-sm" data-on-focus>
+                      <a class="input-group-addon" ng-click="searchPost = null" ng-toggle-class="open">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                      </svg>
+                      </a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="panel-body base-pad">
+              <div class="col-md-10">
+                <ul class="list-group list-seprator">
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media media-visible">
+                      <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="60" height="60" class="img-rounded" alt=""></figure>
+                      <div class="media-body">
+                        <h3 class="media-heading"><a class="btn-link">Tommy Lee</a></h3>
+                        <h4 class="semibold">American Soccer - GoalKeeper at Eagle Club</h4>
+                        <span class="gray-text">SF, California, USA</span> </div>
+                      <div class="media-right media-action block-xs">
+                        <button type="button" class="btn btn-primary btn-sm">CONNECT</button>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="20px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#followIco"></use>
+                              </svg>
+                              </span><span class="text">Follow</span></a></li>
+                            <li><a><span class="icon">
+                              <svg class="svg-icons" width="14px" height="14px">
+                                <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                              </svg>
+                              </span><span class="text">Message</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="text-center">
+                  <ul class="pagination">
+                    <li class="disabled"><a><svg class="svg-icons" width="6px" height="10px">
+                      <use xlink:href="assets/img/sprite.svg#arrowLeftIco"></use>
+                    </svg></a></li>
+                    <li class="active"><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a><svg class="svg-icons" width="6px" height="10px">
+                      <use xlink:href="assets/img/sprite.svg#arrowRightIco"></use>
+                    </svg></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-2 hidden-xs hidden-sm">
+                <figure class="google-ads"><img src="assets/img/google-ads6.jpg" width="151" height="566" alt=""></figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="google-ads">
+      <figure><img src="assets/img/google-ads3.jpg" width="728" height="90" alt=""></figure>
+      <br>
+    </div>
+  </div>
+</section>
+<!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer>
+  <div class="container">
+    <ul class="nav nav-default">
+      <li><a>About</a></li>
+      <li><a>Privacy Policy</a></li>
+      <li><a>Terms &amp; Conditions</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <span class="copyright">&copy; SportsConn 2016</span></div>
+</footer>
+<!-- #EndLibraryItem --> 
+<!--Modal Start-->
+<div id="removeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <h3 class="lead">Are you sure you want to remove all the connections ?</h3>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-primary">REMOVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function() {
+	
+});
+</script>
+</body>
+</html>

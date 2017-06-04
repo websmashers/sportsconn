@@ -1,0 +1,47 @@
+/*Scroll*/
+.scrollbox{
+	width:100% !important;
+	padding-right:10px !important;
+	overflow:auto;
+	
+	&:focus{
+		outline:none;
+	}
+}
+.vertical-track{
+	width:4px;
+	background-color:transparent;
+}
+.vertical-handle{
+	width:100%;
+	background-color:#D5D6D7;
+	border-radius:20px;
+}
+
+.scrollbox-horizontal{
+	height:auto !important;
+	
+	&:focus{
+		outline:none;
+	}
+}
+.horizontal-track{
+	height:4px;
+	background-color:transparent;
+}
+.horizontal-handle{
+	height:100%;
+	background-color:#D5D6D7;
+	border-radius:20px;
+}
+
+.sortable-panel > *{cursor:move;}
+
+.scrollbox-md-height{
+	@media (min-width: $screen-sm-min) {
+		max-height:515px;
+	}
+}
+.track-panel + .track-panel{
+	display:none !important;
+}

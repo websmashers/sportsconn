@@ -1,0 +1,80 @@
+.pagination {
+  display:inline-block;
+  @include ul-list(none, (25px -5px -5px), 0);
+
+  > li {
+    float:left;
+	padding:5px;
+    > a,
+    > span {
+	  display:block;
+      position:relative;
+      padding:6px;
+      line-height:1;
+      text-decoration:none;
+      color:$pagination-color;
+      background-color:$pagination-bg;
+	  font-size:$font-size-base+2;
+	  @include square(30px);
+	  @include box-shadow(0 0 2px rgba(0,0,0,0.30));
+	  
+	  .svg-icons{
+		display:block;
+		fill:$brand-default;
+		@include transform-center;
+	  }
+    }
+  }
+
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color:$pagination-hover-color;
+      background-color:$pagination-hover-bg;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: $pagination-active-color;
+      background-color: $pagination-active-bg;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: $pagination-disabled-color;
+      background-color: $pagination-disabled-bg;
+      cursor: $cursor-disabled;
+	  .svg-icons{
+		display:block;
+		fill:$gray-light;
+	  }
+    }
+  }
+}
+
+// Sizing
+// --------------------------------------------------
+
+// Large
+.pagination-lg {
+  @include pagination-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+}
+
+// Small
+.pagination-sm {
+  @include pagination-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}

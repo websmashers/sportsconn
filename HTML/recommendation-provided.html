@@ -1,0 +1,204 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div header-after-login></div>
+<section class="header-title">
+  <div class="container">
+    <h3>RECOMMENDATION</h3>
+  </div>
+</section>
+<nav class="navbar navbar-inverse navbar-primary" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSecond">GIVEN</button>
+    </div>
+    <div id="navbarSecond" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="recommendation-received.html">RECEIVED</a></li>
+        <li class="active"><a href="recommendation-provided.html">PROVIDED</a></li>
+        <li><a href="recommendation-request.html">REQUEST RECOMMENDATIONS (1)</a></li>
+        <li><a href="recommendation-give.html">GIVE(1)</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="panel panel-info">
+          <div class="panel-header">
+            <div class="media">
+              <div class="media-body media-middle">
+                <h3 class="panel-title">Manage Recommendations you’ve given</h3>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group list-seprator">
+              <li>
+                <div class="media">
+                  <figure class="media-left media-xs"><img src="assets/img/thumb120x120.jpg" width="120" height="120" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="row">
+                    <div class="col-sm-8"><div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p></div>
+                    <div class="col-sm-4 text-right"><ul class="nav nav-pills">
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="12px" height="12px">
+                          <use xlink:href="assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                        </span>Edit</a></li>
+                      <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-small" data-getvalue="dropdown">
+                          <li><a>Remove</a></li>
+                        </ul>
+                      </li>
+                    </ul></div></div>
+                    <div class="view-mode">
+                      <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                      <span class="datetime font-base">Mar 25, 2016</span> 
+                    </div>
+                    <div class="edit-mode ng-hide">
+                      <div class="form-group form-group-lg">
+                        <textarea class="form-control" rows="3" placeholder="">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</textarea>
+                        <span class="error-block">Error message</span> 
+                      </div>
+                      <div class="btn-group">
+                        <div class="btn-toolbar btn-toolbar-right">
+                          <button class="btn btn-default" data-ng-click="addExperienceItem='add'">CANCEL</button>
+                          <button class="btn btn-primary" data-ng-click="addExperienceItem='view'">SAVE</button>                  
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>                    
+                </div>
+              </li>
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left media-xs"><img src="assets/img/thumb120x120.jpg" width="120" height="120" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="row">
+                    <div class="col-sm-8"><div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p></div>
+                    <div class="col-sm-4 text-right"><ul class="nav nav-pills">
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="12px" height="12px">
+                          <use xlink:href="assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                        </span>Edit</a></li>
+                      <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-small" data-getvalue="dropdown">
+                          <li><a>Remove</a></li>
+                        </ul>
+                      </li>
+                    </ul></div></div>
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016</span> </div>
+                </div>
+              </li>
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left media-xs"><img src="assets/img/thumb120x120.jpg" width="120" height="120" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="row">
+                    <div class="col-sm-8"><div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p></div>
+                    <div class="col-sm-4 text-right"><ul class="nav nav-pills">
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="12px" height="12px">
+                          <use xlink:href="assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                        </span>Edit</a></li>
+                      <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-small" data-getvalue="dropdown">
+                          <li><a>Remove</a></li>
+                        </ul>
+                      </li>
+                    </ul></div></div>
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016</span> </div>
+                </div>
+              </li>
+              <li>
+                <div class="media media-visible">
+                  <figure class="media-left media-xs"><img src="assets/img/thumb120x120.jpg" width="120" height="120" class="img-rounded" alt=""></figure>
+                  <div class="media-body">
+                    <div class="row">
+                    <div class="col-sm-8"><div class="media-heading">
+                      <h3><a class="btn-link">Linda Josefin</a></h3>
+                    </div>
+                    <p>American Soccer - Goalkeeper at Eagle Club</p></div>
+                    <div class="col-sm-4 text-right"><ul class="nav nav-pills">
+                      <li><a><span class="icon">
+                        <svg class="svg-icons" width="12px" height="12px">
+                          <use xlink:href="assets/img/sprite.svg#editIco"></use>
+                        </svg>
+                        </span>Edit</a></li>
+                      <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-small" data-getvalue="dropdown">
+                          <li><a>Remove</a></li>
+                        </ul>
+                      </li>
+                    </ul></div></div>
+                    <blockquote read-more limit="150">There are conflicting explanations of the origin of the word “football”. It is widely assumed that the word “football” (or the phrase “football”) refers to the action of the foot kicking a ball. There is no conclusive evidence for either explanation.</blockquote>
+                    <span class="datetime font-base">Mar 25, 2016</span> </div>
+                </div>
+              </li>
+            </ul>
+            <div class="showmore-link text-center"> <a class="btn-link link-icon"><span class="text">SHOW MORE</span><span class="icon">
+              <svg class="svg-icons" width="10px" height="6px">
+                <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+              </svg>
+              </span></a> </div>
+          </div>
+        </div>
+      </div>
+      <aside class="col-md-2 visible-lg visible-md">
+        <div class="google-ads"> <a><img src="assets/img/google-ads6.jpg" class="img-full" width="151" height="566" alt="" /></a> </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer>
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script>
+</body>
+</html>

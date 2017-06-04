@@ -1,0 +1,232 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header"> <a class="navbar-brand" href="home.html">
+        <svg class="svg-icons">
+          <use xlink:href="assets/img/sprite.svg#logoIco"></use>
+        </svg>
+        </a> </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-controls="navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      <div id="navbar1" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a>ABOUT SPORTSCONN</a></li>
+          <li><a>JOIN NOW</a></li>
+          <li><a data-target="#loginModal" data-toggle="modal">LOGIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<nav class="navbar navbar-inverse navbar-static" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarStatic">PRIVACY POLICY</button>
+    </div>
+    <div id="navbarStatic" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a>PRIVACY POLICY</a></li>
+        <li><a>USER AGREEMENT</a></li>
+        <li><a>PAYMENT TERMS</a></li>
+        <li><a>PAGES TERMS</a></li>
+        <li><a>AD-GUIDELINES</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-static">
+          <div class="panel-body">
+            <h3 class="page-header">SPORTSCONN PRIVACY POLICY</h3>
+            <p>We give you the power to share as part of our mission to connect the world of sport. This policy describes what information we collect and how it is used and shared.</p>
+            <p>As you review our policy, keep in mind that it applies to all SportsConn brands, products and services that do not have a separate privacy policy or that link to this policy, which we call the <strong>“SportsConn Services”</strong> or <strong>“Services.”</strong></p>
+            <h3 class="page-header">WHAT KINDS OF INFORMATION DO WE COLLECT?</h3>
+            <h3 class="sub-heaher counter">Things you do and information you provide</h3>
+            <p>We collect the content and other information you provide when you use our Services, including when you sign up for an account, create or share, and message or communicate with others. This can include information in or about the content you provide, such as the location of a photo or the date a file was created. We also collect information about how you use our Services, such as the types of content you view or engage with or the frequency and duration of your activities.</p>
+            <h3 class="sub-heaher counter">Things others do and information they provide</h3>
+            <p>We also collect content and information that other people provide when they use our Services, including information about you, such as when they share a photo of you, send a message to you, or upload, sync or import your contact information.</p>
+            <h3 class="sub-heaher counter">Device information</h3>
+            <p>We collect information from or about the computers, phones, or other devices where you install or access our Services, depending on the permissions you’ve granted. We may associate the information we collect from your different devices, which helps us provide consistent Services across your devices. Here are some examples of the device information we collect:</p>
+            <p>(a)  Attributes such as the operating system, hardware version, device settings, file and software names and types, battery and signal strength, and device identifiers.</p>
+            <p>(b)  Device locations, including specific geographic locations, such as through GPS, Bluetooth, or WiFi signals.</p>
+            <p>(c)  Connection information such as the name of your mobile operator or ISP, browser type, language and time zone, mobile phone number and IP address.</p>
+            <h3 class="page-header">MAKING PURCHASES</h3>
+            <p>Your privacy is important to us. We designed our Privacy Policy to make important disclosures about how you can use SportsConn to share with others and how we collect and can use your content and information. We encourage you to read the Privacy Policy, and to use it to help you make informed decisions.</p>
+            <strong>Minors</strong>
+            <p>If you are under the age of eighteen (18), you may use SportsConn Payments only with the involvement of your parent or guardian. Make sure you review these Terms with your parent or guardian so that you both understand all of your rights and responsibilities.</p>
+            <strong>Sponsored posts</strong>
+            <p>Posts you have Sponsored are subject to our <a class="btn-link link-icon"><span class="icon">
+              <svg class="svg-icons" width="16px" height="8px">
+                <use xlink:href="assets/img/sprite.svg#linkIco"></use>
+              </svg>
+              </span><span class="text">Advertising Guidelines</span></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer>
+<!--Modal Start-->
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="form-panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+          	<button type="button" class="close" data-dismiss="modal">
+			<svg class="svg-icons" width="16px" height="16px">
+              <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+            </svg>
+            </button>
+            <h3 class="panel-title">LOGIN</h3>
+            Don’t have an account? <a class="semibold" data-ng-click="formFlip=true">Sign Up</a> </div>
+          <div class="panel-body">
+            <form data-rel="form">
+              <div class="input-group form-group"> <span class="input-group-addon">
+                <svg class="svg-icons" width="18px" height="18px">
+                  <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                </svg>
+                </span>
+                <input type="text" placeholder="Email" class="form-control" on-focus>
+                <span class="error-block">required field</span>
+              </div>
+              <div class="input-group form-group"> <span class="input-group-addon">
+                <svg class="svg-icons" width="14px" height="19px">
+                  <use xlink:href="assets/img/sprite.svg#lockIco"></use>
+                </svg>
+                </span>
+                <input type="{{showpassword ? 'text' : 'password'}}" data-ng-model="loginPassword" placeholder="Password" class="form-control" on-focus>
+                <span class="input-group-addon showhidePass">
+                <input type="checkbox" id="showPassword" data-ng-model="showpassword" data-ng-checked="false">
+                <label for="showPassword">
+                  <svg class="svg-icons" width="20px" height="12px">
+                    <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                  </svg>
+                </label>
+                </span> </div>
+              <div class="form-group"> <span class="checkbox">
+                <input type="checkbox" id="keepMeLogin">
+                <label for="keepMeLogin">Keep me logged in</label>
+                </span> </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block">LOGIN</button>
+              </div>
+              <div class="form-group text-center"><a class="btn-link" data-dismiss="modal" href="#forgotPassModal" data-toggle="modal">Forgotten your password?</a></div>
+              <span class="or-divider">Or login with</span>
+            </form>
+          </div>
+          <div class="panel-footer">
+            <ul class="social-action">
+              <li><a class="facebook">
+                <svg class="svg-icons" width="8px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#facebookIco"></use>
+                </svg>
+                </a></li>
+              <li><a class="twitter">
+                <svg class="svg-icons" width="14px" height="12px">
+                  <use xlink:href="assets/img/sprite.svg#twitterIco"></use>
+                </svg>
+                </a></li>
+              <li><a class="google">
+                <svg class="svg-icons" width="17px" height="15px">
+                  <use xlink:href="assets/img/sprite.svg#googleIco"></use>
+                </svg>
+                </a></li>
+              <li><a class="linkedin">
+                <svg class="svg-icons" width="14px" height="15px">
+                  <use xlink:href="assets/img/sprite.svg#linkedIco"></use>
+                </svg>
+                </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="forgotPassModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Forgotten Your Password</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">Email<span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="Enter email">
+            <span class="error-block">Please Enter Your Eamil</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar"><span class="link-text">Back to <a class="btn-link" data-dismiss="modal">Login</a></span></div>
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary" data-dismiss="modal" data-target="#sentPassModal" data-toggle="modal">SUBMIT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sentPassModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header transparent">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+      </div>
+      <div class="modal-body success-message">
+        <svg class="svg-icons" width="107px" height="98px">
+          <use xlink:href="assets/img/sprite.svg#passSentIco"></use>
+        </svg>
+        <h2 class="page-header semibold">Your password has been reset</h2>
+        <p class="semibold">Check your email for a reset password link.</p>
+        Back to <a class="btn-link" data-dismiss="modal">Login</a> </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script>
+</body>
+</html>

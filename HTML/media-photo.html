@@ -1,0 +1,622 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header data-header-after-login></header><!-- /header -->
+<div class="cover-container">
+  <div class="cover-image">
+    <div class="draggable" style="display:none;"><img src="assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+    <div class="cover-fill" id="coverViewimg"><img src="assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+  </div>
+  <div class="profile-details">
+    <div class="container">
+      <figure class="profile-pic"> <a><img src="assets/img/profile-img.jpg" width="170" height="170" class="img-thumbnail" alt=""/></a> </figure>
+      <div class="details">
+        <div class="btn-toolbar btn-toolbar-right">
+          <button class="btn btn-primary"><span class="icon">
+          <svg class="svg-icons" width="18px" height="18px">
+            <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+          </svg>
+          </span></button>
+          <button class="btn btn-primary"><span class="icon">
+          <svg class="svg-icons" width="14px" height="14px">
+            <use xlink:href="assets/img/sprite.svg#connectIco"></use>
+          </svg>
+          </span> <span class="text">CONNECT</span></button>
+          <button class="btn btn-primary"><span class="icon">
+          <svg class="svg-icons" width="20px" height="14px">
+            <use xlink:href="assets/img/sprite.svg#followIco"></use>
+          </svg>
+          </span> <span class="text">FOLLOW</span></button>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item edit-lg">
+            <h2 class="title semibold">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight"><span ng-bind="userName.first"></span> <span ng-bind="userName.last"></span></span> </h2>
+          </div>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item">
+            <h3 class="sub-title">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="10px" height="10px">
+                <use xlink:href="assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight">@Jason</span> </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-details">
+  <div class="container">
+    <div class="row details">
+      <aside class="col-sm-6">
+        <div class="editable-panel">
+          <div class="editable-item">
+            <button class="btn edit-btn">
+            <svg class="svg-icons" width="10px" height="10px">
+              <use xlink:href="assets/img/sprite.svg#editIco"></use>
+            </svg>
+            </button>
+            <div class="edit-highlight">
+              <ul class="list-group-inline">
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="16px">
+                    <use xlink:href="assets/img/sprite.svg#profIco"></use>
+                  </svg>
+                  </span> <span class="text">Fan</span></li>
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                  </svg>
+                  </span> <span class="text">LA, California, USA</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <aside class="col-sm-6">
+        <ul class="list-group-inline breack-list">
+          <li>120<small class="block">Followers</small></li>
+          <li>140<small class="block">Following</small></li>
+          <li>224<small class="block">Connections</small></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSecond">MEDIA</button>
+    </div>
+    <div id="navbarSecond" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a>ABOUT</a></li>
+        <li><a>ACTIVITY</a></li>
+        <li><a>PAGES</a></li>
+        <li class="active"><a>MEDIA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="page-title row">
+      <aside class="col-xs-4"><a class="btn-link"><span class="icon">
+        <svg class="svg-icons" width="6px" height="10px">
+          <use xlink:href="assets/img/sprite.svg#arrowLeftIco"></use>
+        </svg>
+        </span> Back</a></aside>
+      <aside class="col-xs-8 text-right">
+        <button class="btn btn-info"> <span class="icon">
+        <svg class="svg-icons" width="12px" height="12px">
+          <use xlink:href="assets/img/sprite.svg#plusIco"></use>
+        </svg>
+        </span> <span class="text font-base">CREATE ALBUM</span> </button>
+      </aside>
+    </div>
+    <div class="panel panel-thumbnail">
+      <div class="panel-body">
+        <div class="panel-help-text">
+          <h3 class="page-header">WALL PHOTOS</h3>
+          <span class="count">7 Photos
+          <svg class="svg-icons comment-icon" width="16px" height="16px">
+            <use xlink:href="assets/img/sprite.svg#globeIco"></use>
+          </svg>
+          </span> </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail-create">
+              <figure><img src="assets/img/thumb-blank.png" width="222" height="222" class="img-full" alt=""/></figure>
+              <div class="fileupload">
+                <label for="addPic"></label>
+                <span class="upload-btn"> <span class="icon">
+                <svg class="svg-icons" width="50px" height="39px">
+                  <use xlink:href="assets/img/sprite.svg#createAlbumIco"></use>
+                </svg>
+                </span> Create Album</span>
+                <input type="file" id="addPic">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><a href="#mediaDetailModal" data-toggle="modal"><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></a>
+                <span class="video-indicate"> 
+                  <svg class="svg-icons" width="30px" height="15px">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#videoIco"></use>
+                  </svg>
+                </span>
+              </figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail thumbnail-primary">
+              <figure><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-rounded img-full" alt=""/></figure>
+              <div class="caption">
+                <div class="dropdown pull-right"><a data-toggle="dropdown" class="menu-bar-v"><i></i></a>
+                  <ul class="dropdown-menu dropdown-default">
+                    <li><a>Set as profile picture</a></li>
+                    <li><a>Set as cover picture</a></li>
+                    <li><a>Set as album cover</a></li>
+                    <li><a>Delete</a></li>
+                  </ul>
+                </div>
+                <ul class="list-group-inline">
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons" width="14px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                    </svg>
+                    </span> <span class="text">100</span></a></li>
+                  <li> <a><span class="bullet">
+                    <svg class="svg-icons comment-icon" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#commentIco"></use>
+                    </svg>
+                    </span> <span class="text">40</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag-word">
+          <label class="text">Tags:</label>
+          <span><a>Bheem-Chota-Wala</a></span>
+          <span><a>Sports</a></span>
+        </div>
+        <ul class="nav-dot">
+          <li><a>Like</a></li>
+          <li><a>Share</a></li>
+        </ul>
+
+      </div>
+      <div class="panel-footer"> <span class="all-likes">
+        <svg class="svg-icons" width="16px" height="17px">
+          <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+        </svg>
+        <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> </div>
+      <div class="panel-footer">
+        <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+        <div class="comment-group">
+          <div class="media">
+            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+            <div class="media-body">
+              <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.</div>
+              <figure class="reply-img"><img src="assets/img/img1.jpg" width="544" height="225" class="img-responsive" alt=""></figure>
+              <ul class="nav-dot">
+                <li><span>2 mins ago</span></li>
+                <li><a>Unlike</a></li>
+                <li><a class="btn-like active">
+                  <svg class="svg-icons" width="16px" height="17px">
+                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                  </svg>
+                  <span class="count">50</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="media">
+            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+            <div class="media-body">
+              <div class="media-heading"><a class="btn-link">Julia Robers</a> Heart touching video Please also share.</div>
+              <ul class="nav-dot">
+                <li><span>2 mins ago</span></li>
+                <li><a>Like</a></li>
+                <li><a class="btn-like">
+                  <svg class="svg-icons" width="16px" height="17px">
+                    <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                  </svg>
+                  <span class="count">50</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="media post-comment">
+            <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+            <div class="media-body">
+              <div class="input-group form-group">
+                <input type="text" class="form-control" placeholder="Comment" data-on-focus>
+                <span class="input-group-addon">
+                <div class="fileupload">
+                  <label for="addImg"></label>
+                  <span class="upload-btn">
+                  <svg width="22px" height="18px" class="svg-icons">
+                    <use xlink:href="assets/img/sprite.svg#cameraIco"/>
+                  </svg>
+                  </span>
+                  <input type="file" id="addImg" ng-model="postImd">
+                </div>
+                </span> </div>
+              <div class="attached-thumbs">
+                <div class="scrollbox">
+                  <figure>
+                    <button class="close">
+                      <svg width="10px" height="10px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#closeIco"/>
+                      </svg>
+                    </button>
+                  </figure>
+                  <figure>
+                    <button class="close">
+                      <svg width="10px" height="10px" class="svg-icons">
+                        <use xlink:href="assets/img/sprite.svg#closeIco"/>
+                      </svg>
+                    </button>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer> 
+<!--Modal Start-->
+<div id="mediaDetailModal" class="modal fade fadeModal" role="dialog">
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="image-container">
+        <div class="top-action">
+          <button type="button" class="btn"> <span class="icon">
+          <svg class="svg-icons" width="16px" height="16px">
+            <use xlink:href="assets/img/sprite.svg#fullscreenIco"></use>
+          </svg>
+          </span> </button>
+          <button type="button" class="btn" data-dismiss="modal"> <span class="icon">
+          <svg class="svg-icons stroke" width="16px" height="16px">
+            <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+          </svg>
+          </span> </button>
+        </div>
+        <div class="detail-img"> <span class="img-action"><a class="prev">
+          <svg height="44px" width="44px" class="svg-icons">
+            <use xlink:href="assets/img/sprite.svg#prevIco"/>
+          </svg>
+          </a> <a class="next">
+          <svg height="44px" width="44px" class="svg-icons">
+            <use xlink:href="assets/img/sprite.svg#nextIco"/>
+          </svg>
+          </a></span> <img src="assets/img/img-detail.jpg" width="864" height="624" alt=""/> </div>
+        <div class="bottom-action">
+          <div class="media">
+            <figure class="media-left hidden-xs"><img width="36" height="36" alt="" class="img-rounded" src="assets/img/thumb70x70.jpg"></figure>
+            <div class="media-body media-middle">
+              <div class="media-heading"><span class="hidden-xs">James Thomas . </span>My Album <span class="count">1 of 5</span></div>
+            </div>
+            <div class="media-right">
+              <ul class="list-group-inline">
+                <li> <a><span class="bullet">
+                  <svg height="16px" width="17px" class="svg-icons">
+                    <use xlink:href="assets/img/sprite.svg#like2Ico"/>
+                  </svg>
+                  </span> <span class="text">100</span></a></li>
+                <li> <a><span class="bullet">
+                  <svg height="16px" width="16px" class="svg-icons comment-icon">
+                    <use xlink:href="assets/img/sprite.svg#commentIco"/>
+                  </svg>
+                  </span> <span class="text">40</span></a></li>
+              </ul>
+              <div class="dropup"><a class="menu-bar-v" data-toggle="dropdown"><i></i></a>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-default">
+                  <li><a>Set as profile picture</a></li>
+                  <li><a>Set as cover picture</a></li>
+                  <li><a>Set as album cover</a></li>
+                  <li><a>Delete</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="detail-sidebar">
+        <div class="panel">
+          <div class="panel-body" data-exclude="height">
+            <div class="media">
+              <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+              <div class="media-body">
+                <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a></div>
+                <ul class="nav-dot">
+                  <li><span>2 mins ago</span></li>
+                  <li><span>
+                    <svg class="svg-icons" width="18px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#friendsIco"></use>
+                    </svg>
+                    </span></li>
+                </ul>
+              </div>
+            </div>
+            <p>Infuse your life with action. Don’t wait for it to happen. Make it happen.@Amit Chourey Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high.</p>
+            <label>-With <a class="btn-link">Jack Sparrow</a>, <a class="btn-link">Vikas Makwana</a> and <a class="btn-link">2 Others</a></label>
+            <label>-at <a class="btn-link">Indore</a>, <a class="btn-link">India</a></label>
+            <p>#Sports, #Rugby, #South Africa</p>
+            <br>
+            <ul class="nav-dot">
+              <li><a>Like</a></li>
+              <li><a>Share</a></li>
+            </ul>
+          </div>
+          <div class="panel-footer" data-exclude="height"> <span class="all-likes">
+            <svg class="svg-icons" width="16px" height="17px">
+              <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+            </svg>
+            <a class="btn-link">William Thomson</a> and <a class="btn-link">38 others</a></span> </div>
+          <div class="panel-footer">
+            <p class="all-comments" data-exclude="height"><a class="btn-link">View all 36 comments</a></p>
+            <div class="comment-group scrollbox" data-post="height">
+              <div class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                <div class="media-body">
+                  <a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.
+                  <ul class="nav-dot">
+                    <li><span>2 mins ago</span></li>
+                    <li><a>Unlike</a></li>
+                    <li><a class="btn-like active">
+                      <svg class="svg-icons" width="16px" height="17px">
+                        <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                      </svg>
+                      <span class="count">50</span></a></li>
+                  </ul>
+                </div>
+                <div class="media-right">
+                   <a class="btn-link"><span class="icon"><svg height="12px" width="12px" class="svg-icons"><use xlink:href="assets/img/sprite.svg#closeIco"/></svg></span></a>
+                </div>
+              </div>
+              <div class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                <div class="media-body">
+                  <a class="btn-link">Julia Robers</a> Heart touching video Please also share.
+                  <figure class="posted-img"><img src="assets/img/thumbnail.jpg" width="222" height="222" class="img-responsive" alt=""/></figure>
+                  <ul class="nav-dot">
+                    <li><span>2 mins ago</span></li>
+                    <li><a>Like</a></li>
+                    <li><a class="btn-like">
+                      <svg class="svg-icons" width="16px" height="17px">
+                        <use xlink:href="assets/img/sprite.svg#like2Ico"></use>
+                      </svg>
+                      <span class="count">50</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media post-comment" data-exclude="height">
+            <div class="media-body">
+              <div class="input-group form-group">
+                <input type="text" class="form-control" placeholder="Comment" data-on-focus>
+                <span class="input-group-addon">
+                <div class="fileupload">
+                  <label for="addImg2"></label>
+                  <span class="upload-btn">
+                  <svg width="22px" height="18px" class="svg-icons">
+                    <use xlink:href="assets/img/sprite.svg#cameraIco"/>
+                  </svg>
+                  </span>
+                  <input type="file" id="addImg2" ng-model="postImd">
+                </div>
+                </span> </div>
+            </div>
+            <div class="media-right">
+              <button type="button" class="btn btn-info"><span class="icon">
+              <svg width="16px" height="15px" class="svg-icons">
+                <use xlink:href="assets/img/sprite.svg#commentIco"/>
+              </svg>
+              </span></button>
+            </div>
+            <div class="attached-thumbs">
+              <button class="close">
+              <svg width="10px" height="10px" class="svg-icons">
+                <use xlink:href="assets/img/sprite.svg#closeIco"/>
+              </svg>
+              </button>
+              <div class="scrollbox-horizontal">
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+                <figure></figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!--Modal End-->
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script>
+$('#mediaDetailModal').on('shown.bs.modal', function () {
+	$(window).resize(detailImgFull).resize();
+	$(window).resize(detailPostHeight).resize();
+})
+</script>
+</body>
+</html>

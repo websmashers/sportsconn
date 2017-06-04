@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><header class="navbar-transparent">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header"> <a class="navbar-brand" href="~/home.html">
+        <svg class="svg-icons">
+          <use xlink:href="../assets/img/sprite.svg#logoIco"></use>
+        </svg>
+        </a> </div>
+    </div>
+  </nav>
+</header>

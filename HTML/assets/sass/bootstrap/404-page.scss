@@ -1,0 +1,11 @@
+.middle-content{position:absolute; left:0; top:0; @include square(100%); padding:30px 15px;}
+.middle-content > .container{@include size(auto, 100% );}
+.middle-table{@include square(100%);vertical-align:middle; max-width:530px; margin:0 auto;}
+.page-404{text-align:center;color:$gray; font-size:$font-size-base+2;}
+.page-404 h2{margin-bottom:10px;}
+.page-404 figure{margin-bottom:60px; display:inline-block;}
+
+@media (max-width:$screen-xs-max) {
+	.middle-content{position:static;}
+	.page-404 figure{margin-bottom:30px;}
+}

@@ -1,0 +1,92 @@
+.video-container{
+	background-color:#fff;
+	
+	@media (min-width:$screen-sm-min) {
+		margin-right:292px;
+	}
+	
+	.detail-sidebar{
+		padding-bottom:71px;
+		@media (min-width:$screen-sm-min) {
+			width:292px;
+		}
+		.panel .panel-body .media{
+			margin-bottom:10px;
+		}
+		.panel-body .scrollbox{
+			height:100px;
+		}
+		.all-comments{
+			margin-bottom:15px;
+		}
+		.comment-group.scrollbox{
+			height:204px;
+		}
+	}
+	.video-panel{
+		background-color:#000;
+	}
+	.video-player{
+		height:460px;
+		@media (max-width: $screen-sm-max) {
+			height:300px;
+		}
+	}
+	
+	.video-action{
+		padding:15px 20px;
+		@include clearfix;
+		
+		.list-group-inline > li{
+			color:$gray;
+			font-size:$font-size-small;
+			
+			.bullet > .svg-icons{
+				fill:$gray;
+			}
+			& > a{
+				color:#fff;
+				@include font-weight($font-weight-normal);
+			
+				.bullet > .svg-icons{
+					fill:#fff;
+				}
+			}
+		}
+		@media (max-width: $screen-sm-max) {
+			text-align:center;
+			
+			.list-group-inline.pull-left,
+			.list-group-inline.pull-right{
+				float:none !important;
+			}
+		}
+	}
+}
+
+#playVideoModal .modal-dialog{
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		width:720px;
+	}
+}
+.mute-video{
+	background-color:transparent;
+	border:none;
+	padding:0;
+	font-size:0;
+	position:relative;
+	@include square(40px);
+	
+	.svg-icons{
+		fill:$gray;
+		@include transform-center;
+        
+        @media (max-width: $screen-sm-max) {
+            fill:#fff;
+        }
+	}
+	
+	&:hover .svg-icons{
+		fill:$gray-lighter;
+	}
+}

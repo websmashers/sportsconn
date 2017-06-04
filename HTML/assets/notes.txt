@@ -1,0 +1,3 @@
+darken($gray-light, 13.5%): #bababa
+darken($gray-light, 6.5%) !default; //#ccc
+darken($gray-dark, 15%) !default; //#444

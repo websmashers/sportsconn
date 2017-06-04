@@ -1,0 +1,40 @@
+.cropit-image-preview-was {
+	background-size:cover;
+	@include size(auto, 450px);
+	overflow:hidden;
+	cursor: move;
+	.inner-crop{
+		@include square(220px);
+	}
+}
+.cropit-image-preview{
+	background-color:#f8f8f8;
+	background-size:cover;
+	margin:0 auto;
+	@include square(220px);
+	cursor:move;
+}
+.cropit-image-background{
+	@include opacity(0.2);
+	cursor:auto;
+}
+.cropit-image-preview-container{
+	height:220px;
+}
+.range-slide{
+	margin-top:20px;
+	position:relative;
+	z-index:4;
+}
+.croper-panel{
+	min-height:220px;
+}
+#croperUpdate .modal-body{
+	overflow:hidden;
+}
+.cropit-image-preview {
+    width: 220px!important;
+    height: 220px!important;
+}
+.image-editor .inne-imagecrop{background-color:#F5F5F5;width:100%;height:auto;margin:0 auto;overflow:hidden;}
+.croper-blockwrap{max-width:220px;margin:0 auto;padding:40px 0;}

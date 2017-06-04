@@ -1,0 +1,45 @@
+.fade{
+  @include opacity(0);
+  @include transition(opacity .15s linear);
+  &.in{
+	  @include opacity(1);
+  }
+}
+
+.collapse{
+  display:none;
+
+  &.in{display:block;}
+}
+
+tr.collapse.in{display:table-row;}
+
+tbody.collapse.in{display:table-row-group;}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition-property(height, visibility);
+  @include transition-duration(.35s);
+  @include transition-timing-function(ease);
+}
+
+
+// Global Animation
+.animated{@include animation-duration(1s); @include animation-fill-mode(both);}
+
+@include keyframes(fadeIn){0%{opacity:0;}100%{opacity:1;}}
+.fadeIn{@include animation-name(fadeIn);}
+@include keyframes(fadeOut){0%{opacity:1}100%{opacity:0}}
+.fadeOut{@include animation-name(fadeOut)}
+@include keyframes(fadeInUp){0%{opacity:0; @include translate(0, 20px);}100%{opacity:1; @include translate(0, 0);}}
+.fadeInUp{@include animation-name(fadeInUp)}
+@include keyframes(fadeInDown){0%{opacity:0; @include translate(0, -20px);}100%{opacity:1; @include translate(0, 0);}}
+.fadeInDown{@include animation-name(fadeInDown)}
+@include keyframes(fadeInLeft){0%{opacity:0; @include translate(-20px, 0);}100%{opacity:1; @include translate(0, 0);}}
+.fadeInLeft{@include animation-name(fadeInLeft)}
+@include keyframes(fadeInRight){0%{opacity:0; @include translate(20px, 0);}100%{opacity:1; @include translate(0, 0);}}
+.fadeInRight{@include animation-name(fadeInRight)}
+@include keyframes(fadeOutUp){0%{opacity:1; @include translate(0, 0);}100%{opacity:0; @include translate(0, -20px);}}
+.fadeOutUp{@include animation-name(fadeOutUp)}

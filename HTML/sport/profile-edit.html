@@ -1,0 +1,568 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header data-header-after-login></header><!-- /header -->
+<div class="cover-container edit-cover">
+  <div class="cover-image">
+    <div class="draggable" style="display:none;"><img src="../assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+    <div class="cover-fill" id="coverViewimg"><img src="../assets/img/cover-img.jpg" width="1600" height="336" alt=""/></div>
+    <div class="add-cover">
+      <div class="fileupload">
+        <label for="addCover"></label>
+        <span class="upload-btn">
+        <svg class="svg-icons" width="44px" height="35px">
+          <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+        </svg>
+        Add a Background Cover</span>
+        <input type="file" id="addCover">
+      </div>
+    </div>
+    <div class="edit-cover">
+      <div class="container">
+        <div class="dropdown"> <a class="btn cover-btn" data-toggle="dropdown">Edit Cover</a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="18px" height="14px">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+              </svg>
+              </span><span class="text">Upload New</span></a></li>
+            <li><a><span class="icon">
+              <svg class="svg-icons" width="16px" height="16px">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/sprite.svg#logoutIco"></use>
+              </svg>
+              </span><span class="text">Remove</span></a></li>
+          </ul>
+          <div class="action-conver">
+            <button class="btn btn-primary btn-sm">Apply</button>
+            <button id="cancelCover" class="btn btn-info btn-sm">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-details">
+    <div class="container" ng-class="switchClass">
+      <figure class="profile-pic">
+        <div class="fileupload">
+          <label for="addPic"></label>
+          <span class="upload-btn">
+          <svg class="svg-icons" width="24px" height="19px">
+            <use xlink:href="../assets/img/sprite.svg#cameraIco"></use>
+          </svg>
+          CHANGE</span>
+          <input type="file" id="addPic">
+        </div>
+        <a><img src="../assets/img/profile-img.jpg" width="170" height="170" class="img-thumbnail" alt=""/></a> </figure>
+      <div class="details">
+        <div class="editable-panel">
+          <div class="editable-item edit-lg">
+            <h2 class="title semibold">
+              <button class="btn edit-btn" ng-click="enableEditor()">
+              <svg class="svg-icons" width="14px" height="14px">
+                <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight" ng-click="enableEditor()"><span ng-bind="userName.first"></span> <span ng-bind="userName.last"></span></span> </h2>
+            <div class="edit-popover popover ng-hide" ng-show="editorEnabled">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">First Name</span>
+                  <input type="text" class="form-control input-sm" ng-model="editFirstName" ng-show="editorEnabled" value="">
+                </div>
+                <div class="form-group"> <span class="control-label">Last Name</span>
+                  <input type="text" class="form-control input-sm" ng-model="editLastName" value="Thomas">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default" ng-click="disableEditor()">CANCEL</button>
+                    <button class="btn btn-primary" ng-click="save()">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item">
+            <h3 class="sub-title">
+              <button class="btn edit-btn">
+              <svg class="svg-icons" width="10px" height="10px">
+                <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+              </svg>
+              </button>
+              <span class="edit-highlight">@Jason</span> </h3>
+            <div class="edit-popover popover ng-hide">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">User Name</span>
+                  <input type="text" class="form-control input-sm" value="@Jason">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default">CANCEL</button>
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-details">
+  <div class="container" data-ng-class="switchClass">
+    <div class="row details">
+      <aside class="col-sm-6">
+      	<div class="editable-panel">
+          <div class="editable-item">
+            <button class="btn edit-btn">
+            <svg class="svg-icons" width="10px" height="10px">
+              <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+            </svg>
+            </button>
+            <div class="edit-highlight">
+              <ul class="list-group-inline">
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="16px" height="17px">
+                    <use xlink:href="../assets/img/sprite.svg#directorIco"></use>
+                  </svg>
+                  </span> <span class="text">Managing Director at Heinz Club</span></li>
+              </ul>
+            </div>
+            <div class="edit-popover popover ng-hide">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">Post</span>
+                  <input type="text" class="form-control input-sm" value="Fan">
+                </div>
+                <div class="form-group"> <span class="control-label">Club</span>
+                  <input type="text" class="form-control input-sm" value="LA, California, USA">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default">CANCEL</button>
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="editable-panel">
+          <div class="editable-item">
+            <button class="btn edit-btn">
+            <svg class="svg-icons" width="10px" height="10px">
+              <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+            </svg>
+            </button>
+            <div class="edit-highlight">
+              <ul class="list-group-inline">
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="16px">
+                    <use xlink:href="../assets/img/sprite.svg#profIco"></use>
+                  </svg>
+                  </span> <span class="text">Fan</span></li>
+                <li> <span class="bullet">
+                  <svg class="svg-icons" width="8px" height="14px">
+                    <use xlink:href="../assets/img/sprite.svg#pathIco"></use>
+                  </svg>
+                  </span> <span class="text">LA, California, USA</span></li>
+              </ul>
+            </div>
+            <div class="edit-popover popover ng-hide">
+              <div class="popover-content">
+                <div class="form-group"> <span class="control-label">Profile Type</span>
+                  <input type="text" class="form-control input-sm" value="Fan">
+                </div>
+                <div class="form-group"> <span class="control-label">Location</span>
+                  <input type="text" class="form-control input-sm" value="LA, California, USA">
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-default">CANCEL</button>
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <aside class="col-sm-6">
+        <ul class="list-group-inline breack-list">
+          <li>120<small class="block">Followers</small></li>
+          <li>140<small class="block">Following</small></li>
+          <li>224<small class="block">Connections</small></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container"> <span class="edit-profile visible-sm visible-xs"><a class="btn btn-primary btn-sm" data-ng-click="editProfile()">{{btnText}}</a></span>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSecond">ABOUT</button>
+    </div>
+    <div id="navbarSecond" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a>ABOUT</a></li>
+        <li><a>ACTIVITY</a></li>
+        <li><a>PAGES</a></li>
+        <li><a>MEDIA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <aside class="col-sm-4 col-sm-push-8">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <div class="profile-strength">
+              <h3 class="page-header semibold">PROFILE STRENGTH</h3>
+              <div class="strength-bar">
+                <input type="text" readonly value="20" data-min="0" data-width="100%" data-bgColor="#eeeeee" data-fgColor="#FE6C3D" data-max="100">
+                <span class="title">ROOKIE</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="thumbnail google-ads visible-md visible-lg"> <a><img src="../assets/img/google-ads2.jpg" class="img-full" width="308" height="258" alt=""/></a> </div>
+      </aside>
+      <div class="col-sm-8 col-sm-pull-4">
+        <div class="panel panel-info" data-ng-class="switchClass">
+          <div class="panel-body">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="26px" height="19px">
+                <use xlink:href="../assets/img/sprite.svg#personalInfoIco"></use>
+              </svg>
+              </i> <span class="text">PERSONAL INFORMATION</span></h3>
+            <ul class="user-info-list">
+              <li class="editable-panel">
+                <div class="editable-item edit-lg">
+                  <button class="btn edit-btn" data-target="#addDescriptionModal" data-toggle="modal">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                  </svg>
+                  </button>
+                  <div class="edit-highlight" data-target="#addDescriptionModal" data-toggle="modal">
+                    <p read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <label class="label">Sports You Follow</label>
+                <div class="editable-panel">
+                  <div class="editable-item">
+                    <button class="btn edit-btn" data-target="#addSportsModal" data-toggle="modal">
+                    <svg class="svg-icons" width="10px" height="10px">
+                      <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                    </svg>
+                    </button>
+                    <span class="edit-highlight" data-target="#addSportsModal" data-toggle="modal">Baseball, Basketball, Bodybuilding, Tennis</span> </div>
+                </div>
+              </li>
+              <li class="row">
+                <div class="col-sm-5">
+                  <label class="label">Date of Birth</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">December 5, 1986</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group"> <span class="control-label">Date of Birth</span>
+                            <div class="input-group">
+                              <input type="text" class="form-control input-sm" value="" id="dateOfBirth" placeholder="Select Date" on-focus>
+                              <label class="input-group-addon" for="dateOfBirth">
+                                <svg class="svg-icons" width="18px" height="20px">
+                                  <use xlink:href="../assets/img/sprite.svg#calendarIco"></use>
+                                </svg>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <label class="label">Type</label>
+                  <div class="editable-panel">
+                    <div class="editable-item">
+                      <button class="btn edit-btn">
+                      <svg class="svg-icons" width="10px" height="10px">
+                        <use xlink:href="../assets/img/sprite.svg#editIco"></use>
+                      </svg>
+                      </button>
+                      <span class="edit-highlight">Coach</span>
+                      <div class="edit-popover popover ng-hide">
+                        <div class="popover-content">
+                          <div class="form-group form-group-sm"> <span class="control-label">Type</span>
+                            <select data-chosen data-placeholder="Profile Type" disable-search="true" class="form-control" on-focus>
+                              <option selected>Coach</option>
+                              <option>Coach2</option>
+                            </select>
+                          </div>
+                          <div class="btn-group btn-group-sm">
+                            <div class="btn-toolbar btn-toolbar-right">
+                              <button class="btn btn-default">CANCEL</button>
+                              <button class="btn btn-primary">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="20px" height="24px">
+                <use xlink:href="../assets/img/sprite.svg#skillsIco"></use>
+              </svg>
+              </i> <span class="text">SKILLS</span></h3>
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Member with skills on their profile get 4 times<br>
+                as many profile views</p>
+              <a class="btn-link">ADD SKILLS</a> </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="24px" height="27px">
+                <use xlink:href="../assets/img/sprite.svg#experienceIco"></use>
+              </svg>
+              </i> <span class="text">EXPERIENCE</span></h3>
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>People could be looking for someone with your<br> experience.</p>
+              <a class="btn-link">ADD EXPERIENCE</a> </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="20px" height="23px">
+                <use xlink:href="../assets/img/sprite.svg#educationIco"></use>
+              </svg>
+              </i> <span class="text">EDUCATION</span></h3>
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Show more information about your education background<br> will help you get found more opportunities</p>
+              <a class="btn-link">ADD EDUCATION</a> </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="24px" height="19px">
+                <use xlink:href="../assets/img/sprite.svg#achievementIco"></use>
+              </svg>
+              </i> <span class="text">ACHIEVEMENTS</span></h3>
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Show the achievements you have earned</p>
+              <a class="btn-link">ADD ACHIEVEMENTS</a> </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-body nodata-panel">
+            <h3 class="page-header semibold"><i class="icon">
+              <svg class="svg-icons" width="22px" height="27px">
+                <use xlink:href="../assets/img/sprite.svg#recommendationIco"></use>
+              </svg>
+              </i> <span class="text">RECOMMENDATION</span></h3>
+            <div class="nodata-text"> <span class="nodat-circle">
+              <svg class="svg-icons" width="20px" height="20px">
+                <use xlink:href="../assets/img/sprite.svg#plusIco"></use>
+              </svg>
+              </span>
+              <p>Recommendation helps you get noticed by recruiters and build <br>a more credible profile.</p>
+              <a class="btn-link">ADD RECOMMENDATION</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer data-footer></footer> 
+<!--Modal Start-->
+<div id="addDescriptionModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group">
+            <div class="control-label">Description</div>
+            <textarea class="form-control" cols="" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum vehicula tortor, vitae ornare nunc semper eu. Vivamus varius, eros vel tristique accumsan, libero nulla cursus ante, eu eleifend risus orci scelerisque nibh. Curabitur feugiat, augue ut commodo bibendum, nisi leo porttitor diam, tincidunt auctor tellus ante sit amet nibh. Duis velit libero, aliquam at felis eu, pellentesque mollis mi. Nam a est orci. Ut bibendum sagittis semper. Cras eget arcu non augue mollis aliquam. Ut ut gravida ligula. Nulla imperdiet lacinia mi, nec fringilla mauris interdum at. Phasellus gravida tempor varius. Cras molestie et nulla eget maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet malesuada feugiat. Curabitur fermentum bibendum nulla, non dictum ipsum tincidunt non. Quisque convallis pharetra tempor. Donec id pretium leo. Pellentesque luctus massa non elit viverra pellentesque. Cras vitae neque molestie, rhoncus ipsum sit amet, lobortis dui. Fusce in urna sem. Vivamus vehicula dignissim augue et scelerisque. Etiam quam nisi, molestie ac dolor in, tincidunt tincidunt arcu. Praesent sed justo finibus, fringilla velit quis, porta erat. Donec blandit metus ut arcu iaculis iaculis. Cras nec dolor fringilla justo ullamcorper auctor. Aliquam eget pretium velit. Morbi urna justo, pulvinar id lobortis in, aliquet placerat orci.</textarea>
+            <span class="error-block">Please Enter Your Eamil</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="addTeamsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Tell us about yourself</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">Description</div>
+            <div class="input-group">
+              <input type="text" placeholder="Add your favourite teams ?" class="form-control" on-focus>
+              <a class="input-group-addon btn-addon">ADD</a> <span class="error-block">Please Enter Your Eamil</span> </div>
+          </div>
+          <div class="well well-sm">
+            <ul class="tagged-list">
+              <li>LA Galaxy <a class="close">
+                <svg class="svg-icons" width="12px" height="12px">
+                  <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                </svg>
+                </a></li>
+              <li>LA Galaxy <a class="close">
+                <svg class="svg-icons" width="12px" height="12px">
+                  <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+                </svg>
+                </a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="addSportsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="../assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Add Sports You Follow</h3>
+      </div>
+      <div class="modal-body">
+        <div class="large-padd">
+          <div class="control-label">Sports You Follow</div>
+          <ul class="grid-view">
+            <li data-ng-repeat="category in categories">
+              <div class="checkbox">
+                <input type="checkbox" id="category{{$index + 1}}">
+                <label for="category{{$index + 1}}">
+                  <svg class="svg-icons" width="40px" height="30px">
+                    <use xlink:href="" ng-attr-xlink:href="{{'assets/img/category.svg#' + category.Icon}}"></use>
+                  </svg>
+                  <span data-ng-bind="category.Name"></span> </label>
+              </div>
+            </li>
+          </ul>
+          <div class="btn-group">
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="../assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="../assets/js/vendor/angular.min.js"></script> 
+<script src="../assets/js/vendor/match-media.js"></script> 
+<script src="../assets/js/vendor/moment.min.js"></script> 
+<script src="../assets/js/vendor/bootstrap.min.js"></script> 
+<script src="../assets/js/plugins.js"></script> 
+<script src="../assets/js/angular-wizard.min.js"></script> 
+<script src="../assets/js/datetimepicker.min.js"></script> 
+<script src="../assets/js/angular-wizard.min.js"></script> 
+<script src="../assets/js/app.js"></script> 
+<script src="../assets/js/controllers.js"></script> 
+<script src="../assets/js/main.js"></script> 
+<script>
+$(function() {
+	$(".strength-bar > input").knob({
+		'draw':function() {$(this.i).val(this.cv + '%');}
+	});
+	$('#dateOfBirth').datepicker({
+		changeMonth: true,
+        changeYear: true
+	});
+});
+</script>
+</body>
+</html>

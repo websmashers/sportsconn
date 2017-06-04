@@ -1,0 +1,148 @@
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: ($font-size-small)-1;
+  @include font-weight($font-weight-bold);
+  color: $badge-color;
+  line-height: $badge-line-height;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $badge-bg;
+  border-radius: $badge-border-radius;
+
+  &:empty {
+    display: none;
+  }
+
+  // Quick fix for badges in buttons
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
+
+  .btn-xs &,
+  .btn-group-xs > .btn & {
+    top: 0;
+    padding: 1px 5px;
+  }
+
+  // [converter] extracted a& to a.badge
+
+  // Account for badges in navs
+  .list-group-item.active > &,
+  .nav-pills > .active > a > & {
+    color: $badge-active-color;
+    background-color: $badge-active-bg;
+  }
+
+  .list-group-item > & {
+    float: right;
+  }
+
+  .list-group-item > & + & {
+    margin-right: 5px;
+  }
+
+  .nav-pills > li > a > & {
+    margin-left: 3px;
+  }
+}
+
+a.badge {
+  &:hover,
+  &:focus {
+    color: $badge-link-hover-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.badge-primary{
+	color: #fff !important;
+    background-color: #EF4135 !important;
+    .svg-icons{
+    	fill:#fff;
+    }
+}
+
+.circle{
+	@include circle();
+	@include box-shadow(0 2px 3px rgba(0,0,0,0.50));
+	position:relative;
+	
+	.svg-icons,
+	.svg{
+		@include transform-center;
+		fill:$brand-default;
+		height:30px;
+	}
+}
+.circle-line{
+	border:1px solid $gray;
+	@include box-shadow(none);
+}
+
+.menu-bar-v{
+	display:block;
+	@include square(36px);
+	background-color:rgba(255, 255, 255, 0.2);
+	border-radius:50%;
+	@include transition(background-color 0.3s ease-in-out);
+	
+	& > i{
+		display:block;
+		@include square(4px);
+		background-color:#fff;
+		border-radius:50%;
+		@include transform-center;
+		
+		&:after,
+		&:before{
+			content:"";
+			position:absolute;
+			@include square(4px);
+			background-color:#fff;
+			border-radius:50%;
+			left:0;
+			top:-8px;
+		}
+		&:after{top:auto; bottom:-8px;}
+	}
+	&:hover{
+		background-color:rgba(255, 255, 255, 0.4);
+	}
+	
+	&.bar-default{
+		background-color:transparent;
+		
+		& > i,
+		& > i:after,
+		& > i:before{
+			background-color:lighten($gray-base, 60%);
+		}
+		&:hover{
+			& > i,
+			& > i:after,
+			& > i:before{
+				background-color:$brand-default;
+			}
+		}
+	}
+}
+.dropdown, .dropup{
+	&.open .menu-bar-v{
+		background-color:rgba(255,255,255,0.4);
+		
+		&.bar-default{
+			background-color:$gray-lighter;
+			
+			& > i,
+			& > i:after,
+			& > i:before{
+				background-color:$brand-default;
+			}
+		}
+	}
+}

@@ -1,0 +1,875 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-app="sportsConn" data-ng-controller="mainCtrl">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header data-header-after-login></header><!-- /header -->
+<section class="content-section">
+  <div class="container">
+    <h3 class="page-header">ACCOUNT SETTINGS</h3>
+    <div class="row">
+      <aside class="col-sm-4 col-md-3">
+        <div class="panel panel-secondary">
+          <div class="panel-heading"><h4 class="panel-title"><span class="gray-text">GENERAL SETTINGS</span></h4></div>
+          <di class="panel-filter">
+          <ul class="nav nav-stacked" role="tablist">
+            <li role="presentation"><a href="#password" aria-controls="password" role="tab" data-toggle="tab">
+            <span class="arrow-right">
+            <svg class="svg-icons" width="15px" height="7px">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#arrowIco"></use>
+            </svg>
+            </span><span class="text">Password</span></a></li>
+            <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab"><span class="arrow-right">
+            <svg class="svg-icons" width="15px" height="7px">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#arrowIco"></use>
+            </svg>
+            </span><span class="text">General</span></a></li>
+            <li role="presentation"><a href="#privacy" aria-controls="privacy" role="tab" data-toggle="tab"><span class="arrow-right">
+            <svg class="svg-icons" width="15px" height="7px">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#arrowIco"></use>
+            </svg>
+            </span><span class="text">Privacy</span></a></li>
+            <li role="presentation" class="active"><a href="#notification" aria-controls="notification" role="tab" data-toggle="tab"><span class="arrow-right">
+            <svg class="svg-icons" width="15px" height="7px">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#arrowIco"></use>
+            </svg>
+            </span><span class="text">Notification</span></a></li>
+          </ul>
+          </div>
+      </aside>
+      <div class="col-sm-8 col-md-9">
+       <div class="tab-content">
+        <div role="tabpanel" class="panel panel-secondary tab-pane"  id="password">
+          <div class="panel-heading">
+            <h4 class="panel-title">Password</h4>
+          </div>
+          <div class="panel-body">
+            <form data-rel="form" class="ng-pristine ng-valid row">
+              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="form-group">
+                  <div class="control-label">Current password</div>
+                  <input type="password" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="form-group">
+                  <div class="control-label">New password</div>
+                  <input type="password" placeholder="Must be at least 8 charasters" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="form-group">
+                  <div class="control-label">Confirm new password</div>
+                  <input type="password" placeholder="Must match new password " class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="btn-group">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>  
+            </form>  
+          </div>      
+        </div>
+        <div role="tabpanel" class="panel panel-secondary tab-pane" id="general">
+          <div class="panel-heading">
+            <h4 class="panel-title">General</h4>
+          </div>
+          <div class="panel-body">
+            <form data-rel="form" class="ng-pristine ng-valid row">
+              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="form-group">
+                  <div class="control-label">Name</div>
+                  <input type="text" placeholder="Name" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="form-group">
+                  <div class="control-label">Email</div>
+                  <input type="text" placeholder="Email" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="form-group">
+                  <div class="control-label">Username</div>
+                  <input type="text" placeholder="Username" class="form-control" on-focus>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <hr />
+                <div class="form-group">
+                  <div class="control-label">Current Password</div>
+                  <div class="input-group">
+                  <input type="password" placeholder="Current Password" class="form-control" on-focus>
+                  <span class="input-group-addon tooltip-medium">
+                  <svg class="svg-icons svg-hover" width="16px" height="16px" data-toggle="tooltip" title="To save your changes, please enter your password.">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/img/sprite.svg#infoIco"></use>
+                  </svg>
+                  </span> </div>
+                  <span class="error-block">Error message</span> 
+                </div>
+                <div class="form-group">
+                  <div class="control-label">select</div>
+                  <select data-chosen="" data-placeholder="Select" disable-search="true" class="form-control" on-focus>
+                    <option>Fan</option>
+                    <option>Sports Professional</option>
+                    <option>Athlete</option>
+                    <option>Organization</option>
+                  </select>
+                  <span class="error-block">Error message</span> 
+                </div>
+                
+
+                <div class="btn-group">
+                  <div class="btn-toolbar btn-toolbar-right">
+                    <button class="btn btn-primary">SAVE</button>
+                  </div>
+                </div>
+              </div>  
+            </form>  
+          </div>      
+        </div>
+        <div role="tabpanel" class="panel panel-secondary tab-pane" id="privacy">
+          <div class="panel-heading">
+            <h4 class="panel-title">Privacy</h4>
+          </div>
+          <div class="panel-setting">
+             <div class="panel-setting-heading"> 
+               <h4 class="panel-title">Profile privacy</h4>
+               <div class="row">
+                  <div class="col-sm-5">Manage what info people can see.</div>
+                  <div class="col-sm-7">
+                      <ul class="nav nav-tabs nav-justified">
+                          <li>Friends</li>
+                          <li>Friends of Friends</li>
+                          <li>Everyone</li>
+                      </ul>
+                  </div>
+               </div>
+             </div>
+             <div class="panel-setting-body">
+               <div class="row">
+                  <label class="col-sm-5">Posts</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                              <input id="post-fr" type="radio" name="Posts" value="friends" checked="checked">
+                              <label for="post-fr">&nbsp;</label> 
+                          </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="post-of-f" type="radio" name="Posts" value="Friends of Friends">
+                              <label for="post-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                              <input id="post-Everyone" type="radio" name="Posts" value="Everyone">
+                              <label for="post-Everyone">&nbsp;</label> 
+                          </div> 
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">Friend List</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                              <input id="friendList-fr" type="radio" name="Friend List" value="friends" checked="checked">
+                              <label for="friendList-fr">&nbsp;</label> 
+                          </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="friendList-of-f" type="radio" name="Friend List" value="Friends of Friends">
+                              <label for="friendList-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                              <input id="friendList-Everyone" type="radio" name="Friend List" value="Everyone">
+                              <label for="friendList-Everyone">&nbsp;</label> 
+                          </div>  
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">Profile Picture</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified first-disabled">
+                        <li>
+                          <div class="radio">
+                            <input id="Pictured-of-f" type="radio" name="Profile Picture" value="Friends" disabled="">
+                            <label for="Pictured-of-f">&nbsp;</label> 
+                        </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="Picture-of-f" type="radio" name="Profile Picture" value="Friends of Friends">
+                              <label for="Picture-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                              <input id="Picture-Everyone" type="radio" name="Profile Picture" value="Everyone"  checked="checked">
+                              <label for="Picture-Everyone">&nbsp;</label> 
+                          </div>   
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">About</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified first-disabled">
+                        <li>
+                            <div class="radio">
+                                <input id="Aboutd-of-f" type="radio" name="About" value="Friends" disabled="">
+                                <label for="Aboutd-of-f">&nbsp;</label> 
+                            </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="About-of-f" type="radio" name="About" value="Friends of Friends">
+                              <label for="About-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                              <input id="About-Everyone" type="radio" name="About" value="Everyone"  checked="checked">
+                              <label for="About-Everyone">&nbsp;</label> 
+                          </div>   
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">Date of Birth</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                            <input id="dob-fr" type="radio" name="Date of Birth" value="friends">
+                            <label for="dob-fr">&nbsp;</label> 
+                        </div>
+                        </li>
+                        <li>
+                         <div class="radio selected">
+                          <input id="dob-of-f" type="radio" name="Date of Birth" value="Friends of Friends"  checked="checked">
+                          <label for="dob-of-f">&nbsp;</label> 
+                      </div>
+                          </li>
+                          <li>
+                         <div class="radio disabled">
+                          <input id="dob-Everyone" type="radio" name="Date of Birth" value="Everyone">
+                          <label for="dob-Everyone">&nbsp;</label> 
+                      </div>   
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">Location</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                          <input id="Location-fr" type="radio" name="Location" value="friends">
+                          <label for="Location-fr">&nbsp;</label> 
+                      </div>
+                        </li>
+                        <li>
+                         <div class="radio">
+                          <input id="Location-of-f" type="radio" name="Location" value="Friends of Friends"  checked="checked">
+                          <label for="Location-of-f">&nbsp;</label> 
+                      </div>
+                          </li>
+                          <li>
+                         <div class="radio">
+                          <input id="Location-Everyone" type="radio" name="Location" value="Everyone">
+                          <label for="Location-Everyone">&nbsp;</label> 
+                      </div>   
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+             </div>
+          </div>  
+          <div class="panel-setting">
+             <div class="panel-setting-heading"> 
+               <h4 class="panel-title">Post and Tagging</h4>               
+             </div>
+             <div class="panel-setting-body">
+               <div class="row">
+                  <label class="col-sm-5">Manage who can post on  your wall</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                              <input id="muw-fr" type="radio" name="Manage who can post" value="friends"  checked="">
+                              <label for="muw-fr">&nbsp;</label> 
+                          </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="muw-of-f" type="radio" name="Manage who can post" value="Friends of Friends">
+                              <label for="muw-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                              <input id="muw-Everyone" type="radio" name="Manage who can post" value="Everyone">
+                              <label for="muw-Everyone">&nbsp;</label> 
+                          </div>  
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+               <div class="row">
+                  <label class="col-sm-5">Manage who can tag you in posts</label>
+                  <aside class="col-sm-7">
+                      <ul class="radio-justified">
+                        <li>
+                          <div class="radio">
+                              <input id="muwt-fr" type="radio" name="Manage who can tag" value="friends"  checked="">
+                              <label for="muwt-fr">&nbsp;</label> 
+                          </div>
+                        </li>
+                        <li>
+                          <div class="radio">
+                              <input id="muwt-of-f" type="radio" name="Manage who can tag" value="Friends of Friends">
+                              <label for="muwt-of-f">&nbsp;</label> 
+                          </div>
+                          </li>
+                          <li>
+                          <div class="radio">
+                          <input id="muwt-Everyone" type="radio" name="Manage who can tag" value="Everyone">
+                          <label for="muwt-Everyone">&nbsp;</label> 
+                      </div>  
+                          </li>
+                      </ul>
+                  </aside>
+               </div>
+             </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="panel panel-secondary tab-pane active" id="notification">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-6">
+                  <h4 class="panel-title">Notification Settings</h4>
+               </div>
+               <div class="col-xs-6">
+                  <div class="btn-group">
+                     <div class="btn-toolbar btn-toolbar-xs-right btn-toolbar-xs">
+                        <button class="btn btn-default btn-sm">CANCEL</button>
+                        <button class="btn btn-primary btn-sm">SAVE</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting-heading">
+            <div class="row">
+               <div class="col-xs-6">
+                  <span class="toggle-checkbox" data-target="#turnOff" data-toggle="modal">
+                    <input class='toggle' type="checkbox" checked="" />
+                    <label for="">All notifications</label>
+                  </span>
+               </div>
+               <div class="col-xs-3">
+                  <span class="toggle-checkbox">
+                  <input class='toggle' type="checkbox" />
+                  <label for="">Email</label>
+                  </span>
+               </div>
+               <div class="col-xs-3">
+                  <span class="toggle-checkbox">
+                  <input class='toggle' type="checkbox"/>
+                  <label for="">Mobile</label>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting-subheading">
+            <div class="row">
+               <div class="col-xs-6">
+                  <span class="semibold">Select all</span>
+               </div>
+               <div class="col-xs-3"> 
+                  <span class="checkbox">
+                  <input id="Email" type="checkbox" value="1">
+                  <label for="Email"></label>
+                  </span>
+               </div>
+               <div class="col-xs-3">
+                  <span class="checkbox">
+                  <input id="Mobile" type="checkbox" value="1">
+                  <label for="Mobile"></label>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting">
+            <div class="panel-setting-body">
+               <div class="row ">
+                  <div class="col-xs-12">
+                     <span class="toggle-checkbox">
+                     <input class='toggle' type="checkbox" checked="" />
+                     <label for="">Wall</label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone Commented on your post</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="CommentedE" type="checkbox" value="">
+                     <label for="CommentedE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="CommentedM" type="checkbox" value="">
+                     <label for="CommentedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone tagged you in their post</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="taggedE" type="checkbox">
+                     <label for="taggedE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="taggedM" type="checkbox">
+                     <label for="taggedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone tagged you in their comment</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="theirCommentedE" type="checkbox" value="">
+                     <label for="theirCommentedE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="theirCommentedM" type="checkbox" value="">
+                     <label for="theirCommentedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone shared a post with you</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="sharedE" type="checkbox" value="">
+                     <label for="sharedE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="sharedM" type="checkbox" value="">
+                     <label for="sharedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone shared your post</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="sharedyourE" type="checkbox" value="">
+                     <label for="sharedyourE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="sharedyourM" type="checkbox" value="">
+                     <label for="sharedyourM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone tagged you in their photo</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="taggedYouE" type="checkbox" value="">
+                     <label for="taggedYouE"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="taggedYouM" type="checkbox" value="">
+                     <label for="taggedYouM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone tagged you in their album</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="their" type="checkbox" value="">
+                     <label for="their"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="album" type="checkbox" value="">
+                     <label for="album"></label>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting">
+            <div class="panel-setting-body">
+               <div class="row ">
+                  <div class="col-xs-12">
+                     <div class="toggle-checkbox">
+                        <input class='toggle' type="checkbox" checked="" />
+                        <label for="">Page </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Page Invitation</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="InvitationP" type="checkbox" value="">
+                     <label for="InvitationP"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="InvitationPM" type="checkbox" value="">
+                     <label for="InvitationPM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Your Invitation is accepted</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="pageisAccepted" type="checkbox" value="">
+                     <label for="pageisAccepted"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="pageisAcceptedM" type="checkbox" value="">
+                     <label for="pageisAcceptedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Your page is blocked</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="yourPage" type="checkbox" value="">
+                     <label for="yourPage"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="yourPageM" type="checkbox" value="">
+                     <label for="yourPageM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Someone posted in your page</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="someonePosted" type="checkbox" value="">
+                     <label for="someonePosted"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="someonePostedm" type="checkbox" value="">
+                     <label for="someonePostedm"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Page you own is tagged</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="PageTagged" type="checkbox" value="">
+                     <label for="PageTagged"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="PageTaggedM" type="checkbox" value="">
+                     <label for="PageTaggedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">You are promoted as admin of the page</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="promotedPage" type="checkbox" value="">
+                     <label for="promotedPage"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="promotedPageM" type="checkbox" value="">
+                     <label for="promotedPageM"></label>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting">
+            <div class="panel-setting-body">
+               <div class="row ">
+                  <div class="col-xs-12">
+                     <div class="toggle-checkbox">
+                        <input class='toggle' type="checkbox" checked="" />
+                        <label for="">Friends </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend Request received</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="RequestReceived" type="checkbox" value="">
+                     <label for="RequestReceived"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="RequestReceivedM" type="checkbox" value="">
+                     <label for="RequestReceivedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">User accepted your friend request</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="requestAccepted" type="checkbox" value="">
+                     <label for="requestAccepted"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="requestAcceptedM" type="checkbox" value="">
+                     <label for="requestAcceptedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend request via email </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="requestViaemail" type="checkbox" value="">
+                     <label for="requestViaemail"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="requestViaemailM" type="checkbox" value="">
+                     <label for="requestViaemailM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend request via Facebook</div>
+                  <div class="col-xs-3">
+                     <div class="checkbox">
+                        <input id="requestViaFacebook" type="checkbox" value="">
+                        <label for="requestViaFacebook"></label>
+                     </div>
+                  </div>
+                  <div class="col-xs-3">
+                     <div class="checkbox">
+                        <input id="requestViaFacebookm" type="checkbox" value="">
+                        <label for="requestViaFacebookm"></label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend request via Twitter</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="viaTwitter" type="checkbox" value="">
+                     <label for="viaTwitter"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="viaTwitterM" type="checkbox" value="">
+                     <label for="viaTwitterM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend request via Linkedin</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="viaLinkedin" type="checkbox" value="">
+                     <label for="viaLinkedin"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="viaLinkedinM" type="checkbox" value="">
+                     <label for="viaLinkedinM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">Friend request via Google+</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="vaiGoogle" type="checkbox" value="">
+                     <label for="vaiGoogle"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="vaiGoogleM" type="checkbox" value="">
+                     <label for="vaiGoogleM"></label>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel-setting">
+            <div class="panel-setting-body">
+               <div class="row ">
+                  <div class="col-xs-12">
+                     <div class="toggle-checkbox">
+                        <input class='toggle' type="checkbox" checked="" />
+                        <label for="">Messages </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">New Message received</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="messageReceived" type="checkbox" value="">
+                     <label for="messageReceived"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="messageReceivedM" type="checkbox" value="">
+                     <label for="messageReceivedM"></label>
+                     </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">You are bing added to a conversation</div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="bingAdded" type="checkbox" value="">
+                     <label for="bingAdded"></label>
+                     </span>
+                  </div>
+                  <div class="col-xs-3"> 
+                     <span class="checkbox">
+                     <input id="bingAddedM" type="checkbox" value="">
+                     <label for="bingAddedM"></label>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <div class="btn-group">
+              <div class="btn-toolbar btn-toolbar-right">
+                <button class="btn btn-default btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">SAVE</button>
+              </div>
+            </div>
+         </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer>
+  <div class="container">
+    <ul class="nav nav-default">
+      <li><a>About</a></li>
+      <li><a>Privacy Policy</a></li>
+      <li><a>Terms &amp; Conditions</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <span class="copyright">&copy; SportsConn 2016</span></div>
+</footer>
+<!-- #EndLibraryItem --> 
+<!--Modal Start-->
+<div id="turnOff" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Turn Off All Notifications</h3>
+      </div>
+      <div class="modal-body">
+        <p class="font-medium">Are you sure you want to turn off all notifications ?</p>
+        <div class="btn-group">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary">TURN OFF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function() {
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" data-ng-app="sportsConn">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>:: SportsConn ::</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{baseUrl}}">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body data-ng-controller="mainCtrl" data-ng-class="formOpen==true?'open-login': ''">
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div data-header-before-login></div>
+<figure class="blank-slide visible-1024"><img src="assets/img/slide-blank.png" width="1600" height="855" alt=""/></figure>
+<div class="banner-home" data-scroll="blur"> 
+  <!--<figure class="backstretch"><img src="assets/img/home-banner.jpg" width="1920" height="1026" alt=""/></figure>-->
+  <div class="backstretch">
+    <figure class="blank-slide"><img src="assets/img/slide-blank.png" width="1600" height="855" alt=""/></figure>
+    <div class="video-player">
+      <div id="bannerVideo"></div>
+    </div>
+  </div>
+  <div class="carousel-caption">
+    <table class="carousel-container">
+      <tr>
+        <td><div class="text">
+            <h2>WELCOME TO</h2>
+            <h1><svg class="svg-icons"><use xlink:href="assets/img/sprite.svg#logoIco"></use></svg></h1>
+            <p class="lead">The World’s Premier Sports Network.</p>
+            <button class="btn btn-line btn-lg">EXPLORE</button>
+          </div>
+          <div class="form-panel-group">
+            <p class="visible-xs"><a class="btn-link" data-ng-click="formClose()"><span class="icon">
+              <svg class="svg-icons" width="6px" height="10px">
+                <use xlink:href="assets/img/sprite.svg#arrowLeftIco"></use>
+              </svg>
+              </span> Back</a></p>
+            <div id="login" class="panel panel-default animated-form" data-ng-class="formFlip==false?'showform': ''">
+              <div class="panel-heading text-center">
+                <h3 class="panel-title">LOGIN</h3>
+                Don’t have an account? <a class="semibold" data-ng-click="formFlip=true">Sign Up</a> </div>
+              <div class="alert alert-static alert-danger alert-dismissable" style="display:block;">
+                <button type="button" class="close" onclick="$(this).parent().slideUp()">
+                <svg class="svg-icons" width="14px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                </svg>
+                </button>
+                <span class="icon">
+                <svg class="svg-icons" width="17px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#dangerIco"></use>
+                </svg>
+                </span> <span class="text">Invalid login credentials. Please try again.</span> </div>
+              <div class="panel-body">
+                <form data-rel="form">
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="18px" height="18px">
+                      <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                    </svg>
+                    </span>
+                    <input type="text" placeholder="Email" class="form-control" on-focus>
+                    <span class="error-block">required field</span> </div>
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="14px" height="19px">
+                      <use xlink:href="assets/img/sprite.svg#lockIco"></use>
+                    </svg>
+                    </span>
+                    <input type="{{showpassword ? 'text' : 'password'}}" data-ng-model="loginPassword" placeholder="Password" class="form-control" on-focus>
+                    <span class="input-group-addon showhidePass">
+                    <input type="checkbox" id="showPassword" data-ng-model="showpassword" data-ng-checked="false">
+                    <label for="showPassword">
+                      <svg class="svg-icons" width="20px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                      </svg>
+                    </label>
+                    </span> </div>
+                  <div class="form-group"> <span class="checkbox">
+                    <input type="checkbox" id="keepMeLogin">
+                    <label for="keepMeLogin">Keep me logged in</label>
+                    </span> </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-block">LOGIN</button>
+                  </div>
+                  <div class="form-group text-center"><a class="btn-link" href="#forgotPassModal" data-toggle="modal">Forgotten your password?</a></div>
+                  <span class="or-divider">Or login with</span>
+                </form>
+              </div>
+              <div class="panel-footer">
+                <ul class="social-action">
+                  <li><a class="facebook">
+                    <svg class="svg-icons" width="8px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#facebookIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="twitter">
+                    <svg class="svg-icons" width="14px" height="12px">
+                      <use xlink:href="assets/img/sprite.svg#twitterIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="google">
+                    <svg class="svg-icons" width="17px" height="15px">
+                      <use xlink:href="assets/img/sprite.svg#googleIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="linkedin">
+                    <svg class="svg-icons" width="14px" height="15px">
+                      <use xlink:href="assets/img/sprite.svg#linkedIco"></use>
+                    </svg>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="signup" class="panel panel-default animated-form" data-ng-init="formFlip=true" data-ng-class="formFlip==true?'showform': ''">
+              <div class="panel-heading text-center">
+                <h3 class="panel-title">SIGN UP</h3>
+                Already have an account? <a class="semibold" data-ng-click="formFlip=false">Login</a> </div>
+              <div class="alert alert-static alert-danger alert-dismissable" style="display:block;">
+                <button type="button" class="close" onclick="$(this).parent().slideUp()">
+                <svg class="svg-icons" width="14px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                </svg>
+                </button>
+                <span class="icon">
+                <svg class="svg-icons" width="17px" height="17px">
+                  <use xlink:href="assets/img/sprite.svg#dangerIco"></use>
+                </svg>
+                </span> <span class="text">Invalid login credentials. Please try again.</span> </div>
+              <div class="panel-body">
+                <form data-rel="form">
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                    </svg>
+                    </span>
+                    <input type="text" placeholder="First Name" class="form-control" on-focus>
+                  </div>
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="16px" height="16px">
+                      <use xlink:href="assets/img/sprite.svg#userIco"></use>
+                    </svg>
+                    </span>
+                    <input type="text" placeholder="Last Name" class="form-control" on-focus>
+                  </div>
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="18px" height="18px">
+                      <use xlink:href="assets/img/sprite.svg#emailIco"></use>
+                    </svg>
+                    </span>
+                    <input type="text" placeholder="Email" class="form-control" on-focus>
+                  </div>
+                  <div class="input-group form-group"> <span class="input-group-addon">
+                    <svg class="svg-icons" width="14px" height="19px">
+                      <use xlink:href="assets/img/sprite.svg#lockIco"></use>
+                    </svg>
+                    </span>
+                    <input type="{{showpassword2 ? 'text' : 'password'}}" data-ng-model="signupPassword" placeholder="Password" class="form-control" on-focus>
+                    <span class="input-group-addon showhidePass">
+                    <input type="checkbox" id="showPassword2" data-ng-model="showpassword2" data-ng-checked="false">
+                    <label for="showPassword2">
+                      <svg class="svg-icons" width="20px" height="12px">
+                        <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                      </svg>
+                    </label>
+                    </span> </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-block" onclick="window.location.href='complete-your-profile.html';">SIGN UP</button>
+                  </div>
+                  <span class="or-divider">Or sign up with</span>
+                </form>
+              </div>
+              <div class="panel-footer">
+                <ul class="social-action">
+                  <li><a class="facebook">
+                    <svg class="svg-icons" width="8px" height="14px">
+                      <use xlink:href="assets/img/sprite.svg#facebookIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="twitter">
+                    <svg class="svg-icons" width="14px" height="12px">
+                      <use xlink:href="assets/img/sprite.svg#twitterIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="google">
+                    <svg class="svg-icons" width="17px" height="15px">
+                      <use xlink:href="assets/img/sprite.svg#googleIco"></use>
+                    </svg>
+                    </a></li>
+                  <li><a class="linkedin">
+                    <svg class="svg-icons" width="14px" height="15px">
+                      <use xlink:href="assets/img/sprite.svg#linkedIco"></use>
+                    </svg>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+  <div class="btn-group btn-group-justified visible-xs"> <a class="btn btn-primary" data-ng-click="signupLoginForm(); formFlip=false">LOGIN</a> <a class="btn btn-primary" data-ng-click="signupLoginForm(); formFlip=true">SIGN UP</a> </div>
+</div>
+<section data-margin="blur">
+  <button class="mute-video" type="button" onclick="jwplayer('bannerVideo').setMute();" ng-click="isReplyFormOpen = !isReplyFormOpen" ng-hide="isReplyFormOpen">
+  <svg class="svg-icons" width="20px" height="18px">
+    <use xlink:href="assets/img/sprite.svg#soundIco"></use>
+  </svg>
+  </button>
+  <button class="mute-video" type="button" onclick="jwplayer('bannerVideo').setMute();" ng-click="isReplyFormOpen = !isReplyFormOpen" ng-show="isReplyFormOpen">
+  <svg class="svg-icons" width="20px" height="22px">
+    <use xlink:href="assets/img/sprite.svg#muteIco"></use>
+  </svg>
+  </button>
+  <span class="down-direction hidden-xs">
+  <svg class="svg-icons" width="14px" height="8px">
+    <use xlink:href="assets/img/sprite.svg#downArrowIco"></use>
+  </svg>
+  </span>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="page-header">WHY SPORTSCONN?</h1>
+      <p class="lead">SportsConn’s mission is to connect the world of sport. As the world’s premier sports market network, SportsConn provides a unique, interactive platform for the sports community to engage on a social, professional and commercial platform.</p>
+      <br>
+      <div class="row panel-group">
+        <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-body"> <span class="icon">
+              <svg class="svg-icons athlete-svg" width="36px" height="36px">
+                <use xlink:href="assets/img/sprite.svg#athleteIco"></use>
+              </svg>
+              </span>
+              <h3 class="panel-title">ATHLETES</h3>
+              <p>Whether you’re a pro, amateur or junior athlete, showcase your highlights, upload your stats, and be seen by the global sports community. This is your opportunity to shine.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-body"> <span class="icon">
+              <svg class="svg-icons organization-svg" width="31px" height="36px">
+                <use xlink:href="assets/img/sprite.svg#organizationIco"></use>
+              </svg>
+              </span>
+              <h3 class="panel-title">ORGANIZATIONS</h3>
+              <p>Engage with and target your supporters, customers and athletes in real time and like never before.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-body"> <span class="icon">
+              <svg class="svg-icons sport-svg" width="36px" height="36px">
+                <use xlink:href="assets/img/sprite.svg#sportIco"></use>
+              </svg>
+              </span>
+              <h3 class="panel-title">SPORTS PROFESSIONALS</h3>
+              <p>Do you work in sport? SportsConn is your platform to connect, recruit and showcase yourself to the global sports market.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-body"> <span class="icon">
+              <svg class="svg-icons fans-svg" width="25px" height="36px">
+                <use xlink:href="assets/img/sprite.svg#fansIco"></use>
+              </svg>
+              </span>
+              <h3 class="panel-title">FANS</h3>
+              <p>Follow your favourite teams and players; share your favourite pics and videos; connect with friends; and engage with one another on a platform dedicated to sport.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="jumbotron jumbotron-default" data-banner data-imgsrc="assets/img/bg1.png">
+    <div class="container">
+      <div class="row grid-boxe">
+        <div class="col-md-4 col-sm-6">
+          <h2 class="page-header text-center">FEATURED ATHLETE</h2>
+          <a class="thumbnail thumbnail-cover" data-back="top">
+          <figure class="img-panel"><img src="assets/img/cover-default.jpg" width="316" height="140" class="img-full" alt=""/></figure>
+          <div class="caption text-center">
+            <figure class="img-thumbnail img-overlap"><img src="assets/img/profile-default.jpg" width="70" height="70" alt=""/></figure>
+            <h4 class="semibold">Gesha Petrovich <small class="block">@gesha</small></h4>
+            <div class="scrollbox featured-dtl">
+            <ul class="list-group-inline">
+              <li> <span class="bullet">
+                <svg class="svg-icons" width="14px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#sportIco"></use>
+                </svg>
+                </span> <span class="text">Football - GoalKeeper at Boston Club</span></li>
+              <li> <span class="bullet">
+                <svg class="svg-icons" width="8px" height="16px">
+                  <use xlink:href="assets/img/sprite.svg#profIco"></use>
+                </svg>
+                </span> <span class="text">Professional Athelete LA</span></li>
+              <li> <span class="bullet">
+                <svg class="svg-icons" width="8px" height="14px">
+                  <use xlink:href="assets/img/sprite.svg#pathIco"></use>
+                </svg>
+                </span> <span class="text">California, USA</span></li>
+            </ul>
+            Sport (UK) or sports (US) are all forms of usually competitive physical activity or games.</div>
+            </div>
+          </a> 
+          <a class="thumbnail hide" data-back="top">
+          <div class="panel-body nodata-panel">
+            <div class="nodata-text"> <span class="nodat-icon"><img src="assets/img/activity-empty.png" width="220" height="118" alt="" class="img-responsive"></span>
+              <p>No one is featured yet</p>
+            </div>
+          </div>
+          </a></div>
+        <div class="col-md-4 col-sm-6">
+          <h2 class="page-header text-center">TRENDING</h2>
+          <div class="panel panel-default panel-hover">
+            <div class="panel-body">
+              <ul class="list-custom scrollbox">
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Football in Asia</a> promoted by sky sports India</span></li>
+                <li><span class="bullet">
+                  <svg class="svg-icons" width="16px" height="11px">
+                    <use xlink:href="assets/img/sprite.svg#pointsIco"></use>
+                  </svg>
+                  </span><span class="text"><a># Natural sports of South Asia</a> promoted by Kings Sports.com</span></li>
+              </ul>
+            </div>
+            <div class="panel-body nodata-panel hide">
+              <div class="nodata-text"> <span class="nodat-icon"><img src="assets/img/activity-empty.png" width="220" height="118" alt=""></span>
+                <p>There are no trends to show.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
+          <h2 class="page-header text-center">PLAY OF THE DAY</h2>
+          <div class="thumbnail thumbnail-default">
+            <figure class="img-panel"> <img src="assets/img/play-thumb.jpg" width="316" height="242" alt="" class="img-full" /> <a class="play-btn" data-target="#playVideoModal" data-toggle="modal">
+              <svg class="svg-icons" width="12px" height="17px">
+                <use xlink:href="assets/img/sprite.svg#playIco"></use>
+              </svg>
+              </a> </figure>
+            <div class="caption">
+              <h3 class="semibold">Rugby is the recent most popular Sport in the World</h3>
+              <ul class="list-group-inline list-group-justify">
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                  </svg>
+                  </span> <span class="text">1000</span></a></li>
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="20px" height="12px">
+                    <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+                <li> <a><span class="bullet">
+                  <svg class="svg-icons" width="14px" height="14px">
+                    <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                  </svg>
+                  </span> <span class="text">2000</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <figure class="google-ads"><img src="assets/img/google-ads.jpg" width="728" height="90" alt=""/></figure>
+    </div>
+  </section>
+</section>
+<footer data-footer></footer>
+<!--Modal Start-->
+<div id="forgotPassModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+        <h3 class="modal-title">Forgotten Your Password</h3>
+      </div>
+      <div class="modal-body">
+        <form data-rel="form">
+          <div class="form-group form-group-lg">
+            <div class="control-label">Email<span class="mandatory">*</span></div>
+            <input type="text" class="form-control" placeholder="Enter email">
+            <span class="error-block">Please Enter Your Eamil</span> </div>
+          <div class="btn-group">
+            <div class="btn-toolbar"><span class="link-text">Back to <a class="btn-link" data-dismiss="modal">Login</a></span></div>
+            <div class="btn-toolbar btn-toolbar-right">
+              <button class="btn btn-primary" data-dismiss="modal" data-target="#sentPassModal" data-toggle="modal">SUBMIT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sentPassModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header transparent">
+        <button type="button" class="close" data-dismiss="modal">
+        <svg class="svg-icons" width="16px" height="16px">
+          <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+        </svg>
+        </button>
+      </div>
+      <div class="modal-body success-message">
+        <svg class="svg-icons" width="107px" height="98px">
+          <use xlink:href="assets/img/sprite.svg#passSentIco"></use>
+        </svg>
+        <h2 class="page-header semibold">Your password has been reset</h2>
+        <p class="semibold">Check your email for a reset password link.</p>
+        Back to <a class="btn-link" data-dismiss="modal">Login</a> </div>
+    </div>
+  </div>
+</div>
+<div id="playVideoModal" class="modal fade fadeModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="video-container">
+        <div class="video-panel">
+          <div class="video-player">
+            <div id="playOfTheDay"></div>
+          </div>
+          <div class="video-action">
+            <ul class="list-group-inline pull-left">
+              <li> <a><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                </svg>
+                </span> <span class="text">Like</span></a></li>
+              <li> <a><span class="bullet">
+                <svg class="svg-icons" width="17px" height="9px">
+                  <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                </svg>
+                </span> <span class="text">Comment</span></a></li>
+              <li> <a><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                </svg>
+                </span> <span class="text">Share</span></a></li>
+            </ul>
+            <ul class="list-group-inline pull-right">
+              <li><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#likeIco"></use>
+                </svg>
+                </span> <span class="text">1000</span></li>
+              <li><span class="bullet">
+                <svg class="svg-icons" width="17px" height="9px">
+                  <use xlink:href="assets/img/sprite.svg#eyeIco"></use>
+                </svg>
+                </span> <span class="text">2000</span></li>
+              <li><span class="bullet">
+                <svg class="svg-icons" width="10px" height="10px">
+                  <use xlink:href="assets/img/sprite.svg#shareIco"></use>
+                </svg>
+                </span> <span class="text">2500</span></li>
+            </ul>
+          </div>
+        </div>
+        <aside class="detail-sidebar">
+          <div class="panel">
+            <div class="panel-body">
+              <div class="media">
+                <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="48" height="48" class="img-rounded" alt=""></figure>
+                <div class="media-body">
+                  <div class="media-heading"><a class="btn-link">Mary D. Vazquez</a></div>
+                  <ul class="nav-dot">
+                    <li><span>Yesterday</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="scrollbox">
+                <p read-more limit="100">Infuse your life with action. Don’t wait for it to happen. Make it happen.@Amit Chourey Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high.</p>
+                <p>#Sports, #Rugby, #South Africa</p>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <p class="all-comments"><a class="btn-link">View all 36 comments</a></p>
+              <div class="comment-group scrollbox">
+                <div class="media">
+                  <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                  <div class="media-body"> <a class="btn-link">Mary D. Vazquez</a> Heart touching video Please also share.
+                    <ul class="nav-dot">
+                      <li><span>2 days ago</span></li>
+                    </ul>
+                  </div>
+                  <div class="media-right"> <a class="btn-link"><span class="icon">
+                    <svg height="12px" width="12px" class="svg-icons">
+                      <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </span></a> </div>
+                </div>
+                <div class="media">
+                  <figure class="media-left"><img src="assets/img/thumb70x70.jpg" width="40" height="40" class="img-rounded" alt=""></figure>
+                  <div class="media-body"> <a class="btn-link">Julia Robers</a> Heart touching video Please also share.
+                    <ul class="nav-dot">
+                      <li><span>2 mins ago</span></li>
+                    </ul>
+                  </div>
+                  <div class="media-right"> <a class="btn-link"><span class="icon">
+                    <svg height="12px" width="12px" class="svg-icons">
+                      <use xlink:href="assets/img/sprite.svg#closeIco"></use>
+                    </svg>
+                    </span></a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="media post-comment">
+              <div class="media-body">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Comment" data-on-focus="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal End--> 
+<script src="assets/js/vendor/jquery-1.11.2.min.js"></script> 
+<script src="assets/js/vendor/angular.min.js"></script> 
+<script src="assets/js/vendor/match-media.js"></script> 
+<script src="assets/js/vendor/bootstrap.min.js"></script> 
+<script src="assets/js/vendor/jquery-ui.min.js"></script> 
+<script src="assets/js/plugins.js"></script> 
+<script src="assets/js/angular-wizard.min.js"></script> 
+<script src="assets/js/jwplayer/jwplayer.js"></script> 
+<script>jwplayer.key="Dtw8XIrirt0jOoDeYv+GewD2piVCeaDQezuMKg==";</script> 
+<script src="assets/js/app.js"></script> 
+<script src="assets/js/controllers.js"></script> 
+<script src="assets/js/main.js"></script> 
+<script>
+$(function () {
+	headerFixed();
+});
+
+var playerInstance = jwplayer("bannerVideo").setup({
+	file:"assets/video/home-banner.mp4",
+	width:"100%",
+	height:"100%",
+	stretching:"fill",
+	controls:false,
+	repeat:true,
+	autostart:true
+});
+
+$('#playVideoModal').on('shown.bs.modal', function () {
+	var playerInstance = jwplayer("playOfTheDay");
+	playerInstance.setup({
+		file:"assets/video/big_buck_bunny.mp4",
+		//image:"video/poster1.jpg",
+		width:"100%",
+		height:"100%",
+		stretching:"fill",
+		controls:true,
+		repeat:false,
+		autostart:true
+	});
+}).on('hidden.bs.modal', function () {
+	jwplayer("playOfTheDay").stop();
+});
+</script>
+</body>
+</html>
